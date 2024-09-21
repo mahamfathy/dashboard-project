@@ -10,7 +10,7 @@ export const routes: Routes = [
   { path: 'dashboard', component: DashboardOverviewComponent },
   { path: 'icons', component: IconsComponent },
   { path: 'maps', component: MapsComponent },
-  { path: 'notification', component: NotificationsComponent },
+  { path: 'notifications', component: NotificationsComponent },
   { path: 'user-profile', component: UserProfileComponent },
   { path: 'table-list', component: TableListComponent },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },

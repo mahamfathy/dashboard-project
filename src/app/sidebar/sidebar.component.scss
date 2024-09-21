@@ -140,3 +140,11 @@ main {
 .bd-mode-toggle .dropdown-menu .active .bi {
   display: block !important;
 }
+.nav-link {
+  color: black;
+}
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: var(--bs-nav-pills-link-active-color) !important;
+  background-color: var(--bs-nav-pills-link-active-bg);
+}
