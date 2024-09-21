@@ -1,10 +1,12 @@
-<div class="wrapper">
+<div class="main__wrapper d-flex">
   <app-sidebar />
-  <div class="main-panel">
-    <app-navbar />
-    <div class="content">
-      <router-outlet />
+  <div class="wrapper">
+    <div class="main-panel">
+      <app-navbar />
+      <div class="content">
+        <router-outlet />
+      </div>
     </div>
+    <app-footer />
   </div>
-  <app-footer />
 </div>
