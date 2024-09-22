@@ -1,5 +1,4 @@
 body {
-  min-height: 100vh;
   min-height: -webkit-fill-available;
 }
 
@@ -92,7 +91,9 @@ main {
   width: 1.5rem;
   height: 100vh;
 }
-
+hr {
+  margin: 1.4rem 0px;
+}
 .bi {
   vertical-align: -0.125em;
   fill: currentColor;
