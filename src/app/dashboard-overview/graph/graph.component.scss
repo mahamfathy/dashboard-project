@@ -1,0 +1,15 @@
+.card {
+  &-header {
+    border-bottom: unset;
+    background-color: unset;
+  }
+  &-body {
+    padding: 0px 1rem 0.7rem;
+    width: 100% !important;
+    canvas {
+      width: 100% !important;
+      height: auto !important;
+      max-height: 300px;
+    }
+  }
+}
