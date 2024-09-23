@@ -1,7 +1,8 @@
-.card-footer {
-  border-top: unset;
-  background-color: unset;
-  box-sizing: border-box;
+.Wrapper {
+  display: flex;
+  &-footer {
+    border-top: unset;
+    background-color: unset;
+    box-sizing: border-box;
+  }
 }
-
-

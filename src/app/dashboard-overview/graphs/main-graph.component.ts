@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 @Component({
-  selector: 'app-graph',
+  selector: 'app-main-graph',
   standalone: true,
   imports: [],
-  templateUrl: './graph.component.html',
-  styleUrl: './graph.component.scss',
+  templateUrl: './main-graph.component.html',
+  styleUrl: './main-graph.component.scss',
 })
-export class GraphComponent implements OnInit {
+export class MainGraphComponent implements OnInit {
   public config: any = {
     type: 'line',
     data: {

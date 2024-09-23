@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GraphComponent } from './graph.component';
+import { GraphComponent } from './main-graph.component';
 
 describe('GraphComponent', () => {
   let component: GraphComponent;
@@ -8,10 +8,9 @@ describe('GraphComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GraphComponent]
-    })
-    .compileComponents();
-    
+      imports: [GraphComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(GraphComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
