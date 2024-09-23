@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { CardsComponent } from './cards/cards.component';
 
 @Component({
   selector: 'app-dashboard-overview',
   standalone: true,
-  imports: [],
+  imports: [CardsComponent],
   templateUrl: './dashboard-overview.component.html',
-  styleUrl: './dashboard-overview.component.scss'
+  styleUrl: './dashboard-overview.component.scss',
 })
-export class DashboardOverviewComponent {
-
-}
+export class DashboardOverviewComponent {}

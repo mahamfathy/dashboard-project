@@ -1,0 +1,45 @@
+<div class="row">
+  @for ( card of cards; track card.no) {
+  <div class="col-sm-3">
+    <div class="card card-stats">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="67"
+                width="50"
+                viewBox="0 0 512 512"
+              >
+                <path [attr.fill]="card.color" [attr.d]="card.bodyIcon" />
+              </svg>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">{{ card.bodyText }}</p>
+              <p class="card-title">{{ card.bodyTitle }}</p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <hr />
+        <div class="stats">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="14"
+            width="14"
+            viewBox="0 0 512 512"
+          >
+            <path [attr.fill]="footerColor" [attr.d]="card.footerIcon" />
+          </svg>
+          {{ card.footerText }}
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+</div>
