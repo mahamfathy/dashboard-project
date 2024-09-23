@@ -1,0 +1,14 @@
+.card {
+  &-header {
+    background-color: unset;
+    padding: 1.5rem 1.5rem 0;
+    border-bottom: unset;
+  }
+  &-body {
+    padding: 0;
+    canvas {
+      padding: 1rem 3rem 4rem;
+      // padding: 3rem;
+    }
+  }
+}

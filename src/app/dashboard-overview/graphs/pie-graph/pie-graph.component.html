@@ -1,0 +1,24 @@
+<div class="chart-container">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title">Email Statistics</h2>
+        <p class="card-category">Last Campaign Performance</p>
+      </div>
+      <div class="card-body">
+        <canvas id="PieChart"> {{ chart }} </canvas>
+      </div>
+      <div class="card-footer">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="14"
+          width="14"
+          viewBox="0 0 512 512"
+        >
+          <path [attr.fill]="footerColor" [attr.d]="footerIcon" />
+        </svg>
+        {{ footerText }}
+      </div>
+    </div>
+  </div>
+</div>
