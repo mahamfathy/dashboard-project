@@ -1,12 +1,24 @@
-<div class="row">
+<div class="chart-container">
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
         <h5 class="card-title">Users Behavior</h5>
         <p class="card-category">24 Hours performance</p>
       </div>
-      <div class="card-body"></div>
-      <div class="card-footer"></div>
+      <div class="card-body">
+        <canvas id="MyChart"> {{ chart }} </canvas>
+      </div>
+      <div class="card-footer">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="14"
+          width="14"
+          viewBox="0 0 512 512"
+        >
+          <path [attr.fill]="footerColor" [attr.d]="card.footerIcon" />
+        </svg>
+        {{ card.footerText }}
+      </div>
     </div>
   </div>
 </div>
