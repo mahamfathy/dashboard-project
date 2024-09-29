@@ -1,9 +1,8 @@
-<!-- <div class="icon-grid">
-    @for ( let icon of icons; track ._id) {
-        <div  class="icon-item">
-            <i class="{{ icon.class }}"></i>
-            <span>{{ icon.name }}</span>
-          </div>
-    }
-   
-  </div> -->
+<div class="icon-grid">
+  @for ( icon of icons; track icon) {
+  <div class="icon-item">
+    <img [src]="icon.iconPath" alt="{{ icon.iconTitle }}" />
+    <span>{{ icon.iconTitle }}</span>
+  </div>
+  }
+</div>
