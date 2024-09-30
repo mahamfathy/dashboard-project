@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Icard } from '../../modals/Icard';
+import { Icard } from '../../shared/models/Icard';
 
 @Component({
   selector: 'app-card',
