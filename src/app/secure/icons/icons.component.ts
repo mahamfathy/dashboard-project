@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Iicon } from '../shared/models/Iicon';
+import { Iicon } from '../../shared/models/Iicon';
 
 @Component({
   selector: 'app-icons',

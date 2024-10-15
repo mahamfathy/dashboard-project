@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { CardComponent } from '../card/card.component';
-import { BarGraphComponent } from '../graphs/bar-graph/bar-graph.component';
-import { MainGraphComponent } from '../graphs/main-graph/main-graph.component';
-import { PieGraphComponent } from '../graphs/pie-graph/pie-graph.component';
+import { CardComponent } from './card/card.component';
+import { BarGraphComponent } from './graphs/bar-graph/bar-graph.component';
+import { MainGraphComponent } from './graphs/main-graph/main-graph.component';
+import { PieGraphComponent } from './graphs/pie-graph/pie-graph.component';
 
 @Component({
   selector: 'app-dashboard-overview',

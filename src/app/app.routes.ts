@@ -12,12 +12,6 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./secure/secure.module').then((m) => m.SecureModule),
   },
-  // { path: 'dashboard', component: DashboardOverviewComponent },
-  // { path: 'icons', component: IconsComponent },
-  // { path: 'maps', component: MapsComponent },
-  // { path: 'notifications', component: NotificationsComponent },
-  // { path: 'user-profile', component: UserProfileComponent },
-  // { path: 'table-list', component: TableListComponent },
 
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   {
