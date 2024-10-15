@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { SecureRoutingModule } from './secure-routing.module';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    // DashboardOverviewComponent, IconsComponent, MapsComponent
+  ],
   imports: [CommonModule, SecureRoutingModule],
 })
 export class SecureModule {}

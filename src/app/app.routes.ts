@@ -13,7 +13,7 @@ export const routes: Routes = [
       import('./secure/secure.module').then((m) => m.SecureModule),
   },
 
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'public', pathMatch: 'full' },
   {
     path: '**',
     component: PageNotFoundComponent,
