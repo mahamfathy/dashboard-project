@@ -7,6 +7,11 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./public/public.module').then((m) => m.PublicModule),
   },
+  {
+    path: 'secure',
+    loadChildren: () =>
+      import('./secure/secure.module').then((m) => m.SecureModule),
+  },
   // { path: 'dashboard', component: DashboardOverviewComponent },
   // { path: 'icons', component: IconsComponent },
   // { path: 'maps', component: MapsComponent },
