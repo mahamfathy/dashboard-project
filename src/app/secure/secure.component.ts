@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-secure',
   standalone: true,
-  imports: [],
+  imports: [RouterOutlet],
   templateUrl: './secure.component.html',
-  styleUrl: './secure.component.scss'
+  styleUrl: './secure.component.scss',
 })
-export class SecureComponent {
-
-}
+export class SecureComponent {}
