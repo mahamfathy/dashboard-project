@@ -1,4 +1,7 @@
 import { Routes } from '@angular/router';
+import { AccountComponent } from './account/account.component';
+import { LoginComponent } from './account/login/login.component';
+import { RegisterComponent } from './account/register/register.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 export const routes: Routes = [
@@ -12,7 +15,15 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./secure/secure.module').then((m) => m.SecureModule),
   },
-
+  {
+    path: 'account',
+    component: AccountComponent,
+    children: [
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: '', redirectTo: '/account/login', pathMatch: 'full' },
+    ],
+  },
   { path: '', redirectTo: 'public', pathMatch: 'full' },
   {
     path: '**',
