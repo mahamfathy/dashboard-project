@@ -1,0 +1,38 @@
+.employee-table {
+  max-width: 800px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+      background-color: #f4f4f4;
+
+      th {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-child(even) {
+          background-color: #f9f9f9;
+        }
+
+        td {
+          padding: 12px;
+          border: 1px solid #ddd;
+        }
+      }
+    }
+  }
+}

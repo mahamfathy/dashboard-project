@@ -1,1 +1,23 @@
-<p>table-list works!</p>
+<div class="employee-table">
+  <h1>Employee List</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Country</th>
+        <th>City</th>
+        <th>Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (employee of employees; track employee) {
+      <tr>
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.country }}</td>
+        <td>{{ employee.city }}</td>
+        <td>{{ employee.salary }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

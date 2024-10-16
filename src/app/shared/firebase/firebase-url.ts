@@ -1,2 +1,2 @@
 export const firebaseUrl =
-  'https://dashboard-project-9a7d4-default-rtdb.firebaseio.com/';
+  'https://visionboard-c0bc7-default-rtdb.firebaseio.com/';
