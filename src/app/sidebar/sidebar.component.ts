@@ -1,10 +1,10 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 declare const bootstrap: any;
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [RouterModule],
+  imports: [SharedModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
 })

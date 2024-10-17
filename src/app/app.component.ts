@@ -1,7 +1,7 @@
 import {} from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
-import { FirebaseService } from './shared/services/firebase.service';
 import { SharedModule } from './shared/shared.module';
 
 @Component({
@@ -10,8 +10,11 @@ import { SharedModule } from './shared/shared.module';
   imports: [HomeLayoutComponent, SharedModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  providers: [FirebaseService],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'dashboard-project';
+  translateService = inject(TranslateService);
+  ngOnInit(): void {
+    this.translateService.setDefaultLang('ar');
+  }
 }
