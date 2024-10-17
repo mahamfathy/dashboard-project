@@ -91,7 +91,7 @@
     "update-profile": "تحديث الملف الشخصي"
   },
   "table-list": {
-    "employee-list": "قائمة الموظفين",
+    "employees-title": "قائمة الموظفين",
     "name": "الاسم",
     "salary": "الراتب"
   },

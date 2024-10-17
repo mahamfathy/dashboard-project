@@ -91,7 +91,7 @@
     "update-profile": "UPDATE PROFILE"
   },
   "table-list": {
-    "employee-list": "Employee List",
+    "employees-title": "Employee List",
     "name": "Name",
     "salary": "Salary"
   },
