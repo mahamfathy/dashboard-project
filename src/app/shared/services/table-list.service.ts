@@ -1,14 +1,13 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { firebaseUrl } from '../firebase/firebase-url';
+import { FirebaseService } from './firebase.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TableListService {
-  constructor(private http: HttpClient) {}
+  constructor(private firebaseService: FirebaseService) {}
   getList(): Observable<any> {
-    return this.http.get(`${firebaseUrl}employees.json`);
+    return this.firebaseService.getRequest('employees');
   }
 }

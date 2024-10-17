@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { SharedModule } from '../shared/shared.module';
 
 @Component({
   selector: 'app-public',
   standalone: true,
-  imports: [],
+  imports: [SharedModule],
   templateUrl: './public.component.html',
-  styleUrl: './public.component.scss'
+  styleUrl: './public.component.scss',
 })
-export class PublicComponent {
-
-}
+export class PublicComponent {}
