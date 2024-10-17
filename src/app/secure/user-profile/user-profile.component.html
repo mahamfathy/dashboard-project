@@ -18,15 +18,15 @@
     <div class="stats">
       <div class="stat">
         <span>12</span>
-        <h3>Files</h3>
+        <h3>{{ "dashboard-overview.labels.files" | translate }}</h3>
       </div>
       <div class="stat">
-        <span>2GB</span>
-        <h3>Used</h3>
+        <span>2{{ "units.gigabyte" | translate }}</span>
+        <h3>{{ "dashboard-overview.labels.used" | translate }}</h3>
       </div>
       <div class="stat">
-        <span>24,6$</span>
-        <h3>Spent</h3>
+        <span>24,6{{ "units.dollar" | translate }}</span>
+        <h3>{{ "dashboard-overview.labels.spent" | translate }}</h3>
       </div>
     </div>
   </div>
@@ -35,7 +35,11 @@
       <h2>{{ "user-profile.edit-profile" | translate }}</h2>
       <form>
         <div class="mb-3">
-          <label for="company" class="form-label">Company (disabled)</label>
+          <label for="company" class="form-label"
+            >{{ "user-profile.company" | translate }} ({{
+              "buttons.disable" | translate
+            }})</label
+          >
           <input
             type="text"
             class="form-control"
@@ -45,76 +49,89 @@
           />
         </div>
         <div class="mb-3">
-          <label for="username" class="form-label">Username</label>
-          <input
-            type="text"
-            class="form-control"
-            id="username"
-            value="michael23"
-          />
+          <label for="username" class="form-label">{{
+            "user-profile.username" | translate
+          }}</label>
+          <input type="text" class="form-control" id="username" />
         </div>
         <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
+          <label for="email" class="form-label">{{
+            "user-profile.email" | translate
+          }}</label>
           <input
             type="email"
             class="form-control"
             id="email"
-            placeholder="Email address"
+            placeholder="{{ 'user-profile.email' | translate }}"
           />
         </div>
         <div class="mb-3">
-          <label for="firstName" class="form-label">First Name</label>
-          <input type="text" class="form-control" id="firstName" value="Chet" />
+          <label for="firstName" class="form-label">{{
+            "user-profile.first-name" | translate
+          }}</label>
+          <input type="text" class="form-control" id="firstName" />
         </div>
         <div class="mb-3">
-          <label for="lastName" class="form-label">Last Name</label>
-          <input type="text" class="form-control" id="lastName" value="Faker" />
+          <label for="lastName" class="form-label">{{
+            "user-profile.last-name" | translate
+          }}</label>
+          <input type="text" class="form-control" id="lastName" />
         </div>
         <div class="mb-3">
-          <label for="address" class="form-label">Address</label>
+          <label for="address" class="form-label">{{
+            "user-profile.address" | translate
+          }}</label>
           <input
             type="text"
             class="form-control"
             id="address"
-            value="Melbourne, Australia"
+            value="{{ 'user-profile.address' | translate }}"
           />
         </div>
         <div class="row mb-3">
           <div class="col">
-            <label for="city" class="form-label">City</label>
+            <label for="city" class="form-label">{{
+              "user-profile.city" | translate
+            }}</label>
             <input
               type="text"
               class="form-control"
               id="city"
-              value="Melbourne"
+              value="{{ 'user-profile.city' | translate }}"
             />
           </div>
           <div class="col">
-            <label for="country" class="form-label">Country</label>
+            <label for="country" class="form-label">{{
+              "user-profile.country" | translate
+            }}</label>
             <input
               type="text"
               class="form-control"
               id="country"
-              value="Australia"
+              value="{{ 'user-profile.country' | translate }}"
             />
           </div>
           <div class="col">
-            <label for="postalCode" class="form-label">Postal Code</label>
+            <label for="postalCode" class="form-label">{{
+              "user-profile.postal-code" | translate
+            }}</label>
             <input
               type="text"
               class="form-control"
               id="postalCode"
-              placeholder="ZIP Code"
+              placeholder="{{ 'user-profile.zip-code' | translate }}"
             />
           </div>
         </div>
         <div class="mb-3">
-          <label for="aboutMe" class="form-label">About Me</label>
-          <textarea class="form-control" id="aboutMe" rows="3">
-Oh so, your weak rhyme You doubt I'll bother, reading into it</textarea
-          >
+          <label for="aboutMe" class="form-label">{{
+            "user-profile.about-me" | translate
+          }}</label>
+          <textarea class="form-control" id="aboutMe" rows="3"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">UPDATE PROFILE</button>
+        <button type="submit" class="btn btn-primary">
+          {{ "user-profile.update-profile" | translate }}
+        </button>
       </form>
     </div>
   </div>

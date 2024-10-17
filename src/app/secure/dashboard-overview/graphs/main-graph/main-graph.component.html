@@ -2,8 +2,12 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
-        <h5 class="card-title">Users Behavior</h5>
-        <p class="card-category">24 Hours performance</p>
+        <h5 class="card-title">
+          {{ "dashboard-overview.labels.user-behavior" | translate }}
+        </h5>
+        <p class="card-category">
+          24 {{ "dashboard-overview.labels.hours-performance" | translate }}
+        </p>
       </div>
       <div class="card-body">
         <canvas id="MyChart"> {{ chart }} </canvas>

@@ -19,11 +19,6 @@
     "revenue": "Revenue",
     "errors": "Errors",
     "followers": "Followers",
-    "units": {
-      "gigabyte": "GB",
-      "dollar": "$",
-      "k": "K"
-    },
     "labels": {
       "update": "Update Now",
       "last-day": "Last Day",
@@ -52,8 +47,16 @@
         "blue": "Blue",
         "yellow": "Yellow"
       },
-      "numbers-of-emails-sent": "Numbers of emails sent"
+      "numbers-of-emails-sent": "Numbers of emails sent",
+      "used": "Used",
+      "files": "Files",
+      "spent": "Spent"
     }
+  },
+  "units": {
+    "gigabyte": "GB",
+    "dollar": "$",
+    "k": "K"
   },
   "icons": {
     "building": "Building",
@@ -84,7 +87,7 @@
     "country": "Country",
     "postal-code": "Postal Code",
     "zip-code": "Zip Code",
-    "about-me ": "About Me",
+    "about-me": "About Me",
     "update-profile": "UPDATE PROFILE"
   },
   "table-list": {
@@ -92,6 +95,14 @@
     "name": "Name",
     "salary": "Salary"
   },
-
+  "buttons": {
+    "disable": "Disable",
+    "delete": "Delete",
+    "update": "Update",
+    "save": "Save",
+    "cancel": "Cancel",
+    "login": "Login",
+    "logout": "Logout"
+  },
   "footer": "Made by Maha Fathy"
 }

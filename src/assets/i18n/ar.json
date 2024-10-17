@@ -19,17 +19,12 @@
     "revenue": "الإيرادات",
     "errors": "الأخطاء",
     "followers": "المتابعين",
-    "units": {
-      "gigabyte": "جيجابايت",
-      "dollar": "دولار",
-      "k": "ألف"
-    },
     "labels": {
       "update": "تحديث الآن",
       "last-day": "اليوم الأخير",
       "last-week": "الأسبوع الأخير",
       "user-behavior": "سلوك المستخدم",
-      "hours-performance": "أداء الساعات",
+      "hours-performance": " ساعة من الأداء",
       "month": {
         "january": "يناير",
         "february": "فبراير",
@@ -52,8 +47,16 @@
         "blue": "أزرق",
         "yellow": "أصفر"
       },
-      "numbers-of-emails-sent": "عدد الرسائل المرسلة"
+      "numbers-of-emails-sent": "عدد الرسائل المرسلة",
+      "used": "مستخدمة",
+      "files": "ملف",
+      "spent": "مستهلكة"
     }
+  },
+  "units": {
+    "gigabyte": "جيجابايت",
+    "dollar": "دولار",
+    "k": "ألف"
   },
   "icons": {
     "building": "مبنى",
@@ -84,13 +87,22 @@
     "country": "البلد",
     "postal-code": "الرمز البريدي",
     "zip-code": "الرمز البريدي",
-    "about-me ": "نبذة عني",
+    "about-me": "نبذة عني",
     "update-profile": "تحديث الملف الشخصي"
   },
   "table-list": {
     "employee-list": "قائمة الموظفين",
     "name": "الاسم",
     "salary": "الراتب"
+  },
+  "buttons": {
+    "disable": "معطل",
+    "delete": "حذف",
+    "update": "تحديث",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج"
   },
 
   "footer": "تم تصميم الموقع بواسطة مها فتحي"

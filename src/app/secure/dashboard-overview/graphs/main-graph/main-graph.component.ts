@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
+import { SharedModule } from '../../../../shared/shared.module';
 Chart.register(...registerables);
 @Component({
   selector: 'app-main-graph',
   standalone: true,
-  imports: [],
+  imports: [SharedModule],
   templateUrl: './main-graph.component.html',
   styleUrl: './main-graph.component.scss',
 })
