@@ -2,8 +2,14 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
-        <h2 class="card-title">Email Statistics</h2>
-        <p class="card-category">Last Campaign Performance</p>
+        <h2 class="card-title">
+          {{ "dashboard-overview.labels.email-statics" | translate }}
+        </h2>
+        <p class="card-category">
+          {{
+            "dashboard-overview.labels.last-campaign-performance" | translate
+          }}
+        </p>
       </div>
       <div class="card-body">
         <canvas id="PieChart"> {{ chart }} </canvas>

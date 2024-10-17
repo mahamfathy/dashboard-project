@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
+import { SharedModule } from '../../../../shared/shared.module';
 Chart.register(...registerables);
 @Component({
   selector: 'app-pie-graph',
   standalone: true,
-  imports: [],
+  imports: [SharedModule],
   templateUrl: './pie-graph.component.html',
   styleUrl: './pie-graph.component.scss',
 })

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterModule],
+  imports: [SharedModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })

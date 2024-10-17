@@ -10,8 +10,9 @@
           <a
             routerLink="dashboard"
             class="nav-link fs-4 px-2 link-body-emphasis"
-            >VisionBoard</a
           >
+            {{ "title" | translate }}
+          </a>
         </li>
       </ul>
 
@@ -19,7 +20,7 @@
         <input
           type="search"
           class="form-control"
-          placeholder="Search..."
+          placeholder="{{ 'icons.search' | translate }}..."
           aria-label="Search"
         />
       </form>
