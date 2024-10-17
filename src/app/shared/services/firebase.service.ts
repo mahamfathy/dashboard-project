@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { firebaseUrl } from '../firebase/firebase-url';
 import { HandleErrorService } from './handle-error.service';
@@ -14,8 +14,7 @@ export class FirebaseService {
     private handleError: HandleErrorService
   ) {}
   getRequest(name: string): Observable<any> {
-    return this.http
-      .get(`${firebaseUrl}${name}.json`)
-      .pipe(catchError(this.handleError.logErrorRequest));
+    return this.http.get(`${firebaseUrl}${name}.json`);
+    // .pipe(catchError(this.handleError.logErrorRequest));
   }
 }
