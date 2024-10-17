@@ -1,7 +1,7 @@
 import {} from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
+import { LanguageService } from './shared/services/language.service';
 import { SharedModule } from './shared/shared.module';
 
 @Component({
@@ -13,8 +13,11 @@ import { SharedModule } from './shared/shared.module';
 })
 export class AppComponent implements OnInit {
   title = 'dashboard-project';
-  translateService = inject(TranslateService);
+  langaugeService = inject(LanguageService);
   ngOnInit(): void {
-    this.translateService.setDefaultLang('ar');
+    this.initAppLanguage();
+  }
+  private initAppLanguage(): void {
+    this.langaugeService.initAppLanguage();
   }
 }
