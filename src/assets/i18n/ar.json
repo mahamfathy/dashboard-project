@@ -1,0 +1,97 @@
+{
+  "title": "ڤيچن بورد",
+
+  "validation": {
+    "required": "هذا الحقل مطلوب",
+    "email": "يرجى إدخال عنوان بريد إلكتروني صالح",
+    "minlength": "يرجى إدخال 8 أحرف على الأقل"
+  },
+  "sidebar": {
+    "dashboard": "لوحة التحكم",
+    "icons": "الرموز",
+    "maps": "الخرائط",
+    "notifications": "الإشعارات",
+    "user-profile": "الملف الشخصي",
+    "table-list": "قائمة الجدول"
+  },
+  "dashboard-overview": {
+    "capacity": "السعة",
+    "revenue": "الإيرادات",
+    "errors": "الأخطاء",
+    "followers": "المتابعين",
+    "units": {
+      "gigabyte": "جيجابايت",
+      "dollar": "دولار",
+      "k": "ألف"
+    },
+    "labels": {
+      "update": "تحديث الآن",
+      "last-day": "اليوم الأخير",
+      "last-week": "الأسبوع الأخير",
+      "user-behavior": "سلوك المستخدم",
+      "hours-performance": "أداء الساعات",
+      "month": {
+        "january": "يناير",
+        "february": "فبراير",
+        "march": "مارس",
+        "april": "أبريل",
+        "may": "مايو",
+        "june": "يونيو",
+        "july": "يوليو",
+        "august": "أغسطس",
+        "september": "سبتمبر",
+        "october": "أكتوبر",
+        "november": "نوفمبر",
+        "december": "ديسمبر"
+      },
+      "updated minutes ago": "تم التحديث منذ دقائق",
+      "email-statics": "إحصائيات البريد الإلكتروني",
+      "last-campaign-performance": "أداء الحملة الأخيرة",
+      "colors": {
+        "red": "أحمر",
+        "blue": "أزرق",
+        "yellow": "أصفر"
+      },
+      "numbers-of-emails-sent": "عدد الرسائل المرسلة"
+    }
+  },
+  "icons": {
+    "building": "مبنى",
+    "cloud": "سحابة",
+    "idea": "فكرة",
+    "laptop": "حاسوب محمول",
+    "like": "إعجاب",
+    "line-chart": "مخطط خطي",
+    "meteor-rain": "مطر الشهب",
+    "money-bag": "كيس نقود",
+    "mortarboard": "قبعة التخرج",
+    "notebook": "دفتر ملاحظات",
+    "presentation": "عرض تقديمي",
+    "search": "بحث",
+    "shopping-cart": "عربة تسوق",
+    "video": "فيديو",
+    "workplace": "مكان العمل"
+  },
+  "user-profile": {
+    "edit-profile": "تعديل الملف الشخصي",
+    "company": "الشركة",
+    "username": "اسم المستخدم",
+    "email": "عنوان البريد الإلكتروني",
+    "first-name": "الاسم الأول",
+    "last-name": "اسم العائلة",
+    "address": "العنوان",
+    "city": "المدينة",
+    "country": "البلد",
+    "postal-code": "الرمز البريدي",
+    "zip-code": "الرمز البريدي",
+    "about-me ": "نبذة عني",
+    "update-profile": "تحديث الملف الشخصي"
+  },
+  "table-list": {
+    "employee-list": "قائمة الموظفين",
+    "name": "الاسم",
+    "salary": "الراتب"
+  },
+
+  "footer": "تم تصميم الموقع بواسطة مها فتحي"
+}
