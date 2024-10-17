@@ -1,0 +1,97 @@
+{
+  "title": "VisionBoard",
+
+  "validation": {
+    "required": "This field is required",
+    "email": "Please enter a valid email address",
+    "minlength": "Please enter at least 8 characters"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "icons": "Icons",
+    "maps": "Maps",
+    "notifications": "Notifications",
+    "user-profile": "User Profile",
+    "table-list": "Table List"
+  },
+  "dashboard-overview": {
+    "capacity": "Capacity",
+    "revenue": "Revenue",
+    "errors": "Errors",
+    "followers": "Followers",
+    "units": {
+      "gigabyte": "GB",
+      "dollar": "$",
+      "k": "K"
+    },
+    "labels": {
+      "update": "Update Now",
+      "last-day": "Last Day",
+      "last-week": "Last Week",
+      "user-behavior": "User Behavior",
+      "hours-performance": "Hours Performance",
+      "month": {
+        "january": "January",
+        "february": "February",
+        "march": "March",
+        "april": "April",
+        "may": "May",
+        "june": "June",
+        "july": "July",
+        "august": "August",
+        "september": "September",
+        "october": "October",
+        "november": "November",
+        "december": "December"
+      },
+      "updated minutes ago": "Updated minutes ago",
+      "email-statics": "Email Statics",
+      "last-campaign-performance": "Last Campaign Performance",
+      "colors": {
+        "red": "Red",
+        "blue": "Blue",
+        "yellow": "Yellow"
+      },
+      "numbers-of-emails-sent": "Numbers of emails sent"
+    }
+  },
+  "icons": {
+    "building": "Building",
+    "cloud": "Cloud",
+    "idea": "Idea",
+    "laptop": "Laptop",
+    "like": "Like",
+    "line-chart": "Line-Chart",
+    "meteor-rain": "Meteor-Rain",
+    "money-bag": "Money-Bag",
+    "mortarboard": "Mortarboard",
+    "notebook": "Notebook",
+    "presentation": "Presentation",
+    "search": "Search",
+    "shopping-cart": "Shopping-Cart",
+    "video": "Video",
+    "workplace": "Workplace"
+  },
+  "user-profile": {
+    "edit-profile": "Edit Profile",
+    "company": "Company",
+    "username": "Username",
+    "email": "Email Address",
+    "first-name": "First Name",
+    "last-name": "Last Name",
+    "address": "Address",
+    "city": "City",
+    "country": "Country",
+    "postal-code": "Postal Code",
+    "zip-code": "Zip Code",
+    "about-me ": "About Me",
+    "update-profile": "UPDATE PROFILE"
+  },
+  "table-list": {
+    "employee-list": "Employee List",
+    "name": "Name",
+    "salary": "Salary"
+  },
+
+  "footer": "Made by Maha Fathy"
+}
