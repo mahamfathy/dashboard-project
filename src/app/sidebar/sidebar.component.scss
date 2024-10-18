@@ -150,9 +150,9 @@ hr {
   background-color: var(--bs-nav-pills-link-active-bg);
 }
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
+  right: 0;
   width: 15rem;
   height: 100vh;
   overflow-y: auto;
