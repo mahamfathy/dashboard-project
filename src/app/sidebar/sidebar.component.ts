@@ -1,4 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
+import { LanguageService } from '../shared/services/language.service';
 import { SharedModule } from '../shared/shared.module';
 declare const bootstrap: any;
 @Component({
@@ -9,8 +10,11 @@ declare const bootstrap: any;
   styleUrl: './sidebar.component.scss',
 })
 export class SidebarComponent implements AfterViewInit {
-  constractor() {}
+  constructor(private languageService: LanguageService) {}
   profileName = 'ABC';
+  readonly arabic = 'ar';
+  readonly english = 'en';
+  selectedLanguage!: string;
   ngAfterViewInit(): void {
     const tooltipTriggerList = Array.from(
       document.querySelectorAll('[data-bs-toggle="tooltip"]')
@@ -18,5 +22,8 @@ export class SidebarComponent implements AfterViewInit {
     tooltipTriggerList.forEach((tooltipTriggerEl) => {
       new bootstrap.Tooltip(tooltipTriggerEl);
     });
+  }
+  changeLanguage(lang: string): void {
+    this.languageService.changeLanguage(lang);
   }
 }

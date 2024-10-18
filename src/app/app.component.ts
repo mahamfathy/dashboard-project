@@ -12,8 +12,9 @@ import { SharedModule } from './shared/shared.module';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  title = 'dashboard-project';
   langaugeService = inject(LanguageService);
+  title = 'dashboard-project';
+
   ngOnInit(): void {
     this.initAppLanguage();
   }

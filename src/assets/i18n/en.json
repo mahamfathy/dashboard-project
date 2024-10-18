@@ -102,7 +102,10 @@
     "save": "Save",
     "cancel": "Cancel",
     "login": "Login",
-    "logout": "Logout"
+    "logout": "Logout",
+    "language": "Language",
+    "arabic": "Arabic",
+    "english": "English"
   },
   "footer": "Made by Maha Fathy"
 }

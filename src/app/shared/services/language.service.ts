@@ -10,4 +10,7 @@ export class LanguageService {
   initAppLanguage(): void {
     this.translationService.setDefaultLanguage('ar');
   }
+  changeLanguage(lang: string): void {
+    this.translationService.use(lang);
+  }
 }

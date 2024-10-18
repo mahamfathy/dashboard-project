@@ -69,6 +69,38 @@
           {{ "sidebar.table-list" | translate }}
         </a>
       </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="dropdownLanguage"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          {{ "buttons.language" | translate }}
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownLanguage">
+          <li>
+            <a
+              class="dropdown-item"
+              [class.active.lang]="arabic === selectedLanguage"
+              (click)="changeLanguage(arabic)"
+            >
+              {{ "buttons.arabic" | translate }}
+            </a>
+          </li>
+          <li>
+            <a
+              class="dropdown-item"
+              [class.active.lang]="english === selectedLanguage"
+              (click)="changeLanguage(english)"
+            >
+              {{ "buttons.english" | translate }}
+            </a>
+          </li>
+        </ul>
+      </li>
     </ul>
     <hr />
     <div class="dropdown">
