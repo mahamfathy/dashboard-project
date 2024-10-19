@@ -1,5 +1,5 @@
 <div class="register-container">
-  <form class="register-form">
+  <form class="register-form" [formGroup]="form">
     <h2>Register</h2>
 
     <!-- Username -->
@@ -7,6 +7,7 @@
       <mat-label>Username</mat-label>
       <mat-icon matPrefix>person</mat-icon>
       <input
+        formControlName="userName"
         matInput
         id="username"
         type="text"
@@ -19,7 +20,13 @@
     <mat-form-field appearance="fill" class="form">
       <mat-label>Email</mat-label>
       <mat-icon matPrefix>email</mat-icon>
-      <input matInput id="email" type="email" placeholder="Enter your email" />
+      <input
+        matInput
+        id="email"
+        type="email"
+        formControlName="email"
+        placeholder="Enter your email"
+      />
       <mat-error> Please enter a valid email </mat-error>
     </mat-form-field>
 
@@ -31,6 +38,7 @@
         matInput
         id="phone"
         type="tel"
+        formControlName="phoneNumber"
         placeholder="Enter your phone number"
       />
       <mat-error> Please enter a valid phone number </mat-error>
@@ -43,6 +51,7 @@
       <input
         matInput
         id="password"
+        formControlName="password"
         type="password"
         placeholder="Enter your password"
       />
@@ -58,10 +67,12 @@
         id="confirmPassword"
         type="password"
         placeholder="Confirm your password"
+        formControlName="confirmPassword"
       />
       <mat-error> Passwords do not match </mat-error>
     </mat-form-field>
 
+    <div>{{ form.value | json }}</div>
     <!-- Submit Button -->
     <button mat-raised-button color="primary" type="submit">Register</button>
   </form>

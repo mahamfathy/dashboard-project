@@ -10,6 +10,7 @@ const modules = [
   FormsModule,
   RouterModule,
   TranslateModule,
+  ReactiveFormsModule,
 ];
 @NgModule({
   declarations: [components],

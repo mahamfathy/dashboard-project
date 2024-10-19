@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { AngularMaterialModule } from '../../shared/modules/angular-material.module';
 import { SharedModule } from '../../shared/shared.module';
 
@@ -9,4 +10,13 @@ import { SharedModule } from '../../shared/shared.module';
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
-export class RegisterComponent {}
+export class RegisterComponent {
+  constructor(private formBuilder: FormBuilder) {}
+  form = this.formBuilder.group({
+    userName: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    phoneNumber: '+1 2345 7891',
+    password: ['', [Validators.required, Validators.minLength(8)]],
+    confirmPassword: ['', [Validators.required, Validators.minLength(8)]],
+  });
+}
