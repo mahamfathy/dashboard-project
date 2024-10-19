@@ -50,19 +50,24 @@
         </div>
         <div class="mb-3">
           <label for="username" class="form-label">{{
-            "user-profile.username" | translate
+            "form.username" | translate
           }}</label>
-          <input type="text" class="form-control" id="username" />
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            placeholder="{{ 'form.enterUsername' | translate }}"
+          />
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">{{
-            "user-profile.email" | translate
+            "form.email" | translate
           }}</label>
           <input
             type="email"
             class="form-control"
             id="email"
-            placeholder="{{ 'user-profile.email' | translate }}"
+            placeholder="{{ 'form.enterEmail' | translate }}"
           />
         </div>
         <div class="mb-3">
@@ -85,7 +90,7 @@
             type="text"
             class="form-control"
             id="address"
-            value="{{ 'user-profile.address' | translate }}"
+            placeholder="{{ 'user-profile.address' | translate }}"
           />
         </div>
         <div class="row mb-3">
@@ -97,7 +102,7 @@
               type="text"
               class="form-control"
               id="city"
-              value="{{ 'user-profile.city' | translate }}"
+              placeholder="{{ 'user-profile.city' | translate }}"
             />
           </div>
           <div class="col">
@@ -108,7 +113,7 @@
               type="text"
               class="form-control"
               id="country"
-              value="{{ 'user-profile.country' | translate }}"
+              placeholder="{{ 'user-profile.country' | translate }}"
             />
           </div>
           <div class="col">

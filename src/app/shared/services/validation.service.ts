@@ -16,12 +16,13 @@ export class ValidationService {
       if (!control || !matchingControl) return null;
       if (matchingControl.errors && !matchingControl.errors['mustMatch'])
         return null;
-      if (control.value !== matchingControl.value)
+      if (control.value !== matchingControl.value) {
         matchingControl.setErrors({ mustMatch: true });
-      else {
+        return { mustMatch: true };
+      } else {
         matchingControl.setErrors(null);
+        return null;
       }
-      return null;
     };
   }
 }

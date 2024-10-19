@@ -3,8 +3,9 @@
 
   "validation": {
     "required": "This field is required",
-    "email": "Please enter a valid email address",
-    "minlength": "Please enter at least 8 characters"
+    "invalidEmail": "Please enter a valid email address",
+    "passwordLength": "Please enter at least 8 characters",
+    "mustMatch": "Passwords must match"
   },
   "sidebar": {
     "dashboard": "Dashboard",
@@ -78,8 +79,6 @@
   "user-profile": {
     "edit-profile": "Edit Profile",
     "company": "Company",
-    "username": "Username",
-    "email": "Email Address",
     "first-name": "First Name",
     "last-name": "Last Name",
     "address": "Address",
@@ -102,10 +101,23 @@
     "save": "Save",
     "cancel": "Cancel",
     "login": "Login",
+    "register": "Register",
     "logout": "Logout",
     "language": "Language",
     "arabic": "Arabic",
     "english": "English"
+  },
+  "form": {
+    "username": "Username",
+    "email": "Email Address",
+    "password": "Password",
+    "confirm-password": "Confirm Password",
+    "phone-number": "Phone Number",
+    "enterUsername": "Enter your username",
+    "enterEmail": "Enter your email address",
+    "enterPassword": "Enter your password",
+    "enterPhoneNumber": "Enter your phone number",
+    "confirmPassword": "Confirm your password"
   },
   "footer": "Made by Maha Fathy"
 }

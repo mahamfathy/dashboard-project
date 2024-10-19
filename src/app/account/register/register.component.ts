@@ -17,10 +17,13 @@ export class RegisterComponent {
     {
       userName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: '+1 2345 7891',
+      phoneNumber: ['+1 2345 7891', Validators.required],
       password: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', [Validators.required, Validators.minLength(8)]],
     },
-    { Validators: ValidationService.mustMatch('password', 'confirmPassword') }
+    { validators: [ValidationService.mustMatch('password', 'confirmPassword')] }
   );
+  onSubmit() {
+    this.form.reset();
+  }
 }
