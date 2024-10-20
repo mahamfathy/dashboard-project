@@ -9,7 +9,9 @@ export const routes: Routes = [
   {
     path: 'public',
     loadChildren: () =>
-      import('./public/public.module').then((m) => m.PublicModule),
+      import('./public/public.routes').then(
+        (routes) => routes.lazyRoutesPublic
+      ),
   },
   {
     path: 'secure',
