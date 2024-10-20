@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AngularMaterialModule } from '../../shared/modules/angular-material.module';
+import { AuthService } from '../../shared/services/auth.service';
 import { ValidationService } from '../../shared/services/validation.service';
 import { SharedModule } from '../../shared/shared.module';
 
@@ -12,7 +13,10 @@ import { SharedModule } from '../../shared/shared.module';
   styleUrl: './register.component.scss',
 })
 export class RegisterComponent {
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService
+  ) {}
   form = this.formBuilder.group(
     {
       userName: ['', Validators.required],
@@ -23,7 +27,13 @@ export class RegisterComponent {
     },
     { validators: [ValidationService.mustMatch('password', 'confirmPassword')] }
   );
-  onSubmit() {
+  register() {
+    const formValue = this.form.value;
+    this.authService
+      .signUp(formValue.email!, formValue.password!)
+      .subscribe((res) => {
+        console.log(res);
+      });
     this.form.reset();
   }
 }
