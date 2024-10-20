@@ -52,6 +52,6 @@ export class RegisterComponent {
     this.form.reset();
   }
   navigateToLogin(): void {
-    this.navigationService.navigateToLogin();
+    this.navigationService.navigateByUrl('/account/login');
   }
 }

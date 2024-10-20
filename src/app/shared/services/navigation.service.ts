@@ -7,15 +7,13 @@ import { Router } from '@angular/router';
 export class NavigationService {
   constructor(private router: Router) {}
 
-  navigateByUrl(url: string): void {
+  navigateByUrl(url: string): any {
     this.router.navigateByUrl(url);
   }
   navigateToHome(): void {
     this.router.navigate(['/public']);
   }
-  navigateToLogin(): void {
-    this.router.navigate(['/account']);
-  }
+
   navigateToRegister(): void {
     this.router.navigate(['/account/register']);
   }

@@ -3,6 +3,7 @@ import { AccountComponent } from './account/account.component';
 import { LoginComponent } from './account/login/login.component';
 import { RegisterComponent } from './account/register/register.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { authGuard } from './shared/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -14,6 +15,7 @@ export const routes: Routes = [
     path: 'secure',
     loadChildren: () =>
       import('./secure/secure.module').then((m) => m.SecureModule),
+    canActivate: [authGuard],
   },
   {
     path: 'account',
