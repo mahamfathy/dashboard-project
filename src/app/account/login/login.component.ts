@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
+import { NavigationService } from '../../shared/services/navigation.service';
 import { SharedModule } from '../../shared/shared.module';
 
 @Component({
@@ -13,7 +14,8 @@ import { SharedModule } from '../../shared/shared.module';
 export class LoginComponent {
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private navigationService: NavigationService
   ) {}
 
   loginForm = this.formBuilder.group({
@@ -28,5 +30,7 @@ export class LoginComponent {
         console.log(res);
       });
   }
-  navigateToRegister(): void {}
+  navigateToRegister(): void {
+    this.navigationService.navigateToRegister();
+  }
 }
