@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
 export class NavigationService {
   constructor(private router: Router) {}
 
+  navigateByUrl(url: string): void {
+    this.router.navigateByUrl(url);
+  }
   navigateToHome(): void {
     this.router.navigate(['/public']);
   }

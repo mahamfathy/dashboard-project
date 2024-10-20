@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
+import { LocalStorageService } from '../../shared/services/local-storage.service';
 import { NavigationService } from '../../shared/services/navigation.service';
 import { SharedModule } from '../../shared/shared.module';
 
@@ -15,20 +16,25 @@ export class LoginComponent {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private navigationService: NavigationService
+    private navigationService: NavigationService,
+    private localStorageService: LocalStorageService
   ) {}
 
   loginForm = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
   });
-  login(): any {
-    const formValue = this.loginForm.value;
-    return this.authService
-      .signIn(formValue.email!, formValue.password!)
-      .subscribe((res) => {
-        console.log(res);
-      });
+  login(loginForm: FormGroup): any {
+    if (loginForm.valid) {
+      const formValue = this.loginForm.value;
+      return this.authService
+        .signIn(formValue.email!, formValue.password!)
+        .subscribe((res) => {
+          console.log(res.idToken);
+          this.localStorageService.setItem('token', res.idToken);
+          this.navigationService.navigateByUrl('/secure/dashboard');
+        });
+    }
   }
   navigateToRegister(): void {
     this.navigationService.navigateToRegister();

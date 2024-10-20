@@ -1,6 +1,6 @@
 <div class="login-container d-flex flex-column align-items-center">
   <h2>{{ "buttons.login" | translate }}</h2>
-  <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+  <form class="form" [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
     <div class="col-md-6 wrapper">
       <!-- Email -->
       <mat-form-field appearance="fill" class="form">
