@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { AngularMaterialModule } from './modules/angular-material.module';
 const components: any = [];
 const modules = [
   CommonModule,
@@ -11,6 +12,7 @@ const modules = [
   RouterModule,
   TranslateModule,
   ReactiveFormsModule,
+  AngularMaterialModule,
 ];
 @NgModule({
   declarations: [components],
