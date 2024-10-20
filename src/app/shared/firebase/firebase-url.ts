@@ -4,3 +4,4 @@ export const firebaseRestApi =
   'https://identitytoolkit.googleapis.com/v1/accounts:';
 export const apiKey = 'AIzaSyDnTblq6EXRbk0k97MwoyNvI7zlpNFyfMY';
 export const signUpUrl = `${firebaseRestApi}signUp?key=${apiKey}`;
+export const signInUrl = `${firebaseRestApi}signInWithPassword?key=${apiKey}`;
