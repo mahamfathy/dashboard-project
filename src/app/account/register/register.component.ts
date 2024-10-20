@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { openDB } from 'idb';
 import { AuthService } from '../../shared/services/auth.service';
 import { FormService } from '../../shared/services/form.service';
+import { NavigationService } from '../../shared/services/navigation.service';
 import { SharedModule } from '../../shared/shared.module';
 
 @Component({
@@ -14,7 +15,8 @@ import { SharedModule } from '../../shared/shared.module';
 export class RegisterComponent {
   constructor(
     private formService: FormService,
-    private authService: AuthService
+    private authService: AuthService,
+    private navigationService: NavigationService
   ) {}
   form = this.formService.createRegisterForm();
   async saveUserData(formValue: any) {
@@ -48,5 +50,8 @@ export class RegisterComponent {
     );
 
     this.form.reset();
+  }
+  navigateToLogin(): void {
+    this.navigationService.navigateToLogin();
   }
 }
