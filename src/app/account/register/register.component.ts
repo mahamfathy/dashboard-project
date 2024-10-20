@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { openDB } from 'idb';
 import { AngularMaterialModule } from '../../shared/modules/angular-material.module';
 import { AuthService } from '../../shared/services/auth.service';
 import { ValidationService } from '../../shared/services/validation.service';
@@ -27,13 +28,36 @@ export class RegisterComponent {
     },
     { validators: [ValidationService.mustMatch('password', 'confirmPassword')] }
   );
+  async saveUserData(formValue: any) {
+    const db = openDB('user-data', 1, {
+      upgrade(db) {
+        db.createObjectStore('users', {
+          keyPath: 'id',
+          autoIncrement: true,
+        });
+      },
+    });
+    (await db).put('users', {
+      userName: formValue.userName,
+      email: formValue.email,
+      phoneNumber: formValue.phoneNumber,
+    });
+    console.log('User data saved to IndexedDB');
+    console.log(db);
+  }
+
   register() {
     const formValue = this.form.value;
-    this.authService
-      .signUp(formValue.email!, formValue.password!)
-      .subscribe((res) => {
+    this.authService.signUp(formValue.email!, formValue.password!).subscribe(
+      (res) => {
         console.log(res);
-      });
+        this.saveUserData(formValue);
+      },
+      (err) => {
+        console.error('Firebase Auth error:', err);
+      }
+    );
+
     this.form.reset();
   }
 }
