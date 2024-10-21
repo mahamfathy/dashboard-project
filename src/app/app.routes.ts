@@ -12,6 +12,7 @@ export const routes: Routes = [
       import('./public/public.routes').then(
         (routes) => routes.lazyRoutesPublic
       ),
+    canMatch: [secureGuard],
   },
   {
     path: 'secure',
