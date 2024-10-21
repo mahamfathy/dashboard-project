@@ -4,4 +4,5 @@ export interface Employee {
   country: string;
   city: string;
   salary: string;
+  scrambledId: string;
 }

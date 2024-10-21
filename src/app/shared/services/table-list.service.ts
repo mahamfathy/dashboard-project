@@ -8,12 +8,12 @@ import { FirebaseService } from './firebase.service';
 })
 export class TableListService {
   constructor(private firebaseService: FirebaseService) {}
-  getList(): Observable<Array<Employee>> {
+  getEmployees(): Observable<Array<Employee>> {
     return this.firebaseService.getRequest('employees').pipe(
       map((employees: Employee) => {
         return Object.entries(employees).map(([key, value]) => {
-          return { ...value, id: value.id, scrambledId: key };
-        });
+          return { ...value, scrambledId: key };
+        }) as Array<Employee>;
       })
     );
   }

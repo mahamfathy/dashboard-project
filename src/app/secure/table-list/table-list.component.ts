@@ -14,11 +14,12 @@ export class TableListComponent implements OnInit {
   employees: Employee[] = [];
   constructor(private tableService: TableListService) {}
   ngOnInit() {
-    this.tableService.getList().subscribe((data) => {
+    this.getEmployees();
+  }
+  private getEmployees(): void {
+    this.tableService.getEmployees().subscribe((data) => {
       console.log('Full response:', data);
-      if (Array.isArray(data)) {
-        this.employees = data;
-      }
+      this.employees = data;
     });
   }
 }
