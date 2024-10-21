@@ -15,9 +15,11 @@ export class NotificationsComponent implements OnInit {
   constructor(private notificationService: NotificationService) {}
 
   ngOnInit(): void {
+    console.log('Fetching notifications...');
     this.notificationService
       .getNotifications()
       .subscribe((notifications: Notification[]) => {
+        console.log('Notifications:', notifications);
         this.notifications = notifications;
       });
   }

@@ -10,7 +10,18 @@ import { FirebaseService } from './firebase.service';
 export class NotificationService {
   constructor(private firebaseService: FirebaseService) {}
   getNotifications(): Observable<Notification[]> {
-    return this.firebaseService.getRequest('notifications');
+    return this.firebaseService.getRequest('notifications').pipe(
+      map((response) => {
+        if (response) {
+          return Object.keys(response).map((key) => ({
+            id: key,
+            ...response[key],
+          }));
+        } else {
+          return [];
+        }
+      })
+    );
   }
 
   addNotification(notification: Notification): void {
@@ -26,8 +37,12 @@ export class NotificationService {
   }
   markAsRead(notificationId: string): void {
     this.firebaseService
-      .patchRequest(`${firebaseUrl}/${notificationId}.json`, { read: true }, {})
-      .subscribe();
+      .patchRequest(
+        `${firebaseUrl}/markAsRead/${notificationId}.json`,
+        { read: true },
+        {}
+      )
+      .subscribe(() => console.log('Notification marked as read'));
   }
   getUnreadCount(): Observable<number> {
     return this.getNotifications().pipe(

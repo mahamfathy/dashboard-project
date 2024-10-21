@@ -49,5 +49,19 @@
       "city": "Gloucester",
       "salary": "$98,615"
     }
-  ]
+  ],
+  "notifications": {
+    "notification1": {
+      "title": "Test Notification 1",
+      "time": "2024-01-01T00:00:00.000Z",
+      "icon": "fas fa-info-circle",
+      "read": false
+    },
+    "notification2": {
+      "title": "Test Notification 2",
+      "time": "2024-01-01T00:00:00.000Z",
+      "icon": "fas fa-envelope",
+      "read": false
+    }
+  }
 }
