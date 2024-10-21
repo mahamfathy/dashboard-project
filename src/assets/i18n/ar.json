@@ -96,6 +96,8 @@
   },
   "buttons": {
     "disable": "معطل",
+    "add": "اضافة",
+    "edit": "تعديل",
     "delete": "حذف",
     "update": "تحديث",
     "save": "حفظ",

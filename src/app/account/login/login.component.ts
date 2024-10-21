@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
+import { FormsService } from '../../shared/services/forms.service';
 import { LocalStorageService } from '../../shared/services/local-storage.service';
 import { NavigationService } from '../../shared/services/navigation.service';
 import { SharedModule } from '../../shared/shared.module';
@@ -14,16 +15,13 @@ import { SharedModule } from '../../shared/shared.module';
 })
 export class LoginComponent {
   constructor(
-    private formBuilder: FormBuilder,
     private authService: AuthService,
     private navigationService: NavigationService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private formsServices: FormsService
   ) {}
 
-  loginForm = this.formBuilder.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required],
-  });
+  loginForm = this.formsServices.createLoginForm();
   login(loginForm: FormGroup): any {
     if (loginForm.valid) {
       const formValue = this.loginForm.value;

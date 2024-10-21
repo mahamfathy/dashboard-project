@@ -96,6 +96,8 @@
   },
   "buttons": {
     "disable": "Disable",
+    "add": "Add",
+    "edit": "Edit",
     "delete": "Delete",
     "update": "Update",
     "save": "Save",

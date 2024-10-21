@@ -5,7 +5,7 @@ import { ValidationService } from './validation.service';
 @Injectable({
   providedIn: 'root',
 })
-export class FormService {
+export class FormsService {
   constructor(private formBuilder: FormBuilder) {}
   createRegisterForm(): any {
     return this.formBuilder.group(
@@ -24,10 +24,18 @@ export class FormService {
     );
   }
 
-  login(): any {
+  createLoginForm(): any {
     return this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
+    });
+  }
+  createEmployeeModalForm(): any {
+    return this.formBuilder.group({
+      name: ['', Validators.required],
+      city: ['', Validators.required],
+      country: ['', Validators.required],
+      salary: ['', Validators.required],
     });
   }
 }

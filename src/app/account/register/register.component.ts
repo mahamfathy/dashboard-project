@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { openDB } from 'idb';
 import { AuthService } from '../../shared/services/auth.service';
-import { FormService } from '../../shared/services/form.service';
+import { FormsService } from '../../shared/services/forms.service';
 import { NavigationService } from '../../shared/services/navigation.service';
 import { SharedModule } from '../../shared/shared.module';
 
@@ -14,11 +14,11 @@ import { SharedModule } from '../../shared/shared.module';
 })
 export class RegisterComponent {
   constructor(
-    private formService: FormService,
+    private formsService: FormsService,
     private authService: AuthService,
     private navigationService: NavigationService
   ) {}
-  form = this.formService.createRegisterForm();
+  form = this.formsService.createRegisterForm();
   async saveUserData(formValue: any) {
     const db = openDB('user-data', 1, {
       upgrade(db) {
