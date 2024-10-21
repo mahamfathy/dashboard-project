@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { NotificationsComponent } from '../notifications/notifications.component';
 import { DashboardOverviewComponent } from './dashboard-overview/dashboard-overview.component';
 import { IconsComponent } from './icons/icons.component';
 import { MapsComponent } from './maps/maps.component';
@@ -15,7 +14,6 @@ export const lazyRoutesSecure: Routes = [
       { path: 'dashboard', component: DashboardOverviewComponent },
       { path: 'icons', component: IconsComponent },
       { path: 'maps', component: MapsComponent },
-      { path: 'notifications', component: NotificationsComponent },
       { path: 'user-profile', component: UserProfileComponent },
       { path: 'table-list', component: TableListComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },

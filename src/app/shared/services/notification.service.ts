@@ -9,7 +9,7 @@ import { FirebaseService } from './firebase.service';
 })
 export class NotificationService {
   constructor(private firebaseService: FirebaseService) {}
-  getNotification(): Observable<Notification[]> {
+  getNotifications(): Observable<Notification[]> {
     return this.firebaseService.getRequest('notifications');
   }
 
@@ -30,7 +30,7 @@ export class NotificationService {
       .subscribe();
   }
   getUnreadCount(): Observable<number> {
-    return this.getNotification().pipe(
+    return this.getNotifications().pipe(
       map(
         (notifications) =>
           notifications.filter((notification) => !notification.read).length

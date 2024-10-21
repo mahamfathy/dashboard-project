@@ -1,0 +1,20 @@
+<div class="notifications">
+  <div
+    *ngFor="let notification of notifications"
+    class="notification"
+    [class.unread]="!notification.read"
+  >
+    <div class="notification-icon">
+      <i [class]="notification.icon"></i>
+    </div>
+    <div class="notification-content">
+      <p class="notification-title">{{ notification.title }}</p>
+      <p class="notification-time">
+        {{ notification.time | date : "shortTime" }}
+      </p>
+    </div>
+    <button class="mark-read" (click)="markAsRead(notification)">
+      Mark as Read
+    </button>
+  </div>
+</div>
