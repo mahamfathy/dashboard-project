@@ -1,7 +1,7 @@
 export interface Notification {
   id: number;
   title: string;
-  time: Date;
+  time: string;
   icon: string;
   read: boolean;
 }

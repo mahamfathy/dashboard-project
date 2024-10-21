@@ -15,4 +15,7 @@ export class FirebaseService {
   postRequest(url: string, body: any, options: any): Observable<ArrayBuffer> {
     return this.http.post(url, body, options);
   }
+  patchRequest(url: string, body: any, options: any): Observable<ArrayBuffer> {
+    return this.http.patch(url, body, options);
+  }
 }
