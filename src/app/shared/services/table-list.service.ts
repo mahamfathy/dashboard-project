@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { Employee } from '../models/employee';
 import { FirebaseService } from './firebase.service';
 
 @Injectable({
@@ -7,7 +8,13 @@ import { FirebaseService } from './firebase.service';
 })
 export class TableListService {
   constructor(private firebaseService: FirebaseService) {}
-  getList(): Observable<any> {
-    return this.firebaseService.getRequest('employees');
+  getList(): Observable<Array<Employee>> {
+    return this.firebaseService.getRequest('employees').pipe(
+      map((employees: Employee) => {
+        return Object.entries(employees).map(([key, value]) => {
+          return { ...value, id: value.id, scrambledId: key };
+        });
+      })
+    );
   }
 }

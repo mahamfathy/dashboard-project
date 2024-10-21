@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Employee } from '../../shared/models/employee';
 import { TableListService } from '../../shared/services/table-list.service';
 import { SharedModule } from '../../shared/shared.module';
 
@@ -10,11 +11,11 @@ import { SharedModule } from '../../shared/shared.module';
   styleUrls: ['./table-list.component.scss'],
 })
 export class TableListComponent implements OnInit {
-  employees: any[] = [];
+  employees: Employee[] = [];
   constructor(private tableService: TableListService) {}
   ngOnInit() {
     this.tableService.getList().subscribe((data) => {
-      // console.log('Full response:', data);
+      console.log('Full response:', data);
       if (Array.isArray(data)) {
         this.employees = data;
       }
