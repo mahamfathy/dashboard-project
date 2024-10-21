@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
+import { FirebaseService } from './firebase.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NotificationService {
-
-  constructor() { }
+  constructor(private firebaseService: FirebaseService) {}
 }
