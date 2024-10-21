@@ -16,7 +16,9 @@ export const routes: Routes = [
   {
     path: 'secure',
     loadChildren: () =>
-      import('./secure/secure.module').then((m) => m.SecureModule),
+      import('./secure/secure.routes').then(
+        (routes) => routes.lazyRoutesSecure
+      ),
     // canActivate: [authGuard],
     canMatch: [secureGuard],
   },

@@ -1,5 +1,4 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { NotificationsComponent } from '../notifications/notifications.component';
 import { DashboardOverviewComponent } from './dashboard-overview/dashboard-overview.component';
 import { IconsComponent } from './icons/icons.component';
@@ -8,7 +7,7 @@ import { SecureComponent } from './secure.component';
 import { TableListComponent } from './table-list/table-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
-export const routes: Routes = [
+export const lazyRoutesSecure: Routes = [
   {
     path: '',
     component: SecureComponent,
@@ -19,12 +18,7 @@ export const routes: Routes = [
       { path: 'notifications', component: NotificationsComponent },
       { path: 'user-profile', component: UserProfileComponent },
       { path: 'table-list', component: TableListComponent },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
 ];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-})
-export class SecureRoutingModule {}
