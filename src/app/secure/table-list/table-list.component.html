@@ -1,5 +1,8 @@
 <div class="employee-table">
   <h1>{{ "table-list.employees-title" | translate }}</h1>
+  <button (click)="openAddEmployeeModal()" class="add-employee-btn">
+    Add Employee
+  </button>
   <table>
     <thead>
       <tr>
@@ -28,3 +31,10 @@
     {{ "buttons.add" | translate }}
   </button>
 </div>
+@if (isAddEmployeeModalOpen ) {
+<app-add-employee-madal
+  (close)="closeAddEmployeeModal()"
+  (addEmployee)="handleAddEmployee($event)"
+></app-add-employee-madal>
+
+}

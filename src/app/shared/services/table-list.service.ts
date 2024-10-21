@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { firebaseUrl } from '../firebase/firebase-url';
 import { Employee } from '../models/employee';
 import { FirebaseService } from './firebase.service';
 
@@ -15,6 +16,13 @@ export class TableListService {
           return { ...value, scrambledId: key };
         }) as Array<Employee>;
       })
+    );
+  }
+  addEmployee(employee: Employee): Observable<any> {
+    return this.firebaseService.postRequest(
+      `${firebaseUrl}employees.json`,
+      employee,
+      { 'content-type': 'application/json' }
     );
   }
 }

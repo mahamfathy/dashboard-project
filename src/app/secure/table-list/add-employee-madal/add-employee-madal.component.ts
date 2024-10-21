@@ -19,6 +19,8 @@ export class AddEmployeeMadalComponent implements OnInit {
   ngOnInit(): void {}
   submit(): void {
     if (this.employeeForm.valid) {
+      this.addEmployee.emit(this.employeeForm.value);
+      this.close.emit();
     }
   }
 }

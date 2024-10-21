@@ -3,7 +3,7 @@ const cors = require("cors");
 const axios = require("axios");
 
 const app = express();
-const port = 4200;
+const port = 3000;
 const firebaseUrl = "https://visionboard-c0bc7-default-rtdb.firebaseio.com";
 
 app.use(cors());
@@ -28,6 +28,14 @@ app.get("/getNotifications", (req, res) => {
       res.status(500).send(error);
     });
 });
+
+app.post("/addEmployee", (req, res) => {
+  axios
+    .post(`${firebaseUrl}/employees.json`, req.body)
+    .then((response) => res.status(200).send("Employee added"))
+    .catch((error) => res.status(500).send(error));
+});
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
