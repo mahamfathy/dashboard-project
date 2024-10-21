@@ -9,4 +9,5 @@ import { SharedModule } from '../shared/shared.module';
 })
 export class NavbarComponent {
   faBell = 'faBell';
+  unreadCount = 0;
 }
