@@ -10,3 +10,46 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+/* Override ngx-toastr default styles */
+.toast-success {
+  background-color: #28a745 !important; /* Custom background color for success */
+  color: white !important;
+  border-radius: 10px !important; /* Rounded corners */
+  padding: 15px !important; /* Custom padding */
+}
+
+.toast-error {
+  background-color: #dc3545 !important; /* Custom background color for error */
+  color: white !important;
+  border-radius: 10px !important; /* Rounded corners */
+  padding: 15px !important; /* Custom padding */
+}
+
+.toast-info {
+  background-color: #17a2b8 !important; /* Custom background color for info */
+  color: white !important;
+  border-radius: 10px !important; /* Rounded corners */
+  padding: 15px !important; /* Custom padding */
+}
+
+.toast-warning {
+  background-color: #ffc107 !important; /* Custom background color for warning */
+  color: black !important;
+  border-radius: 10px !important; /* Rounded corners */
+  padding: 15px !important; /* Custom padding */
+}
+
+/* General toaster styling */
+.toast {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16) !important; /* Add shadow */
+  font-family: "Roboto", sans-serif !important;
+}
+#toast-container {
+  right: 6rem;
+  bottom: -50rem;
+  width: 22rem;
+}
+html[dir="rtl"] #toast-container {
+  left: 6rem !important;
+  right: auto !important;
+}

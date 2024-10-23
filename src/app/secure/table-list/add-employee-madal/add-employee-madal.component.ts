@@ -17,6 +17,7 @@ export class AddEmployeeMadalComponent implements OnInit {
   employeeForm = this.formsService.createEmployeeModalForm();
 
   ngOnInit(): void {}
+
   submit(): void {
     if (this.employeeForm.valid) {
       this.addEmployee.emit(this.employeeForm.value);
