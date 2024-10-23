@@ -15,6 +15,7 @@ import { AddEmployeeMadalComponent } from './add-employee-madal/add-employee-mad
 export class TableListComponent implements OnInit {
   employees: Employee[] = [];
   isAddEmployeeModalOpen = false;
+  displayedColumns: string[] = ['name', 'country', 'city', 'salary', 'actions'];
 
   constructor(
     private tableService: TableListService,
