@@ -1,3 +1,4 @@
+@if (!isPageNotFound()) {
 <div class="main__wrapper d-flex">
   <div class="sidebar">
     <app-sidebar />
@@ -14,3 +15,7 @@
     </div>
   </div>
 </div>
+
+} @if (isPageNotFound()) {
+<router-outlet></router-outlet>
+}

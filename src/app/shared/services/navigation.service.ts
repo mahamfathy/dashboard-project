@@ -11,7 +11,7 @@ export class NavigationService {
     this.router.navigateByUrl(url);
   }
   navigateToHome(): void {
-    this.router.navigate(['/public']);
+    this.router.navigate(['/secure/dashboard']);
   }
 
   navigateToRegister(): void {
