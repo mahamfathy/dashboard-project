@@ -98,6 +98,8 @@
     "actions": "Actions",
     "disable": "Disable",
     "add": "Add",
+    "addEmployee": "Add Employees",
+    "editEmployee": "Edit Employees",
     "edit": "Edit",
     "more": "More",
     "delete": "Delete",

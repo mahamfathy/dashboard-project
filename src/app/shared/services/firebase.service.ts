@@ -18,7 +18,7 @@ export class FirebaseService {
   patchRequest(url: string, body: any, options: any): Observable<ArrayBuffer> {
     return this.http.patch(url, body, options);
   }
-  deleteRequest(id: string): Observable<any> {
-    return this.http.delete(`${firebaseUrl}employees/${id}.json`);
+  deleteRequest(url: string, options: any): Observable<ArrayBuffer> {
+    return this.http.delete(url, options);
   }
 }

@@ -98,6 +98,8 @@
     "actions": "الإجراءات",
     "disable": "معطل",
     "add": "اضافة",
+    "addEmployee": "اضافة موظف",
+    "editEmployee": "تعديل الموظف",
     "edit": "تعديل",
     "more": "المزيد",
     "delete": "حذف",

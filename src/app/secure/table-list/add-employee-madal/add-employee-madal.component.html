@@ -1,26 +1,36 @@
 <div class="modal-backdrop" (click)="close.emit()"></div>
 <div class="modal">
-  <h2>{{ employee ? "Edit Employee" : "Add Employee" }}</h2>
+  @if (employee) {
+  <h2>{{ "buttons.editEmployee" | translate }}</h2>
+  }@else{
+  <h2>{{ "buttons.addEmployee" | translate }}</h2>
+  }
   <form [formGroup]="employeeForm" (ngSubmit)="submit()">
     <label>
-      Name:
+      {{ "table-list.name" | translate }}:
       <input formControlName="name" />
     </label>
     <label>
-      Country:
+      {{ "user-profile.country" | translate }}:
       <input formControlName="country" />
     </label>
     <label>
-      City:
+      {{ "user-profile.city" | translate }}:
       <input formControlName="city" />
     </label>
     <label>
-      Salary:
+      {{ "table-list.salary" | translate }}:
       <input formControlName="salary" />
     </label>
     <button type="submit" [disabled]="employeeForm.invalid">
-      {{ employee ? "Update" : "Add" }}
+      @if (employee) {
+      <span>{{ "buttons.update" | translate }}</span>
+      }@else{
+      <span>{{ "buttons.add" | translate }}</span>
+      }
     </button>
-    <button type="button" (click)="close.emit()">Cancel</button>
+    <button type="button" (click)="close.emit()">
+      {{ "buttons.cancel" | translate }}
+    </button>
   </form>
 </div>

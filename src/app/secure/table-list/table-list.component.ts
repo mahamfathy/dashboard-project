@@ -70,7 +70,6 @@ export class TableListComponent implements OnInit {
     this.closeAddEmployeeModal();
   }
   deleteEmployee(employee: Employee): void {
-    if (!employee.scrambledId) return;
     this.tableService.deleteEmployee(employee.scrambledId).subscribe(
       () => {
         this.getEmployees();
