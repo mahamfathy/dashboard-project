@@ -1,1 +1,12 @@
-<p>confirm-delete-modal works!</p>
+<h2 mat-dialog-title>{{ "buttons.confirmDelete" | translate }}</h2>
+<mat-dialog-content>
+  <p>{{ "buttons.confirmDeleteDescription" | translate }}</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">
+    {{ "buttons.yes" | translate }}
+  </button>
+  <button mat-button cdkFocusInitial>
+    {{ "buttons.no" | translate }}
+  </button>
+</mat-dialog-actions>
