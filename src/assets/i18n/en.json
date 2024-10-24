@@ -95,6 +95,7 @@
     "salary": "Salary"
   },
   "buttons": {
+    "actions": "Actions",
     "disable": "Disable",
     "add": "Add",
     "edit": "Edit",

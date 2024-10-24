@@ -15,6 +15,7 @@ import { AddEmployeeMadalComponent } from './add-employee-madal/add-employee-mad
 export class TableListComponent implements OnInit {
   employees: Employee[] = [];
   isAddEmployeeModalOpen = false;
+  selectedEmployee?: Employee;
   displayedColumns: string[] = ['name', 'country', 'city', 'salary', 'actions'];
 
   constructor(
@@ -30,15 +31,54 @@ export class TableListComponent implements OnInit {
       this.employees = data;
     });
   }
-  openAddEmployeeModal(): void {
+  openAddEmployeeModal(employee?: Employee): void {
     this.isAddEmployeeModalOpen = true;
+    this.selectedEmployee = employee;
   }
   closeAddEmployeeModal(): void {
     this.isAddEmployeeModalOpen = false;
+    this.selectedEmployee = undefined;
   }
+
   handleAddEmployee(employee: Employee): void {
-    this.tableService.addEmployee(employee).subscribe();
-    // this.getEmployees();
-    this.toastService.showSuccess('Employee added successfully');
+    this.tableService.addEmployee(employee).subscribe(
+      () => {
+        this.getEmployees();
+        this.toastService.showSuccess('Employee added successfully');
+      },
+      () => {
+        this.toastService.showError('Failed to add employee');
+      }
+    );
+    this.closeAddEmployeeModal();
+  }
+
+  handleUpdateEmployee(employee: Employee): void {
+    if (!this.selectedEmployee || !this.selectedEmployee.scrambledId) return;
+
+    this.tableService
+      .updateEmployee(this.selectedEmployee.scrambledId, employee)
+      .subscribe(
+        () => {
+          this.getEmployees();
+          this.toastService.showSuccess('Employee updated successfully');
+        },
+        () => {
+          this.toastService.showError('Failed to update employee');
+        }
+      );
+    this.closeAddEmployeeModal();
+  }
+  deleteEmployee(employee: Employee): void {
+    if (!employee.scrambledId) return;
+    this.tableService.deleteEmployee(employee.scrambledId).subscribe(
+      () => {
+        this.getEmployees();
+        this.toastService.showSuccess('Employee deleted successfully');
+      },
+      () => {
+        this.toastService.showError('Failed to delete employee');
+      }
+    );
   }
 }

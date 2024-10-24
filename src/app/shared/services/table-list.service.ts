@@ -25,4 +25,15 @@ export class TableListService {
       { 'content-type': 'application/json' }
     );
   }
+  updateEmployee(id: string, employee: Partial<Employee>): Observable<any> {
+    const { scrambledId, ...updatedEmployee } = employee;
+    return this.firebaseService.patchRequest(
+      `${firebaseUrl}/employees/${id}.json`,
+      updatedEmployee,
+      {}
+    );
+  }
+  deleteEmployee(id: string): Observable<any> {
+    return this.firebaseService.deleteRequest(id);
+  }
 }

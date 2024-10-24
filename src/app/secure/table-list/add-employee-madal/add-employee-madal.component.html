@@ -1,12 +1,26 @@
 <div class="modal-backdrop" (click)="close.emit()"></div>
 <div class="modal">
-  <h2>Add Employee</h2>
+  <h2>{{ employee ? "Edit Employee" : "Add Employee" }}</h2>
   <form [formGroup]="employeeForm" (ngSubmit)="submit()">
-    <label>Name: <input formControlName="name" /></label>
-    <label>Country: <input formControlName="country" /></label>
-    <label>City: <input formControlName="city" /></label>
-    <label>Salary: <input formControlName="salary" /></label>
-    <button type="submit" [disabled]="employeeForm.invalid">Add</button>
+    <label>
+      Name:
+      <input formControlName="name" />
+    </label>
+    <label>
+      Country:
+      <input formControlName="country" />
+    </label>
+    <label>
+      City:
+      <input formControlName="city" />
+    </label>
+    <label>
+      Salary:
+      <input formControlName="salary" />
+    </label>
+    <button type="submit" [disabled]="employeeForm.invalid">
+      {{ employee ? "Update" : "Add" }}
+    </button>
     <button type="button" (click)="close.emit()">Cancel</button>
   </form>
 </div>
