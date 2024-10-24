@@ -3,10 +3,10 @@
   <p>{{ "buttons.confirmDeleteDescription" | translate }}</p>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">
+  <button mat-button (click)="confirmDelete()">
     {{ "buttons.yes" | translate }}
   </button>
-  <button mat-button cdkFocusInitial>
+  <button mat-button cdkFocusInitial (click)="onNoClick()">
     {{ "buttons.no" | translate }}
   </button>
 </mat-dialog-actions>

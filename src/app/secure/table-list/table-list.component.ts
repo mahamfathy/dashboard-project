@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../../shared/models/employee';
+import { DialogService } from '../../shared/services/dialog.service';
 import { TableListService } from '../../shared/services/table-list.service';
 import { ToastService } from '../../shared/services/toast.service';
 import { SharedModule } from '../../shared/shared.module';
@@ -20,7 +21,8 @@ export class TableListComponent implements OnInit {
 
   constructor(
     private tableService: TableListService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private dialogService: DialogService
   ) {}
   ngOnInit() {
     this.getEmployees();
@@ -70,14 +72,21 @@ export class TableListComponent implements OnInit {
     this.closeAddEmployeeModal();
   }
   deleteEmployee(employee: Employee): void {
-    this.tableService.deleteEmployee(employee.scrambledId).subscribe(
-      () => {
-        this.getEmployees();
-        this.toastService.showSuccess('Employee deleted successfully');
-      },
-      () => {
-        this.toastService.showError('Failed to delete employee');
-      }
-    );
+    this.dialogService
+      .openConfirmDeleteDialog(employee)
+      .afterClosed()
+      .subscribe((res: { confirmDelete: boolean }) => {
+        if (res?.confirmDelete) {
+          this.tableService.deleteEmployee(employee.scrambledId).subscribe(
+            () => {
+              this.getEmployees();
+              this.toastService.showSuccess('Employee deleted successfully');
+            },
+            () => {
+              this.toastService.showError('Failed to delete employee');
+            }
+          );
+        }
+      });
   }
 }

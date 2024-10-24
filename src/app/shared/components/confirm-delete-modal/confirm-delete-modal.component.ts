@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Employee } from '../../models/employee';
 import { SharedModule } from '../../shared.module';
 
@@ -13,9 +13,11 @@ import { SharedModule } from '../../shared.module';
 export class ConfirmDeleteModalComponent {
   readonly dialogRef = inject(MatDialogRef<ConfirmDeleteModalComponent>);
   readonly employee = inject<Employee>(MAT_DIALOG_DATA);
-  readonly animal = model(this.data.animal);
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+  confirmDelete(): void {
+    this.dialogRef.close({ confirmDelete: true });
   }
 }
