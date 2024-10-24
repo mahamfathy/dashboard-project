@@ -72,21 +72,22 @@ export class TableListComponent implements OnInit {
     this.closeAddEmployeeModal();
   }
   deleteEmployee(employee: Employee): void {
-    this.dialogService
-      .openConfirmDeleteDialog(employee)
-      .afterClosed()
-      .subscribe((res: { confirmDelete: boolean }) => {
-        if (res?.confirmDelete) {
-          this.tableService.deleteEmployee(employee.scrambledId).subscribe(
-            () => {
-              this.getEmployees();
-              this.toastService.showSuccess('Employee deleted successfully');
-            },
-            () => {
-              this.toastService.showError('Failed to delete employee');
-            }
-          );
-        }
-      });
+    const dialogRef = this.dialogService.openConfirmDeleteDialog(employee);
+
+    dialogRef.afterClosed().subscribe((res: { confirmDelete: boolean }) => {
+      if (res?.confirmDelete) {
+        this.tableService.deleteEmployee(employee.scrambledId).subscribe(
+          () => {
+            this.employees = this.employees.filter(
+              (e) => e.scrambledId !== employee.scrambledId
+            );
+            this.toastService.showSuccess('Employee deleted successfully');
+          },
+          () => {
+            this.toastService.showError('Failed to delete employee');
+          }
+        );
+      }
+    });
   }
 }

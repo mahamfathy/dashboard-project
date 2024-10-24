@@ -1,12 +1,25 @@
 <h2 mat-dialog-title>{{ "buttons.confirmDelete" | translate }}</h2>
 <mat-dialog-content>
-  <p>{{ "buttons.confirmDeleteDescription" | translate }}</p>
+  <p>
+    {{ "buttons.confirmDeleteDescription" | translate }}
+    <strong class="text-danger"> {{ employee.name }}</strong>
+    {{ "buttons.questionMark" | translate }}
+  </p>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button (click)="confirmDelete()">
+  <button
+    mat-button
+    class="bg-primary text-light mx-1"
+    (click)="confirmDelete()"
+  >
     {{ "buttons.yes" | translate }}
   </button>
-  <button mat-button cdkFocusInitial (click)="onNoClick()">
+  <button
+    mat-button
+    cdkFocusInitial
+    (click)="onNoClick()"
+    class="bg-danger text-light"
+  >
     {{ "buttons.no" | translate }}
   </button>
 </mat-dialog-actions>

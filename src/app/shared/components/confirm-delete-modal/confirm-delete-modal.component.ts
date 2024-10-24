@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Employee } from '../../models/employee';
 import { SharedModule } from '../../shared.module';
@@ -11,9 +11,10 @@ import { SharedModule } from '../../shared.module';
   styleUrl: './confirm-delete-modal.component.scss',
 })
 export class ConfirmDeleteModalComponent {
-  readonly dialogRef = inject(MatDialogRef<ConfirmDeleteModalComponent>);
-  readonly employee = inject<Employee>(MAT_DIALOG_DATA);
-
+  constructor(
+    public dialogRef: MatDialogRef<ConfirmDeleteModalComponent>,
+    @Inject(MAT_DIALOG_DATA) public employee: Employee
+  ) {}
   onNoClick(): void {
     this.dialogRef.close();
   }
