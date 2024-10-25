@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { signInUrl, signUpUrl } from '../firebase/firebase-url';
@@ -12,7 +13,7 @@ export class AuthService {
     return this.firebaseService.postRequest(
       signUpUrl,
       { email, password, returnSecureToken: true },
-      { 'Content-Type': 'application/json' }
+      { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
     );
   }
 
@@ -20,7 +21,12 @@ export class AuthService {
     return this.firebaseService.postRequest(
       signInUrl,
       { email, password, returnSecureToken: true },
-      { 'Content-Type': 'application/json' }
+      { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
     );
+  }
+  signOut(): Observable<any> {
+    return this.firebaseService.deleteRequest(`${signInUrl}`, {
+      headers: new HttpHeaders(),
+    });
   }
 }

@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { firebaseUrl } from '../firebase/firebase-url';
@@ -32,7 +33,9 @@ export class NotificationService {
       read: false,
     };
     this.firebaseService
-      .postRequest(firebaseUrl, newNotification, {})
+      .postRequest(firebaseUrl, newNotification, {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      })
       .subscribe();
   }
   markAsRead(notificationId: string): void {
@@ -40,7 +43,9 @@ export class NotificationService {
       .patchRequest(
         `${firebaseUrl}/markAsRead/${notificationId}.json`,
         { read: true },
-        {}
+        {
+          headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+        }
       )
       .subscribe(() => console.log('Notification marked as read'));
   }

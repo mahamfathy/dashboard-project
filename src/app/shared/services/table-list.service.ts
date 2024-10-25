@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { firebaseUrl } from '../firebase/firebase-url';
@@ -22,7 +23,7 @@ export class TableListService {
     return this.firebaseService.postRequest(
       `${firebaseUrl}employees.json`,
       employee,
-      { 'content-type': 'application/json' }
+      { headers: new HttpHeaders({ 'content-type': 'application/json' }) }
     );
   }
   updateEmployee(id: string, employee: Partial<Employee>): Observable<any> {
@@ -30,13 +31,13 @@ export class TableListService {
     return this.firebaseService.patchRequest(
       `${firebaseUrl}employees/${id}.json`,
       updatedEmployee,
-      { 'content-type': 'application/json' }
+      { headers: new HttpHeaders({ 'content-type': 'application/json' }) }
     );
   }
   deleteEmployee(id: string): Observable<any> {
     return this.firebaseService.deleteRequest(
       `${firebaseUrl}employees/${id}.json`,
-      { 'content-type': 'application/json' }
+      { headers: new HttpHeaders({ 'content-type': 'application/json' }) }
     );
   }
 }
