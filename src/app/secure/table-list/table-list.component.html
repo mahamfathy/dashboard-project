@@ -32,7 +32,7 @@
             {{ "table-list.salary" | translate }}
           </th>
           <td mat-cell *matCellDef="let employee">
-            {{ employee.salary | currency : "EGP" }}
+            <div class="fw-bold" [appEmptySalary]="employee.salary"></div>
           </td>
         </ng-container>
 

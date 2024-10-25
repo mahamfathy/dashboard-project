@@ -5,11 +5,12 @@ import { TableListService } from '../../shared/services/table-list.service';
 import { ToastService } from '../../shared/services/toast.service';
 import { SharedModule } from '../../shared/shared.module';
 import { AddEmployeeMadalComponent } from './add-employee-madal/add-employee-madal.component';
+import { EmptySalaryDirective } from '../../shared/directives/empty-salary.directive';
 
 @Component({
   selector: 'app-table-list',
   standalone: true,
-  imports: [SharedModule, AddEmployeeMadalComponent],
+  imports: [SharedModule, AddEmployeeMadalComponent,EmptySalaryDirective],
   templateUrl: './table-list.component.html',
   styleUrls: ['./table-list.component.scss'],
 })
