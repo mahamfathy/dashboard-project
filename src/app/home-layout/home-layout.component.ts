@@ -4,6 +4,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { PageNotFoundComponent } from '../shared/components/page-not-found/page-not-found.component';
 import { SidebarComponent } from '../sidebar/sidebar.component';
+import { ShowIfAuthDirective } from '../shared/directives/show-if-auth.directive';
 
 @Component({
   selector: 'app-home-layout',
@@ -14,6 +15,7 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
     FooterComponent,
     RouterOutlet,
     PageNotFoundComponent,
+    ShowIfAuthDirective,
   ],
   templateUrl: './home-layout.component.html',
   styleUrl: './home-layout.component.scss',
