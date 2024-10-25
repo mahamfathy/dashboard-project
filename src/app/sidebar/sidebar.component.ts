@@ -1,8 +1,8 @@
 import { AfterViewInit, Component } from '@angular/core';
+import { AuthService } from '../shared/services/auth.service';
 import { LanguageService } from '../shared/services/language.service';
-import { SharedModule } from '../shared/shared.module';
-import { LocalStorageService } from '../shared/services/local-storage.service';
 import { NavigationService } from '../shared/services/navigation.service';
+import { SharedModule } from '../shared/shared.module';
 declare const bootstrap: any;
 @Component({
   selector: 'app-sidebar',
@@ -12,8 +12,11 @@ declare const bootstrap: any;
   styleUrl: './sidebar.component.scss',
 })
 export class SidebarComponent implements AfterViewInit {
-  constructor(private languageService: LanguageService, private localStorageService: LocalStorageService,
-    private navigationService: NavigationService) {}
+  constructor(
+    private languageService: LanguageService,
+    private authService: AuthService,
+    private navigationService: NavigationService
+  ) {}
   profileName = 'ABC';
   readonly arabic = 'ar';
   readonly english = 'en';
@@ -29,8 +32,8 @@ export class SidebarComponent implements AfterViewInit {
   changeLanguage(lang: string): void {
     this.languageService.changeLanguage(lang);
   }
-    logout(): void {
-    this.localStorageService.removeItem('token');
+  logout(): void {
+    this.authService.signOut();
     this.navigationService.navigateByUrl('account/login');
   }
 }

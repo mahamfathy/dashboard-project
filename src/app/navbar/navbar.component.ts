@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LocalStorageService } from '../shared/services/local-storage.service';
+import { AuthService } from '../shared/services/auth.service';
 import { NavigationService } from '../shared/services/navigation.service';
 import { SharedModule } from '../shared/shared.module';
 @Component({
@@ -13,11 +13,11 @@ export class NavbarComponent {
   faBell = 'faBell';
   unreadCount = 1;
   constructor(
-    private localStorageService: LocalStorageService,
-    private navigationService: NavigationService
+    private navigationService: NavigationService,
+    private authService: AuthService
   ) {}
   logout(): void {
-    this.localStorageService.removeItem('token');
+    this.authService.signOut();
     this.navigationService.navigateByUrl('account/login');
   }
 }
