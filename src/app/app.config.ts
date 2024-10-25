@@ -20,6 +20,8 @@ export const appConfig: ApplicationConfig = {
       multi: true,
     },
     provideAnimations(),
-    provideToastr(),
+    provideToastr({
+      preventDuplicates: true,
+    }),
   ],
 };
