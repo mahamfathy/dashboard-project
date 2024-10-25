@@ -1,21 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { EmptySalaryDirective } from '../../shared/directives/empty-salary.directive';
 import { Employee } from '../../shared/models/employee';
 import { DialogService } from '../../shared/services/dialog.service';
 import { TableListService } from '../../shared/services/table-list.service';
 import { ToastService } from '../../shared/services/toast.service';
 import { SharedModule } from '../../shared/shared.module';
 import { AddEmployeeMadalComponent } from './add-employee-madal/add-employee-madal.component';
-import { EmptySalaryDirective } from '../../shared/directives/empty-salary.directive';
 
 @Component({
   selector: 'app-table-list',
   standalone: true,
-  imports: [SharedModule, AddEmployeeMadalComponent,EmptySalaryDirective],
+  imports: [SharedModule, AddEmployeeMadalComponent, EmptySalaryDirective],
   templateUrl: './table-list.component.html',
   styleUrls: ['./table-list.component.scss'],
 })
 export class TableListComponent implements OnInit {
   employees: Employee[] = [];
+  employeesData = new MatTableDataSource<Employee>(this.employees);
   isAddEmployeeModalOpen = false;
   selectedEmployee?: Employee;
   displayedColumns: string[] = ['name', 'country', 'city', 'salary', 'actions'];
@@ -31,7 +33,11 @@ export class TableListComponent implements OnInit {
   private getEmployees(): void {
     this.tableService.getEmployees().subscribe((data) => {
       console.log('Full response:', data);
-      this.employees = data;
+      const sortedEmployee = data.sort((a: Employee, b: Employee) => {
+        return a.name.localeCompare(b.name);
+      });
+      this.employees = sortedEmployee;
+      this.employeesData.data = this.employees;
     });
   }
   openAddEmployeeModal(employee?: Employee): void {
@@ -47,6 +53,10 @@ export class TableListComponent implements OnInit {
     this.tableService.addEmployee(employee).subscribe(
       () => {
         this.getEmployees();
+        this.employeesData.data = this.employees.sort(
+          (a: Employee, b: Employee) => a.name.localeCompare(b.name)
+        );
+
         this.toastService.showSuccess('Employee added successfully');
       },
       () => {
@@ -64,6 +74,9 @@ export class TableListComponent implements OnInit {
       .subscribe(
         () => {
           this.getEmployees();
+          this.employeesData.data = this.employees.sort(
+            (a: Employee, b: Employee) => a.name.localeCompare(b.name)
+          );
           this.toastService.showSuccess('Employee updated successfully');
         },
         () => {
@@ -81,6 +94,9 @@ export class TableListComponent implements OnInit {
           () => {
             this.employees = this.employees.filter(
               (e) => e.scrambledId !== employee.scrambledId
+            );
+            this.employeesData.data = this.employees.sort(
+              (a: Employee, b: Employee) => a.name.localeCompare(b.name)
             );
             this.toastService.showSuccess('Employee deleted successfully');
           },
