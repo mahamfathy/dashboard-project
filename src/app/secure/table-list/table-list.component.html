@@ -1,4 +1,12 @@
 <div class="container">
+  <div class="row mx-0 d-flex justify-content-center">
+    <div class="col-4 mt-4">
+      <mat-form-field appearance="outline" class="d-flex w-100">
+        <mat-label>{{ "icons.search" | translate }}</mat-label>
+        <input matInput placeholder="Search By Name..." type="text" />
+      </mat-form-field>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-12">
       <table mat-table [dataSource]="employees" class="mat-elevation-z8">
