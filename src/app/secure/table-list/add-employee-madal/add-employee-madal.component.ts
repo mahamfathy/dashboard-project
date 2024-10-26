@@ -1,4 +1,4 @@
-import { Component, EventEmitter, input, OnInit, Output } from '@angular/core';
+import { Component, input, OnInit, output } from '@angular/core';
 import { Employee } from '../../../shared/models/employee';
 import { FormsService } from '../../../shared/services/forms.service';
 import { SharedModule } from '../../../shared/shared.module';
@@ -12,10 +12,15 @@ import { SharedModule } from '../../../shared/shared.module';
 })
 export class AddEmployeeMadalComponent implements OnInit {
   // @Input() employee?: Employee;
+  // @Output() addEmployee = new EventEmitter<Employee>();
+  // @Output() updateEmployee = new EventEmitter<Employee>();
+  // @Output() close = new EventEmitter<void>();
+
   employee = input<Employee | undefined>();
-  @Output() addEmployee = new EventEmitter<Employee>();
-  @Output() updateEmployee = new EventEmitter<Employee>();
-  @Output() close = new EventEmitter<void>();
+  addEmployee = output<Employee>();
+  updateEmployee = output<Employee>();
+  close = output<void>();
+
   constructor(private formsService: FormsService) {}
   employeeForm = this.formsService.createEmployeeModalForm();
 
