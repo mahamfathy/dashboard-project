@@ -31,8 +31,14 @@ export class TableListComponent implements OnInit {
 
   isAddEmployeeModalOpen = false;
   selectedEmployee?: Employee;
-  displayedColumns: string[] = ['name', 'country', 'city', 'salary', 'actions'];
-
+  // displayedColumns: string[] = ['name', 'country', 'city', 'salary', 'actions'];
+  displayedColumns = signal<Array<string>>([
+    'name',
+    'country',
+    'city',
+    'salary',
+    'actions',
+  ]).asReadonly();
   constructor(
     private tableService: TableListService,
     private toastService: ToastService,
