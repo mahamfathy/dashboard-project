@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, computed, OnInit, signal } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { EmptySalaryDirective } from '../../shared/directives/empty-salary.directive';
 import { Employee } from '../../shared/models/employee';
@@ -16,8 +16,19 @@ import { AddEmployeeMadalComponent } from './add-employee-madal/add-employee-mad
   styleUrls: ['./table-list.component.scss'],
 })
 export class TableListComponent implements OnInit {
-  employees: Employee[] = [];
-  employeesData = new MatTableDataSource<Employee>(this.employees);
+  employeesData = signal<Array<Employee>>([]);
+  searchText = signal<string>('');
+
+  filteredEmployees = computed(() => {
+    const searchText = this.searchText().toLocaleLowerCase();
+    return searchText
+      ? this.employeesData().filter((employee) =>
+          employee.name.toLocaleLowerCase().includes(searchText)
+        )
+      : this.employeesData();
+  });
+  employees = new MatTableDataSource<Employee>(this.filteredEmployees());
+
   isAddEmployeeModalOpen = false;
   selectedEmployee?: Employee;
   displayedColumns: string[] = ['name', 'country', 'city', 'salary', 'actions'];
@@ -33,11 +44,11 @@ export class TableListComponent implements OnInit {
   private getEmployees(): void {
     this.tableService.getEmployees().subscribe((data) => {
       console.log('Full response:', data);
-      const sortedEmployee = data.sort((a: Employee, b: Employee) => {
+      const sortedEmployees = data.sort((a: Employee, b: Employee) => {
         return a.name.localeCompare(b.name);
       });
-      this.employees = sortedEmployee;
-      this.employeesData.data = this.employees;
+      this.employeesData.set(sortedEmployees);
+      this.employees.data = this.filteredEmployees();
     });
   }
   openAddEmployeeModal(employee?: Employee): void {
@@ -53,10 +64,8 @@ export class TableListComponent implements OnInit {
     this.tableService.addEmployee(employee).subscribe(
       () => {
         this.getEmployees();
-        this.employeesData.data = this.employees.sort(
-          (a: Employee, b: Employee) => a.name.localeCompare(b.name)
-        );
 
+        this.employees.data = this.filteredEmployees();
         this.toastService.showSuccess('Employee added successfully');
       },
       () => {
@@ -74,9 +83,7 @@ export class TableListComponent implements OnInit {
       .subscribe(
         () => {
           this.getEmployees();
-          this.employeesData.data = this.employees.sort(
-            (a: Employee, b: Employee) => a.name.localeCompare(b.name)
-          );
+          this.employees.data = this.filteredEmployees();
           this.toastService.showSuccess('Employee updated successfully');
         },
         () => {
@@ -92,12 +99,10 @@ export class TableListComponent implements OnInit {
       if (res?.confirmDelete) {
         this.tableService.deleteEmployee(employee.scrambledId).subscribe(
           () => {
-            this.employees = this.employees.filter(
-              (e) => e.scrambledId !== employee.scrambledId
+            this.employeesData.update((employees) =>
+              employees.filter((e) => e.scrambledId !== employee.scrambledId)
             );
-            this.employeesData.data = this.employees.sort(
-              (a: Employee, b: Employee) => a.name.localeCompare(b.name)
-            );
+            this.employees.data = this.filteredEmployees();
             this.toastService.showSuccess('Employee deleted successfully');
           },
           () => {
@@ -106,5 +111,10 @@ export class TableListComponent implements OnInit {
         );
       }
     });
+  }
+
+  updateSearchText(searchText: string): void {
+    this.searchText.set(searchText);
+    this.employees.data = this.filteredEmployees();
   }
 }

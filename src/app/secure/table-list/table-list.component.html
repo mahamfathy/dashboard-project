@@ -3,7 +3,13 @@
     <div class="col-4 mt-4">
       <mat-form-field appearance="outline" class="d-flex w-100">
         <mat-label>{{ "icons.search" | translate }}</mat-label>
-        <input matInput placeholder="Search By Name..." type="text" />
+        <input
+          matInput
+          placeholder="Search By Name..."
+          type="text"
+          [(ngModel)]="searchText"
+          (ngModelChange)="updateSearchText($event)"
+        />
       </mat-form-field>
     </div>
   </div>
