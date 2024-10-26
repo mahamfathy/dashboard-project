@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, input, OnInit, Output } from '@angular/core';
 import { Employee } from '../../../shared/models/employee';
 import { FormsService } from '../../../shared/services/forms.service';
 import { SharedModule } from '../../../shared/shared.module';
@@ -11,7 +11,8 @@ import { SharedModule } from '../../../shared/shared.module';
   styleUrl: './add-employee-madal.component.scss',
 })
 export class AddEmployeeMadalComponent implements OnInit {
-  @Input() employee?: Employee;
+  // @Input() employee?: Employee;
+  employee = input<Employee | undefined>();
   @Output() addEmployee = new EventEmitter<Employee>();
   @Output() updateEmployee = new EventEmitter<Employee>();
   @Output() close = new EventEmitter<void>();
@@ -19,14 +20,15 @@ export class AddEmployeeMadalComponent implements OnInit {
   employeeForm = this.formsService.createEmployeeModalForm();
 
   ngOnInit(): void {
-    if (this.employee) {
-      this.employeeForm.patchValue(this.employee);
+    if (this.employee()) {
+      this.employeeForm.patchValue(this.employee());
     }
   }
 
   submit(): void {
     if (this.employeeForm.valid) {
-      if (this.employee && this.employee.scrambledId) {
+      const currentEmployee = this.employee();
+      if (currentEmployee && currentEmployee.scrambledId) {
         this.updateEmployee.emit(this.employeeForm.value);
       } else {
         this.addEmployee.emit(this.employeeForm.value);

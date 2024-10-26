@@ -1,4 +1,4 @@
-import { Component, computed, OnInit, signal } from '@angular/core';
+import { Component, computed, effect, OnInit, signal } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { EmptySalaryDirective } from '../../shared/directives/empty-salary.directive';
 import { Employee } from '../../shared/models/employee';
@@ -43,7 +43,12 @@ export class TableListComponent implements OnInit {
     private tableService: TableListService,
     private toastService: ToastService,
     private dialogService: DialogService
-  ) {}
+  ) {
+    effect(() => {
+      console.log('filteredEmployees', this.filteredEmployees().length);
+      // this.employees.data = this.filteredEmployees();
+    });
+  }
   ngOnInit() {
     this.getEmployees();
   }
