@@ -19,9 +19,14 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.initAppLanguage();
     const savedTheme = this.themeService.getTheme();
+    console.log(`Retrieved theme: ${savedTheme}`); // Debugging log
+
     this.themeService.applyTheme(savedTheme);
   }
   private initAppLanguage(): void {
     this.langaugeService.initAppLanguage();
+  }
+  toggleTheme(): void {
+    this.themeService.toggleTheme();
   }
 }

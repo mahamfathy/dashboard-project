@@ -159,3 +159,11 @@ hr {
   background-color: #f4f4f4;
   z-index: 1000;
 }
+.sidebar {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+  * {
+    background-color: var(--background-color) !important;
+    color: var(--text-color) !important;
+  }
+}

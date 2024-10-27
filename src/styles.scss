@@ -1,31 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
-// styles.scss
-
-// Default light theme
-body.light-theme {
-  --primary-color: #ffffff;
-  --background-color: #f0f0f0;
+:root {
+  --background-color: #f4f3ef;
   --text-color: #000000;
 }
 
-// Dark theme
-body.dark-theme {
-  --primary-color: #1e1e1e;
-  --background-color: #121212;
-  --text-color: #ffffff;
+.light-theme {
+  --text-color: #000000;
 }
 
+.dark-theme {
+  --background-color: #1e1e1e;
+  --text-color: #ffffff;
+}
+* {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+}
 html,
 body {
   height: 100vh;
   width: 100%;
   padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
+}
+hr {
+  margin: 0 !important;
 }
 /* Override ngx-toastr default styles */
 .toast-success {
@@ -42,26 +46,8 @@ body {
   padding: 15px !important; /* Custom padding */
 }
 
-.toast-info {
-  background-color: #17a2b8 !important; /* Custom background color for info */
-  color: white !important;
-  border-radius: 10px !important; /* Rounded corners */
-  padding: 15px !important; /* Custom padding */
-}
-
-.toast-warning {
-  background-color: #ffc107 !important; /* Custom background color for warning */
-  color: black !important;
-  border-radius: 10px !important; /* Rounded corners */
-  padding: 15px !important; /* Custom padding */
-}
-
 /* General toaster styling */
 .toast {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16) !important; /* Add shadow */
   font-family: "Roboto", sans-serif !important;
-}
-
-button {
-  background-color: var(--primary-color);
 }
