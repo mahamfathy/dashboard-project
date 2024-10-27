@@ -6,8 +6,8 @@ import { LocalStorageService } from './local-storage.service';
 })
 export class ThemeService {
   private readonly themeKey = 'theme';
-  private readonly defaultTheme = 'light';
-  private readonly darkTheme = 'dark';
+  private readonly defaultTheme = 'light-theme';
+  private readonly darkTheme = 'dark-theme';
   constructor(private localStorageService: LocalStorageService) {}
 
   setTheme(theme: string): void {

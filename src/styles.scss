@@ -1,4 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+// styles.scss
+
+// Default light theme
+body.light-theme {
+  --primary-color: #ffffff;
+  --background-color: #f0f0f0;
+  --text-color: #000000;
+}
+
+// Dark theme
+body.dark-theme {
+  --primary-color: #1e1e1e;
+  --background-color: #121212;
+  --text-color: #ffffff;
+}
 
 html,
 body {
@@ -9,6 +24,8 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 /* Override ngx-toastr default styles */
 .toast-success {
@@ -43,4 +60,8 @@ body {
 .toast {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16) !important; /* Add shadow */
   font-family: "Roboto", sans-serif !important;
+}
+
+button {
+  background-color: var(--primary-color);
 }
