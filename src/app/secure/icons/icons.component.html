@@ -4,5 +4,7 @@
     <img [src]="icon.iconPath" alt="{{ icon.iconTitle }}" />
     <span>{{ icon.iconTitle }}</span>
   </div>
+  }@empty {
+  <div class="text-danger">No Icons Found</div>
   }
 </div>
