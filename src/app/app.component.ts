@@ -26,7 +26,4 @@ export class AppComponent implements OnInit {
   private initAppLanguage(): void {
     this.langaugeService.initAppLanguage();
   }
-  toggleTheme(): void {
-    this.themeService.toggleTheme();
-  }
 }

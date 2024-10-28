@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../shared/services/auth.service';
 import { NavigationService } from '../shared/services/navigation.service';
+import { ThemeService } from '../shared/services/theme.service';
 import { SharedModule } from '../shared/shared.module';
 @Component({
   selector: 'app-navbar',
@@ -14,8 +15,12 @@ export class NavbarComponent {
   unreadCount = 1;
   constructor(
     private navigationService: NavigationService,
-    private authService: AuthService
+    private authService: AuthService,
+    public themeService: ThemeService
   ) {}
+  toggleTheme(): void {
+    this.themeService.toggleTheme();
+  }
   logout(): void {
     this.authService.signOut();
     this.navigationService.navigateByUrl('account/login');
