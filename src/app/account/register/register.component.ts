@@ -39,15 +39,17 @@ export class RegisterComponent {
 
   register() {
     const formValue = this.form.value;
-    this.authService.signUp(formValue.email!, formValue.password!).subscribe(
-      (res) => {
-        console.log(res);
-        this.saveUserData(formValue);
-      },
-      (err) => {
-        console.error('Firebase Auth error:', err);
-      }
-    );
+    this.authService
+      .signUp(formValue.email!, formValue.password!, formValue.userName!)
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          this.saveUserData(formValue);
+        },
+        error: (err) => {
+          console.error('Firebase Auth error:', err);
+        },
+      });
 
     this.form.reset();
   }
