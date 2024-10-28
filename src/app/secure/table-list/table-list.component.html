@@ -46,7 +46,9 @@
             {{ "table-list.salary" | translate }}
           </th>
           <td mat-cell *matCellDef="let employee">
-            <div class="fw-bold" [appEmptySalary]="employee.salary"></div>
+            <div class="fw-bold" [appEmptySalary]="employee.salary">
+              {{ getFormattedSalary(employee.salary) }}
+            </div>
           </td>
         </ng-container>
 

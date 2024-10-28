@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { AngularMaterialModule } from './modules/angular-material.module';
-import { CurrencySwitchPipe } from './pipes/currency-switch.pipe';
 const components: any = [];
 const modules = [
   CommonModule,
@@ -14,7 +13,6 @@ const modules = [
   TranslateModule,
   ReactiveFormsModule,
   AngularMaterialModule,
-  CurrencySwitchPipe,
 ];
 @NgModule({
   declarations: [components],
