@@ -139,6 +139,7 @@ export class TableListComponent implements OnInit {
     this.searchText.set(searchText);
     this.employees.data = this.filteredEmployees();
   }
+
   getFormattedSalary(salary: number | string): string | null {
     const lang = this.localStorageService.getItem('lang') || 'en';
     const locale = lang === 'ar' ? 'ar-EG' : 'en-US';

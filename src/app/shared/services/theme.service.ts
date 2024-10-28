@@ -25,8 +25,8 @@ export class ThemeService {
     this.setTheme(this.isDarkTheme() ? this.defaultTheme : this.darkTheme);
   }
   applyTheme(theme: string): void {
-    const rootElement = document.documentElement;
-    rootElement.classList.remove(this.defaultTheme, this.darkTheme);
-    rootElement.classList.add(theme);
+    const body = document.body;
+    body.classList.remove(this.defaultTheme, this.darkTheme);
+    body.classList.add(theme);
   }
 }

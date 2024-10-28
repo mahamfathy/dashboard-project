@@ -1,20 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./assets/SASS/abstracts/variables";
 :root {
-  --background-color-light: $background-color-light;
-  --text-color-light: $color-white;
-  --background-color-dark: $background-color-dark;
-  --text-color-dark: $color-black;
+  --background-color-light: #{$color-background-light};
+  --text-color-light: #{$color-white};
+  --background-color-dark: #{$color-background-dark};
+  --text-color-dark: #{$color-black};
 }
 
 .light-theme {
   --background-color: var(--background-color-light);
-  --text-color: var(--text-color-light);
+  --text-color: var(--text-color-dark);
 }
 
 .dark-theme {
   --background-color: var(--background-color-dark);
-  --text-color: var(--text-color-dark);
+  --text-color: var(--text-color-light);
 }
 
 // Apply to html, body, and all elements
@@ -23,8 +23,9 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: var(--background-color);
   color: var(--text-color);
+  background-color: var(--background-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 body {
@@ -35,6 +36,7 @@ body {
 * {
   background-color: var(--background-color);
   color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 hr {
   margin: 0 !important;
