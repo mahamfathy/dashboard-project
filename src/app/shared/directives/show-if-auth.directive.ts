@@ -28,8 +28,9 @@ export class ShowIfAuthDirective {
     if (token && !this.hasView) {
       this.viewContainerRef.createEmbeddedView(this.templateRef);
       this.hasView = true;
-    } else {
-      if (this.hasView) this.viewContainerRef.clear();
+    } else if (!token && this.hasView) {
+      this.viewContainerRef.clear();
+      this.hasView = false;
     }
   }
 }

@@ -28,8 +28,8 @@
         class="mx-1"
         [ngClass]="
           themeService.isDarkTheme()
-            ? 'light-theme-button'
-            : 'dark-theme-button '
+            ? 'dark-theme-button'
+            : 'light-theme-button '
         "
         (click)="toggleTheme()"
         type="button"

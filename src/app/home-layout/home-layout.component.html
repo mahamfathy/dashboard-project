@@ -1,23 +1,25 @@
 @if (!isPageNotFound()) {
-<div class="main__wrapper d-flex">
-  <div *showIfAuth class="sidebar">
-    <app-sidebar />
-  </div>
-  <div class="wrapper">
-    <div class="main-panel">
-      <div *showIfAuth>
-        <app-navbar />
+<ng-container>
+  <div class="main__wrapper d-flex">
+    <div *showIfAuth class="sidebar">
+      <app-sidebar />
+    </div>
+    <div class="wrapper">
+      <div class="main-panel">
+        <div *showIfAuth>
+          <app-navbar />
+        </div>
+        <div class="content">
+          <router-outlet />
+        </div>
       </div>
-      <div class="content">
-        <router-outlet />
+      <div class="footer">
+        <app-footer />
       </div>
     </div>
-    <div class="footer">
-      <app-footer />
-    </div>
   </div>
-</div>
+</ng-container>
 
-} @if (isPageNotFound()) {
+} @else {
 <router-outlet></router-outlet>
 }

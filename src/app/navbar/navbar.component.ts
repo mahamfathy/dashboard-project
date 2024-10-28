@@ -23,6 +23,6 @@ export class NavbarComponent {
   }
   logout(): void {
     this.authService.signOut();
-    this.navigationService.navigateByUrl('account/login');
+    this.navigationService.navigateByUrl('/account/login');
   }
 }

@@ -48,7 +48,7 @@ hr {
 }
 
 .toast-error {
-  background-color: #dc3545 !important; /* Custom background color for error */
+  background-color: $color-background-light !important; /* Custom background color for error */
   color: white !important;
   border-radius: 10px !important; /* Rounded corners */
   padding: 15px !important; /* Custom padding */

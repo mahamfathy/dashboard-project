@@ -1,18 +1,20 @@
 @import "../../assets/SASS/abstracts/mixins";
+@import "../../assets/SASS/abstracts/variables";
+
 // Define classes for light and dark themes using the mixin
 .light-theme-button {
-  @include theme-button(#b64646, #d8bbbb); // Light theme colors
+  @include theme-button($theme-bg-light, $theme-text-light);
 }
 
 .dark-theme-button {
-  @include theme-button(#8fb32f, #2c331a); // Dark theme colors
+  @include theme-button($theme-bg-dark, $theme-text-dark);
 }
 
 .form-control-dark {
   border-color: var(--bs-gray);
 }
 .form-control-dark:focus {
-  border-color: #fff;
+  border-color: $color-white;
   box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
 }
 
@@ -31,8 +33,8 @@
     position: absolute;
     top: -10px;
     right: 11px;
-    background-color: red;
-    color: white;
+    background-color: $red-bg;
+    color: $color-white;
     border-radius: 50%;
     padding: 0px 5px;
     font-size: 0.65rem;

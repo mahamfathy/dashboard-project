@@ -17,15 +17,15 @@ export class LocalStorageService {
     }
   }
   getItem(key: string): string | null {
-    return localStorage.getItem(key)!;
+    return localStorage.getItem(key);
   }
   removeItem(key: string): void {
-    localStorage.removeItem(key);
-  }
-  clearItem(key: string): void {
     localStorage.removeItem(key);
     if (key == 'token') {
       this.tokenSubject.next(null);
     }
+  }
+  clearItem(key: string): void {
+    localStorage.removeItem(key);
   }
 }

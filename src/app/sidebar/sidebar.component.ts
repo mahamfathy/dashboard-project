@@ -34,6 +34,6 @@ export class SidebarComponent implements AfterViewInit {
   }
   logout(): void {
     this.authService.signOut();
-    this.navigationService.navigateByUrl('account/login');
+    this.navigationService.navigateByUrl('/account/login');
   }
 }
