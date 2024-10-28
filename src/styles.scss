@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./assets/SASS/abstracts/variables";
 :root {
-  --background-color-light: #f4f3ef;
-  --text-color-light: #000000;
-  --background-color-dark: #1e1e1e;
-  --text-color-dark: #ffffff;
+  --background-color-light: $background-color-light;
+  --text-color-light: $color-white;
+  --background-color-dark: $background-color-dark;
+  --text-color-dark: $color-black;
 }
 
 .light-theme {
