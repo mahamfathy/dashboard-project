@@ -1,9 +1,10 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { signInUrl, signUpUrl } from '../firebase/firebase-url';
 import { FirebaseService } from './firebase.service';
 import { LocalStorageService } from './local-storage.service';
+import { NavigationService } from './navigation.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,25 +16,41 @@ export class AuthService {
   username$ = this.usernameSubject.asObservable();
   constructor(
     private firebaseService: FirebaseService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private navigationService: NavigationService
   ) {}
   signUp(email: string, password: string, username: string): Observable<any> {
-    this.localStorageService.setItem('username', username);
-    this.usernameSubject.next(username);
-    console.log(email, password, username);
-    return this.firebaseService.postRequest(
-      signUpUrl,
-      { email, password, returnSecureToken: true },
-      { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
-    );
+    return this.firebaseService
+      .postRequest(
+        signUpUrl,
+        { email, password, returnSecureToken: true },
+        { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
+      )
+      .pipe(
+        tap((response) => {
+          const token = response.idToken;
+          this.localStorageService.setItem('token', token);
+          this.localStorageService.setItem('username', username);
+          this.usernameSubject.next(username);
+          this.navigationService.navigateByUrl('secure/dashboard');
+        })
+      );
   }
 
   signIn(email: string, password: string): Observable<any> {
-    return this.firebaseService.postRequest(
-      signInUrl,
-      { email, password, returnSecureToken: true },
-      { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
-    );
+    return this.firebaseService
+      .postRequest(
+        signInUrl,
+        { email, password, returnSecureToken: true },
+        { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
+      )
+      .pipe(
+        tap((response) => {
+          const token = response.idToken;
+          this.localStorageService.setItem('token', token);
+          this.navigationService.navigateByUrl('secure/dashboard');
+        })
+      );
   }
   async signOut(): Promise<void> {
     this.localStorageService.removeItem('token');

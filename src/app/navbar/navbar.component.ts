@@ -13,6 +13,8 @@ import { SharedModule } from '../shared/shared.module';
 export class NavbarComponent {
   faBell = 'faBell';
   unreadCount = 1;
+  imagePath: string = './assets/images/default-avatar.avif';
+
   constructor(
     private navigationService: NavigationService,
     private authService: AuthService,

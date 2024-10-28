@@ -12,12 +12,17 @@ declare const bootstrap: any;
   styleUrl: './sidebar.component.scss',
 })
 export class SidebarComponent implements AfterViewInit {
+  imagePath: string = './assets/images/default-avatar.avif';
   constructor(
     private languageService: LanguageService,
     private authService: AuthService,
     private navigationService: NavigationService
-  ) {}
-  profileName = 'ABC';
+  ) {
+    this.authService.username$.subscribe((username) => {
+      if (username) this.profileName = username;
+    });
+  }
+  profileName!: string;
   readonly arabic = 'ar';
   readonly english = 'en';
   selectedLanguage!: string;
