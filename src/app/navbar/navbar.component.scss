@@ -1,3 +1,13 @@
+@import "../../assets/SASS/abstracts/mixins";
+// Define classes for light and dark themes using the mixin
+.light-theme-button {
+  @include theme-button(#b64646, #d8bbbb); // Light theme colors
+}
+
+.dark-theme-button {
+  @include theme-button(#8fb32f, #2c331a); // Dark theme colors
+}
+
 .form-control-dark {
   border-color: var(--bs-gray);
 }

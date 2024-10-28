@@ -24,7 +24,16 @@
           aria-label="Search"
         />
       </form>
-      <button class="mx-1" (click)="toggleTheme()" type="button">
+      <button
+        class="mx-1"
+        [ngClass]="
+          themeService.isDarkTheme()
+            ? 'light-theme-button'
+            : 'dark-theme-button '
+        "
+        (click)="toggleTheme()"
+        type="button"
+      >
         {{ themeService.isDarkTheme() ? "Light 🌞" : "Dark 🌜" }}
       </button>
       @if (unreadCount>0 ) {
