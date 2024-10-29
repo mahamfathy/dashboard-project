@@ -37,6 +37,15 @@ export class UserProfileComponent {
         if (imagePath) this.profile.imagePath = imagePath;
       });
     });
+    this.authService.profile$.subscribe((profile) => {
+      this.profile = profile;
+      this.form.patchValue({
+        username: profile.username.slice(1),
+        firstName: profile.name.split(' ')[0] || '',
+        lastName: profile.name.split(' ')[1] || '',
+        aboutMe: profile.aboutMe || '',
+      });
+    });
   }
 
   onImageSelected(event: Event): void {

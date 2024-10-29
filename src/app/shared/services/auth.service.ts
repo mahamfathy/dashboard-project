@@ -97,7 +97,13 @@ export class AuthService {
     return savedProfile
       ? JSON.parse(savedProfile)
       : {
-          /* default values */
+          name: 'Default Name',
+          username: '@default',
+          imagePath: './assets/images/default-avatar.avif',
+          backgroundImage: './assets/images/background.jpg',
+          imageAlt: 'Default Avatar',
+          backgroundAlt: 'Background image',
+          aboutMe: 'Add Bio',
         };
   }
 }
