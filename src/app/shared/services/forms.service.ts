@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ValidationService } from './validation.service';
 
 @Injectable({
@@ -36,6 +36,18 @@ export class FormsService {
       city: ['', Validators.required],
       country: ['', Validators.required],
       salary: ['', Validators.required],
+    });
+  }
+  createProfileForm(): FormGroup {
+    return this.formBuilder.group({
+      username: [''],
+      firstName: [''],
+      lastName: [''],
+      address: [''],
+      city: [''],
+      country: [''],
+      postaCode: [''],
+      aboutMe: [''],
     });
   }
 }

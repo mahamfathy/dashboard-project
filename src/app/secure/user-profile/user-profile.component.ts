@@ -40,4 +40,7 @@ export class UserProfileComponent {
       reader.readAsDataURL(file);
     }
   }
+  onUpdate():void{
+    console.log('hi')
+  }
 }
