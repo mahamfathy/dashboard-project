@@ -10,22 +10,22 @@ import { SharedModule } from '../../shared/shared.module';
   standalone: true,
   imports: [SharedModule],
   templateUrl: './user-profile.component.html',
-  styleUrl: './user-profile.component.scss',
+  styleUrls: ['./user-profile.component.scss'],
 })
 export class UserProfileComponent {
   form = this.formsService.createProfileForm();
-  selectedImagePath: string | undefined;
   profile: IProfile = {
     name: 'Chet Faker',
     username: '@chetfaker',
-    imagePath: 'assets/images/avatar2.jpg',
+    imagePath: './assets/images/avatar2.jpg',
     backgroundImage: './assets/images/background.jpg',
     imageAlt: 'Avatar image',
     backgroundAlt: 'Background image',
     aboutMe: 'Add Bio',
   };
+  selectedImagePath!: string | undefined;
   constructor(
-    private authService: AuthService,
+    public authService: AuthService,
     private formsService: FormsService
   ) {
     this.authService.username$.subscribe((username) => {
@@ -66,10 +66,11 @@ export class UserProfileComponent {
       name: `${formValue.firstName ?? ''} ${formValue.lastName ?? ''}`.trim(),
       username: `@${formValue.username}`.trim(),
       aboutMe: formValue.aboutMe ?? '',
-      imagePath: this.selectedImagePath || this.profile.imagePath,
+      imagePath: this.selectedImagePath
+        ? this.selectedImagePath
+        : this.profile.imagePath,
     };
     this.authService.updateProfileData(updatedProfile);
     this.form.reset();
-    this.selectedImagePath = undefined;
   }
 }

@@ -36,12 +36,28 @@ export class AuthService {
           const token = response.idToken;
           this.localStorageService.setItem('token', token);
           this.localStorageService.setItem('username', username);
-          this.localStorageService.setItem(
-            'imagePath',
-            './assets/images/default-avatar.avif'
-          );
+
+          // Default image path
+          const defaultImagePath = './assets/images/default-avatar.avif';
+          this.localStorageService.setItem('imagePath', defaultImagePath);
           this.usernameSubject.next(username);
-          this.imagePathSubject.next('./assets/images/default-avatar.avif');
+          this.imagePathSubject.next(defaultImagePath);
+
+          // Initialize profile with default values
+          const initialProfile: IProfile = {
+            name: username,
+            username: `@${username}`,
+            imagePath: defaultImagePath,
+            backgroundImage: './assets/images/background.jpg',
+            imageAlt: 'Avatar image',
+            backgroundAlt: 'Background image',
+            aboutMe: 'Add Bio',
+          };
+          this.localStorageService.setItem(
+            'profile',
+            JSON.stringify(initialProfile)
+          );
+          this.profileDataSubject.next(initialProfile);
 
           this.navigationService.navigateByUrl('secure/dashboard');
         })
@@ -59,14 +75,20 @@ export class AuthService {
         tap((response) => {
           const token = response.idToken;
           this.localStorageService.setItem('token', token);
-          const imagePath =
-            this.localStorageService.getItem('imagePath') ||
-            './assets/images/default-avatar.avif';
+
           const username = this.localStorageService.getItem('username');
+          const imagePath = this.localStorageService.getItem('imagePath');
+
           if (username) {
             this.usernameSubject.next(username);
           }
-          this.imagePathSubject.next(imagePath);
+
+          const savedProfile = this.getProfileData();
+          if (savedProfile) {
+            // Update profile only if it exists
+            this.profileDataSubject.next(savedProfile);
+            this.imagePathSubject.next(savedProfile.imagePath || imagePath); // Use saved image path if available
+          }
           this.navigationService.navigateByUrl('secure/dashboard');
         })
       );
@@ -89,8 +111,8 @@ export class AuthService {
     this.imagePathSubject.next(newImagePath);
   }
   updateProfileData(newProfileData: IProfile): void {
-    this.localStorageService.setItem('profile', JSON.stringify(newProfileData));
     this.profileDataSubject.next(newProfileData);
+    this.localStorageService.setItem('profile', JSON.stringify(newProfileData));
   }
   private getProfileData(): IProfile {
     const savedProfile = this.localStorageService.getItem('profile');

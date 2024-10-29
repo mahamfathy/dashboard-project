@@ -1,7 +1,7 @@
 <div class="container d-flex flex-column">
   <div class="user profile-card">
     <img
-      [src]="profile.backgroundImage"
+      [src]="profile.backgroundImage || 'assets/images/background.jpg'"
       [alt]="profile.backgroundAlt"
       class="background"
     />
