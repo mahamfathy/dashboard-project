@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IProfile } from '../shared/models/IProfile';
 import { AuthService } from '../shared/services/auth.service';
 import { NavigationService } from '../shared/services/navigation.service';
 import { ThemeService } from '../shared/services/theme.service';
@@ -14,6 +15,7 @@ export class NavbarComponent {
   faBell = 'faBell';
   unreadCount = 1;
   imagePath!: string;
+  profile!: IProfile;
   constructor(
     private navigationService: NavigationService,
     private authService: AuthService,
@@ -21,6 +23,9 @@ export class NavbarComponent {
   ) {
     this.authService.imagePath$.subscribe((imagePath) => {
       if (imagePath) this.imagePath = imagePath;
+    });
+    this.authService.profile$.subscribe((profile) => {
+      this.profile = profile;
     });
   }
   toggleTheme(): void {
