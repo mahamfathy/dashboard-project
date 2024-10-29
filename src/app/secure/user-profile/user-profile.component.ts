@@ -29,4 +29,15 @@ export class UserProfileComponent {
       });
     });
   }
+  onImageSelected(event: Event): void {
+    const fileInput = event.target as HTMLInputElement;
+    if (fileInput.files && fileInput.files[0]) {
+      const file = fileInput.files[0];
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.authService.updateImagePath(e.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  }
 }

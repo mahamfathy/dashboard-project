@@ -36,6 +36,17 @@
       <h2>{{ "user-profile.edit-profile" | translate }}</h2>
       <form>
         <div class="mb-3">
+          <label for="profileImage" class="form-label">{{
+            "user-profile.upload-image" | translate
+          }}</label>
+          <input
+            type="file"
+            class="form-control"
+            id="profileImage"
+            (change)="onImageSelected($event)"
+          />
+        </div>
+        <div class="mb-3">
           <label for="company" class="form-label"
             >{{ "user-profile.company" | translate }} ({{
               "buttons.disable" | translate
