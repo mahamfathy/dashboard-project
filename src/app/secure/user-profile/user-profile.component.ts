@@ -24,6 +24,9 @@ export class UserProfileComponent {
       if (username) {
         this.profile.name = username;
       }
+      this.authService.imagePath$.subscribe((imagePath) => {
+        if (imagePath) this.profile.imagePath = imagePath;
+      });
     });
   }
 }

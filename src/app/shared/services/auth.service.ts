@@ -14,6 +14,8 @@ export class AuthService {
   loggedIn$ = this.LoggedInSubject.asObservable();
   usernameSubject = new BehaviorSubject<string | null>(this.getUsername());
   username$ = this.usernameSubject.asObservable();
+  imagePathSubject = new BehaviorSubject<string | null>(this.getImagePath());
+  imagePath$ = this.imagePathSubject.asObservable();
   constructor(
     private firebaseService: FirebaseService,
     private localStorageService: LocalStorageService,
@@ -31,13 +33,19 @@ export class AuthService {
           const token = response.idToken;
           this.localStorageService.setItem('token', token);
           this.localStorageService.setItem('username', username);
+          this.localStorageService.setItem(
+            'imagePath',
+            './assets/images/default-avatar.avif'
+          );
           this.usernameSubject.next(username);
+          this.imagePathSubject.next('./assets/images/default-avatar.avif');
+
           this.navigationService.navigateByUrl('secure/dashboard');
         })
       );
   }
 
-  signIn(email: string, password: string, username: string): Observable<any> {
+  signIn(email: string, password: string, _: string): Observable<any> {
     return this.firebaseService
       .postRequest(
         signInUrl,
@@ -48,11 +56,14 @@ export class AuthService {
         tap((response) => {
           const token = response.idToken;
           this.localStorageService.setItem('token', token);
+          const imagePath =
+            this.localStorageService.getItem('imagePath') ||
+            './assets/images/default-avatar.avif';
           const username = this.localStorageService.getItem('username');
           if (username) {
             this.usernameSubject.next(username);
           }
-
+          this.imagePathSubject.next(imagePath);
           this.navigationService.navigateByUrl('secure/dashboard');
         })
       );
@@ -66,5 +77,12 @@ export class AuthService {
   }
   getUsername(): string | null {
     return this.localStorageService.getItem('username');
+  }
+  getImagePath(): string | null {
+    return this.localStorageService.getItem('imagePath');
+  }
+  updateImagePath(newImagePath: string): void {
+    this.localStorageService.setItem('imagePath', newImagePath);
+    this.imagePathSubject.next(newImagePath);
   }
 }
