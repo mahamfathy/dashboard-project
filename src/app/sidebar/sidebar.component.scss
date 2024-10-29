@@ -9,7 +9,7 @@
   overflow-y: hidden;
   background-color: var(--background-color);
   color: var(--text-color) !important;
-  transition: background-color 0.3s, color 0.3s;
+  transition: var(--transition-theme);
   z-index: 1000;
 
   * {
@@ -23,7 +23,8 @@
   .dropdown-menu {
     background-color: var(--background-color);
     color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s ease;
+
     height: 2.7rem;
   }
 

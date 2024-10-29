@@ -13,7 +13,8 @@
     border-collapse: collapse;
 
     thead {
-      background-color: #f4f4f4;
+      background-color: var(--background-color) !important;
+      transition: var(--transition-theme);
 
       th {
         padding: 12px;
@@ -26,14 +27,19 @@
       tr {
         &:nth-child(even) {
           background-color: #f9f9f9;
+          transition: var(--transition-theme);
         }
 
         td {
           padding: 12px;
           border: 1px solid #ddd;
           text-align: center;
+          transition: var(--transition-theme);
         }
       }
     }
   }
+}
+.ng-star-inserted {
+  background-color: var(--background-color);
 }
