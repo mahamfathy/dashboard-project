@@ -30,6 +30,7 @@
       </div>
     </div>
   </div>
+  @defer(on viewport){
   <div class="row">
     <div class="col-md-12">
       <h2>{{ "user-profile.edit-profile" | translate }}</h2>
@@ -140,4 +141,7 @@
       </form>
     </div>
   </div>
+  }@placeholder {
+  <p>the form is getting ready!</p>
+  }
 </div>

@@ -57,7 +57,7 @@ export class TableListComponent implements OnInit {
   ) {
     effect(() => {
       console.log('filteredEmployees', this.filteredEmployees().length);
-      // this.employees.data = this.filteredEmployees();
+      this.employees.data = this.filteredEmployees();
     });
   }
   ngOnInit() {
@@ -70,7 +70,6 @@ export class TableListComponent implements OnInit {
         return a.name.localeCompare(b.name);
       });
       this.employeesData.set(sortedEmployees);
-      this.employees.data = this.filteredEmployees();
     });
   }
   openAddEmployeeModal(employee?: Employee): void {

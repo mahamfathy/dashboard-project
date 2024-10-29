@@ -37,7 +37,7 @@ export class AuthService {
       );
   }
 
-  signIn(email: string, password: string): Observable<any> {
+  signIn(email: string, password: string, username: string): Observable<any> {
     return this.firebaseService
       .postRequest(
         signInUrl,
@@ -48,15 +48,18 @@ export class AuthService {
         tap((response) => {
           const token = response.idToken;
           this.localStorageService.setItem('token', token);
+          const username = this.localStorageService.getItem('username');
+          if (username) {
+            this.usernameSubject.next(username);
+          }
+
           this.navigationService.navigateByUrl('secure/dashboard');
         })
       );
   }
   async signOut(): Promise<void> {
     this.localStorageService.removeItem('token');
-    this.localStorageService.removeItem('username');
     this.LoggedInSubject.next(false);
-    this.usernameSubject.next(null);
   }
   isLoggedIn(): boolean {
     return !!this.localStorageService.getItem('token');

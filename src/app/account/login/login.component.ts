@@ -26,7 +26,7 @@ export class LoginComponent {
     if (loginForm.valid) {
       const formValue = this.loginForm.value;
       return this.authService
-        .signIn(formValue.email!, formValue.password!)
+        .signIn(formValue.email!, formValue.password!, formValue.userName)
         .subscribe((res) => {
           console.log(res.idToken);
           this.localStorageService.setItem('token', res.idToken);

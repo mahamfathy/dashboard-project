@@ -1,3 +1,4 @@
+@import "../../assets/SASS/abstracts/variables";
 .sidebar {
   position: sticky;
   top: 0;
@@ -6,7 +7,7 @@
   height: 100vh;
   overflow-x: hidden;
   overflow-y: hidden;
-  background-color: var(--background-color) !important;
+  background-color: var(--background-color);
   color: var(--text-color) !important;
   transition: background-color 0.3s, color 0.3s;
   z-index: 1000;
@@ -15,30 +16,33 @@
     background-color: var(--background-color) !important;
     color: var(--text-color) !important;
   }
-
-  a.nav-link {
-    color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s;
-
-    &:hover,
-    &:focus {
-      background-color: rgba(255, 255, 255, 0.1);
-      color: var(--text-color);
-    }
-    &.active {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
+  .title {
+    height: 3.5rem;
   }
 
   .dropdown-menu {
     background-color: var(--background-color);
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
+    height: 2.7rem;
   }
 
   .nav-item {
     margin-bottom: 0.5rem;
-    background-color: var(--background-color);
+    background-color: var(--background-color) !important;
     transition: background-color 0.3s, color 0.3s;
+    a.nav-link {
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+
+      &:hover,
+      &:focus {
+        background-color: var(--button-light-col) !important;
+        color: var(--text-color);
+      }
+      &.active {
+        background-color: var(--button-dark-col) !important;
+      }
+    }
   }
 }

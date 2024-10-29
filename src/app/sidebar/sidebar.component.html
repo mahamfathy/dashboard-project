@@ -3,15 +3,20 @@
     class="d-flex flex-column flex-shrink-0 p-2 bg-body-tertiary"
     style="width: 15rem; height: 100vh"
   >
-    <a
-      href="/"
-      class="d-flex align-items-center mb-3 mb-md-0 link-body-emphasis text-decoration-none"
-    >
-      <svg class="bi pe-none me-2" width="40" height="32">
-        <use xlink:href="#bootstrap" />
-      </svg>
-      <span routerLink="dashboard" class="fs-4">{{ "title" | translate }}</span>
-    </a>
+    <div class="title">
+      <a
+        routerLink="secure/dashboard"
+        class="d-flex align-items-center mb-3 mb-md-0 link-body-emphasis text-decoration-none"
+      >
+        <svg class="bi pe-none me-2" width="40" height="32">
+          <use xlink:href="#bootstrap" />
+        </svg>
+        <span routerLink="secure/dashboard" class="fs-4">{{
+          "title" | translate
+        }}</span>
+      </a>
+    </div>
+
     <hr />
     <ul class="nav nav-pills flex-column h-100">
       <li class="nav-item">
@@ -103,7 +108,7 @@
       </li>
     </ul>
     <hr />
-    <div class="dropdown">
+    <div class="dropdown mt-2">
       <a
         href="#"
         class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
