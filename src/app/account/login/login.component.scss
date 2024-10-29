@@ -1,3 +1,10 @@
 .login-container {
-  height: 69vh;
+  height: 83vh;
+
+  .btnsContainer {
+    justify-content: space-between;
+    button {
+      width: 45%;
+    }
+  }
 }
