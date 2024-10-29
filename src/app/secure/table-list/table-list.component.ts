@@ -2,7 +2,7 @@ import { CurrencyPipe } from '@angular/common';
 import { Component, computed, effect, OnInit, signal } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { EmptySalaryDirective } from '../../shared/directives/empty-salary.directive';
-import { Employee } from '../../shared/models/IEmployee';
+import { IEmployee } from '../../shared/models/IEmployee';
 import { CurrencySwitchPipe } from '../../shared/pipes/currency-switch.pipe';
 import { DialogService } from '../../shared/services/dialog.service';
 import { LocalStorageService } from '../../shared/services/local-storage.service';
@@ -25,7 +25,7 @@ import { AddEmployeeMadalComponent } from './add-employee-madal/add-employee-mad
   providers: [CurrencyPipe],
 })
 export class TableListComponent implements OnInit {
-  employeesData = signal<Array<Employee>>([]);
+  employeesData = signal<Array<IEmployee>>([]);
   searchText = signal<string>('');
 
   filteredEmployees = computed(() => {
@@ -36,10 +36,10 @@ export class TableListComponent implements OnInit {
         )
       : this.employeesData();
   });
-  employees = new MatTableDataSource<Employee>(this.filteredEmployees());
+  employees = new MatTableDataSource<IEmployee>(this.filteredEmployees());
 
   isAddEmployeeModalOpen = false;
-  selectedEmployee?: Employee;
+  selectedEmployee?: IEmployee;
   // displayedColumns: string[] = ['name', 'country', 'city', 'salary', 'actions'];
   displayedColumns = signal<Array<string>>([
     'name',
@@ -66,13 +66,13 @@ export class TableListComponent implements OnInit {
   private getEmployees(): void {
     this.tableService.getEmployees().subscribe((data) => {
       console.log('Full response:', data);
-      const sortedEmployees = data.sort((a: Employee, b: Employee) => {
+      const sortedEmployees = data.sort((a: IEmployee, b: IEmployee) => {
         return a.name.localeCompare(b.name);
       });
       this.employeesData.set(sortedEmployees);
     });
   }
-  openAddEmployeeModal(employee?: Employee): void {
+  openAddEmployeeModal(employee?: IEmployee): void {
     this.isAddEmployeeModalOpen = true;
     this.selectedEmployee = employee;
   }
@@ -81,7 +81,7 @@ export class TableListComponent implements OnInit {
     this.selectedEmployee = undefined;
   }
 
-  handleAddEmployee(employee: Employee): void {
+  handleAddEmployee(employee: IEmployee): void {
     this.tableService.addEmployee(employee).subscribe(
       () => {
         this.getEmployees();
@@ -96,7 +96,7 @@ export class TableListComponent implements OnInit {
     this.closeAddEmployeeModal();
   }
 
-  handleUpdateEmployee(employee: Employee): void {
+  handleUpdateEmployee(employee: IEmployee): void {
     if (!this.selectedEmployee || !this.selectedEmployee.scrambledId) return;
 
     this.tableService
@@ -113,7 +113,7 @@ export class TableListComponent implements OnInit {
       );
     this.closeAddEmployeeModal();
   }
-  deleteEmployee(employee: Employee): void {
+  deleteEmployee(employee: IEmployee): void {
     const dialogRef = this.dialogService.openConfirmDeleteDialog(employee);
 
     dialogRef.afterClosed().subscribe((res: { confirmDelete: boolean }) => {

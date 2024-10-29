@@ -2,7 +2,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { firebaseUrl } from '../firebase/firebase-url';
-import { Employee } from '../models/IEmployee';
+import { IEmployee } from '../models/IEmployee';
 import { FirebaseService } from './firebase.service';
 
 @Injectable({
@@ -10,23 +10,23 @@ import { FirebaseService } from './firebase.service';
 })
 export class TableListService {
   constructor(private firebaseService: FirebaseService) {}
-  getEmployees(): Observable<Array<Employee>> {
+  getEmployees(): Observable<Array<IEmployee>> {
     return this.firebaseService.getRequest('employees').pipe(
-      map((employees: Employee) => {
+      map((employees: IEmployee) => {
         return Object.entries(employees).map(([key, value]) => {
           return { ...value, scrambledId: key };
-        }) as Array<Employee>;
+        }) as Array<IEmployee>;
       })
     );
   }
-  addEmployee(employee: Employee): Observable<any> {
+  addEmployee(employee: IEmployee): Observable<any> {
     return this.firebaseService.postRequest(
       `${firebaseUrl}employees.json`,
       employee,
       { headers: new HttpHeaders({ 'content-type': 'application/json' }) }
     );
   }
-  updateEmployee(id: string, employee: Partial<Employee>): Observable<any> {
+  updateEmployee(id: string, employee: Partial<IEmployee>): Observable<any> {
     const { scrambledId, ...updatedEmployee } = employee;
     return this.firebaseService.patchRequest(
       `${firebaseUrl}employees/${id}.json`,

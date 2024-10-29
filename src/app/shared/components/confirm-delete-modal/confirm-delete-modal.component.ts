@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Employee } from '../../models/IEmployee';
+import { IEmployee } from '../../models/IEmployee';
 import { SharedModule } from '../../shared.module';
 
 @Component({
@@ -13,7 +13,7 @@ import { SharedModule } from '../../shared.module';
 export class ConfirmDeleteModalComponent {
   constructor(
     public dialogRef: MatDialogRef<ConfirmDeleteModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public employee: Employee
+    @Inject(MAT_DIALOG_DATA) public employee: IEmployee
   ) {}
   onNoClick(): void {
     this.dialogRef.close();

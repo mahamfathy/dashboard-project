@@ -13,13 +13,16 @@ import { SharedModule } from '../shared/shared.module';
 export class NavbarComponent {
   faBell = 'faBell';
   unreadCount = 1;
-  imagePath: string = './assets/images/default-avatar.avif';
-
+  imagePath!: string;
   constructor(
     private navigationService: NavigationService,
     private authService: AuthService,
     public themeService: ThemeService
-  ) {}
+  ) {
+    this.authService.imagePath$.subscribe((imagePath) => {
+      if (imagePath) this.imagePath = imagePath;
+    });
+  }
   toggleTheme(): void {
     this.themeService.toggleTheme();
   }

@@ -12,7 +12,11 @@ declare const bootstrap: any;
   styleUrl: './sidebar.component.scss',
 })
 export class SidebarComponent implements AfterViewInit {
-  imagePath: string = './assets/images/default-avatar.avif';
+  imagePath!: string;
+  profileName!: string;
+  readonly arabic = 'ar';
+  readonly english = 'en';
+  selectedLanguage!: string;
   constructor(
     private languageService: LanguageService,
     private authService: AuthService,
@@ -21,11 +25,11 @@ export class SidebarComponent implements AfterViewInit {
     this.authService.username$.subscribe((username) => {
       if (username) this.profileName = username;
     });
+    this.authService.imagePath$.subscribe((imagePath) => {
+      if (imagePath) this.imagePath = imagePath;
+    });
   }
-  profileName!: string;
-  readonly arabic = 'ar';
-  readonly english = 'en';
-  selectedLanguage!: string;
+
   ngAfterViewInit(): void {
     const tooltipTriggerList = Array.from(
       document.querySelectorAll('[data-bs-toggle="tooltip"]')
