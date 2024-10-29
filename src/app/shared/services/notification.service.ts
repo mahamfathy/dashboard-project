@@ -2,7 +2,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { firebaseUrl } from '../firebase/firebase-url';
-import { Notification } from '../models/notification';
+import { INotification } from '../models/INotification';
 import { FirebaseService } from './firebase.service';
 
 @Injectable({
@@ -10,7 +10,7 @@ import { FirebaseService } from './firebase.service';
 })
 export class NotificationService {
   constructor(private firebaseService: FirebaseService) {}
-  getNotifications(): Observable<Notification[]> {
+  getNotifications(): Observable<INotification[]> {
     return this.firebaseService.getRequest('notifications').pipe(
       map((response) => {
         if (response) {

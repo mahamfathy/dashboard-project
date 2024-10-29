@@ -2,7 +2,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { firebaseUrl } from '../firebase/firebase-url';
-import { Employee } from '../models/employee';
+import { Employee } from '../models/IEmployee';
 import { FirebaseService } from './firebase.service';
 
 @Injectable({

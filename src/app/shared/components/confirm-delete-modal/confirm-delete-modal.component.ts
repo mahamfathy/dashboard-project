@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Employee } from '../../models/employee';
+import { Employee } from '../../models/IEmployee';
 import { SharedModule } from '../../shared.module';
 
 @Component({

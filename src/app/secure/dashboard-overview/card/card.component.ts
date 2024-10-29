@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Icard } from '../../../shared/models/Icard';
+import { ICard } from '../../../shared/models/ICard';
 
 @Component({
   selector: 'app-card',
@@ -11,7 +11,7 @@ import { Icard } from '../../../shared/models/Icard';
 export class CardComponent {
   footerColor = '#666360';
 
-  cards: Icard[] = [
+  cards: ICard[] = [
     {
       no: 1,
       bodyText: 'Capacity',

@@ -1,5 +1,5 @@
 import { Component, input, OnInit, output } from '@angular/core';
-import { Employee } from '../../../shared/models/employee';
+import { Employee } from '../../../shared/models/IEmployee';
 import { FormsService } from '../../../shared/services/forms.service';
 import { SharedModule } from '../../../shared/shared.module';
 

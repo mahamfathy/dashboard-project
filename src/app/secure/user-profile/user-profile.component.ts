@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { IProfile } from '../../shared/models/IProfile';
+import { AuthService } from '../../shared/services/auth.service';
 import { SharedModule } from '../../shared/shared.module';
 
 @Component({
@@ -9,7 +11,7 @@ import { SharedModule } from '../../shared/shared.module';
   styleUrl: './user-profile.component.scss',
 })
 export class UserProfileComponent {
-  profile = {
+  profile: IProfile = {
     name: 'Chet Faker',
     username: '@chetfaker',
     imagePath: 'assets/images/avatar2.jpg',
@@ -17,4 +19,11 @@ export class UserProfileComponent {
     imageAlt: 'Avatar image',
     backgroundAlt: 'Background image',
   };
+  constructor(private authService: AuthService) {
+    this.authService.username$.subscribe((username) => {
+      if (username) {
+        this.profile.name = username;
+      }
+    });
+  }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ConfirmDeleteModalComponent } from '../components/confirm-delete-modal/confirm-delete-modal.component';
-import { Employee } from '../models/employee';
+import { Employee } from '../models/IEmployee';
 
 @Injectable({
   providedIn: 'root',

@@ -1,4 +1,4 @@
-export interface Icard {
+export interface ICard {
   no: number;
   bodyTitle: string;
   bodyText: string;

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Iicon } from '../../shared/models/Iicon';
+import { IIcon } from '../../shared/models/IIcon';
 
 @Component({
   selector: 'app-icons',
@@ -9,7 +9,7 @@ import { Iicon } from '../../shared/models/Iicon';
   styleUrl: './icons.component.scss',
 })
 export class IconsComponent {
-  icons: Iicon[] = [
+  icons: IIcon[] = [
     {
       no: 1,
       iconTitle: 'Building',

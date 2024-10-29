@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Notification } from '../../shared/models/notification';
+import { INotification } from '../../shared/models/INotification';
 import { NotificationService } from '../../shared/services/notification.service';
 import { SharedModule } from '../../shared/shared.module';
 @Component({
@@ -10,7 +10,7 @@ import { SharedModule } from '../../shared/shared.module';
   styleUrls: ['./notifications.component.scss'],
 })
 export class NotificationsComponent implements OnInit {
-  notifications: Notification[] = [];
+  notifications: INotification[] = [];
 
   constructor(private notificationService: NotificationService) {}
 
@@ -18,13 +18,13 @@ export class NotificationsComponent implements OnInit {
     console.log('Fetching notifications...');
     this.notificationService
       .getNotifications()
-      .subscribe((notifications: Notification[]) => {
+      .subscribe((notifications: INotification[]) => {
         console.log('Notifications:', notifications);
         this.notifications = notifications;
       });
   }
 
-  markAsRead(notification: Notification): void {
+  markAsRead(notification: INotification): void {
     this.notificationService.markAsRead(notification.id);
     notification.read = true;
   }

@@ -1,4 +1,4 @@
-export interface Iicon {
+export interface IIcon {
   no: number;
   iconTitle: string;
   iconPath: string;

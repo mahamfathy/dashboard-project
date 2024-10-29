@@ -13,6 +13,7 @@
       </mat-form-field>
     </div>
   </div>
+  @defer(on viewport){
   <div class="row">
     <div class="col-md-12">
       <table mat-table [dataSource]="employees" class="mat-elevation-z8">
@@ -98,6 +99,14 @@
       </button>
     </div>
   </div>
+  }@placeholder {
+  <div class="text-center mt-5">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p>Please wait while the employees are being fetched...</p>
+  </div>
+  }
 </div>
 @if(isAddEmployeeModalOpen){
 <app-add-employee-madal

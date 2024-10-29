@@ -1,4 +1,4 @@
-export interface Employee {
+export interface IEmployee {
   name: string;
   country: string;
   city: string;

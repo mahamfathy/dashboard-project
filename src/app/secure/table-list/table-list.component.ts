@@ -2,7 +2,7 @@ import { CurrencyPipe } from '@angular/common';
 import { Component, computed, effect, OnInit, signal } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { EmptySalaryDirective } from '../../shared/directives/empty-salary.directive';
-import { Employee } from '../../shared/models/employee';
+import { Employee } from '../../shared/models/IEmployee';
 import { CurrencySwitchPipe } from '../../shared/pipes/currency-switch.pipe';
 import { DialogService } from '../../shared/services/dialog.service';
 import { LocalStorageService } from '../../shared/services/local-storage.service';
