@@ -14,7 +14,7 @@ import { SharedModule } from '../../shared/shared.module';
 })
 export class UserProfileComponent {
   form = this.formsService.createProfileForm();
-
+  selectedImagePath: string | undefined;
   profile: IProfile = {
     name: 'Chet Faker',
     username: '@chetfaker',
@@ -54,7 +54,7 @@ export class UserProfileComponent {
       const file = fileInput.files[0];
       const reader = new FileReader();
       reader.onload = (e: any) => {
-        this.authService.updateImagePath(e.target.result);
+        this.selectedImagePath = e.target.result;
       };
       reader.readAsDataURL(file);
     }
@@ -66,8 +66,10 @@ export class UserProfileComponent {
       name: `${formValue.firstName ?? ''} ${formValue.lastName ?? ''}`.trim(),
       username: `@${formValue.username}`.trim(),
       aboutMe: formValue.aboutMe ?? '',
+      imagePath: this.selectedImagePath || this.profile.imagePath,
     };
     this.authService.updateProfileData(updatedProfile);
     this.form.reset();
+    this.selectedImagePath = undefined;
   }
 }
