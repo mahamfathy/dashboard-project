@@ -12,9 +12,7 @@
     />
     <h2>{{ profile.name }}</h2>
     <p class="username">{{ profile.username }}</p>
-    <p class="quote">
-      "I like the way you work it<br />No diggity<br />I wanna bag it up"
-    </p>
+    <p class="quote">"{{ profile.aboutMe }}"</p>
     <div class="stats">
       <div class="stat">
         <span>12</span>
@@ -35,7 +33,7 @@
   <div class="row">
     <div class="col-md-12">
       <h2>{{ "user-profile.edit-profile" | translate }}</h2>
-      <form (ngSubmit)="onUpdate()">
+      <form (ngSubmit)="onUpdate(form)" [formGroup]="form">
         <div class="mb-3">
           <label for="profileImage" class="form-label">{{
             "user-profile.upload-image" | translate
@@ -49,16 +47,14 @@
         </div>
         <div class="mb-3">
           <label for="company" class="form-label"
-            >{{ "user-profile.company" | translate }} ({{
-              "buttons.disable" | translate
-            }})</label
-          >
+            >{{ "user-profile.company" | translate }}
+          </label>
           <input
             type="text"
             class="form-control"
             id="company"
-            value="Creative Code Inc."
-            disabled
+            value="Add company name"
+            formControlName="company"
           />
         </div>
         <div class="mb-3">
@@ -66,6 +62,7 @@
             "form.username" | translate
           }}</label>
           <input
+            formControlName="username"
             type="text"
             class="form-control"
             id="username"
@@ -77,6 +74,7 @@
             "form.email" | translate
           }}</label>
           <input
+            formControlName="email"
             type="email"
             class="form-control"
             id="email"
@@ -87,19 +85,30 @@
           <label for="firstName" class="form-label">{{
             "user-profile.first-name" | translate
           }}</label>
-          <input type="text" class="form-control" id="firstName" />
+          <input
+            type="text"
+            formControlName="firstName"
+            class="form-control"
+            id="firstName"
+          />
         </div>
         <div class="mb-3">
           <label for="lastName" class="form-label">{{
             "user-profile.last-name" | translate
           }}</label>
-          <input type="text" class="form-control" id="lastName" />
+          <input
+            type="text"
+            formControlName="lastName"
+            class="form-control"
+            id="lastName"
+          />
         </div>
         <div class="mb-3">
           <label for="address" class="form-label">{{
             "user-profile.address" | translate
           }}</label>
           <input
+            formControlName="address"
             type="text"
             class="form-control"
             id="address"
@@ -115,6 +124,7 @@
               type="text"
               class="form-control"
               id="city"
+              formControlName="city"
               placeholder="{{ 'user-profile.city' | translate }}"
             />
           </div>
@@ -123,6 +133,7 @@
               "user-profile.country" | translate
             }}</label>
             <input
+              formControlName="country"
               type="text"
               class="form-control"
               id="country"
@@ -134,6 +145,7 @@
               "user-profile.postal-code" | translate
             }}</label>
             <input
+              formControlName="postalCode"
               type="text"
               class="form-control"
               id="postalCode"
@@ -145,7 +157,12 @@
           <label for="aboutMe" class="form-label">{{
             "user-profile.about-me" | translate
           }}</label>
-          <textarea class="form-control" id="aboutMe" rows="3"></textarea>
+          <textarea
+            formControlName="aboutMe"
+            class="form-control"
+            id="aboutMe"
+            rows="3"
+          ></textarea>
         </div>
         <button type="submit" class="btn btn-primary">
           {{ "user-profile.update-profile" | translate }}

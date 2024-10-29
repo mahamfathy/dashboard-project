@@ -1,4 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
+import { IProfile } from '../shared/models/IProfile';
 import { AuthService } from '../shared/services/auth.service';
 import { LanguageService } from '../shared/services/language.service';
 import { NavigationService } from '../shared/services/navigation.service';
@@ -17,6 +18,7 @@ export class SidebarComponent implements AfterViewInit {
   readonly arabic = 'ar';
   readonly english = 'en';
   selectedLanguage!: string;
+  profile!: IProfile;
   constructor(
     private languageService: LanguageService,
     private authService: AuthService,
@@ -27,6 +29,9 @@ export class SidebarComponent implements AfterViewInit {
     });
     this.authService.imagePath$.subscribe((imagePath) => {
       if (imagePath) this.imagePath = imagePath;
+    });
+    this.authService.profile$.subscribe((profile) => {
+      this.profile = profile;
     });
   }
 

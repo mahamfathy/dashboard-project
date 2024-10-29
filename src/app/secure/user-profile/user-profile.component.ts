@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { IProfile } from '../../shared/models/IProfile';
 import { AuthService } from '../../shared/services/auth.service';
+import { FormsService } from '../../shared/services/forms.service';
 import { SharedModule } from '../../shared/shared.module';
 
 @Component({
@@ -11,6 +13,8 @@ import { SharedModule } from '../../shared/shared.module';
   styleUrl: './user-profile.component.scss',
 })
 export class UserProfileComponent {
+  form = this.formsService.createProfileForm();
+
   profile: IProfile = {
     name: 'Chet Faker',
     username: '@chetfaker',
@@ -18,10 +22,15 @@ export class UserProfileComponent {
     backgroundImage: './assets/images/background.jpg',
     imageAlt: 'Avatar image',
     backgroundAlt: 'Background image',
+    aboutMe: 'Add Bio',
   };
-  constructor(private authService: AuthService) {
+  constructor(
+    private authService: AuthService,
+    private formsService: FormsService
+  ) {
     this.authService.username$.subscribe((username) => {
       if (username) {
+        this.profile.username = `@${username}`;
         this.profile.name = username;
       }
       this.authService.imagePath$.subscribe((imagePath) => {
@@ -29,6 +38,7 @@ export class UserProfileComponent {
       });
     });
   }
+
   onImageSelected(event: Event): void {
     const fileInput = event.target as HTMLInputElement;
     if (fileInput.files && fileInput.files[0]) {
@@ -40,7 +50,15 @@ export class UserProfileComponent {
       reader.readAsDataURL(file);
     }
   }
-  onUpdate():void{
-    console.log('hi')
+  onUpdate(form: FormGroup): void {
+    const formValue = form.value;
+    const updatedProfile: IProfile = {
+      ...this.profile,
+      name: `${formValue.firstName ?? ''} ${formValue.lastName ?? ''}`.trim(),
+      username: `@${formValue.username}`.trim(),
+      aboutMe: formValue.aboutMe ?? '',
+    };
+    this.authService.updateProfileData(updatedProfile);
+    this.form.reset();
   }
 }

@@ -46,8 +46,10 @@ export class FormsService {
       address: [''],
       city: [''],
       country: [''],
-      postaCode: [''],
+      postalCode: [''],
       aboutMe: [''],
+      company: [''],
+      email: [{ value: '', disabled: true }],
     });
   }
 }

@@ -2,6 +2,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { signInUrl, signUpUrl } from '../firebase/firebase-url';
+import { IProfile } from '../models/IProfile';
 import { FirebaseService } from './firebase.service';
 import { LocalStorageService } from './local-storage.service';
 import { NavigationService } from './navigation.service';
@@ -16,6 +17,8 @@ export class AuthService {
   username$ = this.usernameSubject.asObservable();
   imagePathSubject = new BehaviorSubject<string | null>(this.getImagePath());
   imagePath$ = this.imagePathSubject.asObservable();
+  profileDataSubject = new BehaviorSubject<IProfile>(this.getProfileData());
+  profile$ = this.profileDataSubject.asObservable();
   constructor(
     private firebaseService: FirebaseService,
     private localStorageService: LocalStorageService,
@@ -84,5 +87,17 @@ export class AuthService {
   updateImagePath(newImagePath: string): void {
     this.localStorageService.setItem('imagePath', newImagePath);
     this.imagePathSubject.next(newImagePath);
+  }
+  updateProfileData(newProfileData: IProfile): void {
+    this.localStorageService.setItem('profile', JSON.stringify(newProfileData));
+    this.profileDataSubject.next(newProfileData);
+  }
+  private getProfileData(): IProfile {
+    const savedProfile = this.localStorageService.getItem('profile');
+    return savedProfile
+      ? JSON.parse(savedProfile)
+      : {
+          /* default values */
+        };
   }
 }
