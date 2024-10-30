@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { IProfile } from '../../shared/models/IProfile';
 import { AuthService } from '../../shared/services/auth.service';
 import { FormsService } from '../../shared/services/forms.service';
+import { NotificationService } from '../../shared/services/notification.service';
 import { SharedModule } from '../../shared/shared.module';
 
 @Component({
@@ -26,7 +27,8 @@ export class UserProfileComponent {
   selectedImagePath!: string | undefined;
   constructor(
     public authService: AuthService,
-    private formsService: FormsService
+    private formsService: FormsService,
+    private notificationService: NotificationService
   ) {
     this.authService.username$.subscribe((username) => {
       if (username) {
@@ -71,6 +73,13 @@ export class UserProfileComponent {
         : this.profile.imagePath,
     };
     this.authService.updateProfileData(updatedProfile);
+    this.notificationService.addNotification({
+      id: '',
+      title: 'Profile Updated',
+      time: new Date().toISOString(),
+      read: false,
+      icon: 'fa fa-user',
+    });
     this.form.reset();
   }
 }

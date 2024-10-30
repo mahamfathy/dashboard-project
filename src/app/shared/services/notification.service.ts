@@ -25,18 +25,41 @@ export class NotificationService {
     );
   }
 
-  addNotification(notification: Notification): void {
+  addNotification(notification: INotification): void {
     const newNotification = {
       ...notification,
-      id: '',
       time: new Date().toISOString(),
       read: false,
     };
     this.firebaseService
-      .postRequest(firebaseUrl, newNotification, {
+      .postRequest(`${firebaseUrl}notifications.json`, newNotification, {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
       })
-      .subscribe();
+      .subscribe(
+        (response) => {
+          console.log('Notification added with ID:', response.name); // Log the Firebase-generated ID
+
+          // Fetch the newly created notification
+          this.getNotificationById(response.name).subscribe(
+            (createdNotification) => {
+              console.log('Created Notification:', createdNotification);
+            }
+          );
+        },
+        (error) => {
+          console.error('Error adding notification:', error);
+        }
+      );
+  }
+  getNotificationById(notificationId: string): Observable<INotification> {
+    return this.firebaseService
+      .getRequest(`notifications/${notificationId}.json`)
+      .pipe(
+        map((response) => ({
+          id: notificationId,
+          ...response,
+        }))
+      );
   }
   markAsRead(notificationId: string): void {
     this.firebaseService

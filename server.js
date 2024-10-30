@@ -6,13 +6,18 @@ const app = express();
 const port = 3000;
 const firebaseUrl = "https://visionboard-c0bc7-default-rtdb.firebaseio.com";
 
-app.use(cors());
 app.use(express.json());
-
+app.use(cors({ origin: "*", methods: ["GET", "POST", "PUT", "DELETE"] }));
+app.options("*", cors());
 app.post("/addNotification", (req, res) => {
+  console.log("Received Notification Data:", req.body); // Log the incoming data
   axios
     .post(`${firebaseUrl}/notifications.json`, req.body)
-    .then((response) => res.status(200).send("Notification added"))
+    .then((response) =>
+      res
+        .status(200)
+        .send({ id: response.data.name, message: "Notification added" })
+    ) // Send back the generated ID
     .catch((error) => res.status(500).send(error));
 });
 
