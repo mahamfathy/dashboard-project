@@ -38,11 +38,11 @@
 
       &:hover,
       &:focus {
-        background-color: var(--button-light-col) !important;
+        background-color: var(--button-col) !important;
         color: var(--text-color);
       }
       &.active {
-        background-color: var(--button-dark-col) !important;
+        background-color: var(--button-col) !important;
       }
     }
   }

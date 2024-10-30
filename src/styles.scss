@@ -15,14 +15,14 @@
 .light-theme {
   --background-color: var(--background-color-light);
   --text-color: var(--text-color-dark);
-  --button-light-col: var(--theme-bg-light);
+  --button-col: var(--theme-bg-light);
   --transition-theme: var(--transition-theme);
 }
 
 .dark-theme {
   --background-color: var(--background-color-dark);
   --text-color: var(--text-color-light);
-  --button-dark-col: var(--theme-bg-dark);
+  --button-col: var(--theme-bg-dark);
   --transition-theme: var(--transition-theme);
 }
 
