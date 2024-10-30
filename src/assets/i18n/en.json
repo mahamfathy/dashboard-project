@@ -5,7 +5,8 @@
     "required": "This field is required",
     "invalidEmail": "Please enter a valid email address",
     "passwordLength": "Please enter at least 8 characters",
-    "mustMatch": "Passwords must match"
+    "mustMatch": "Passwords must match",
+    "invalidEmailDomain": "Email must end with .com"
   },
   "sidebar": {
     "dashboard": "Dashboard",

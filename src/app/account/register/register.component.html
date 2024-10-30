@@ -33,6 +33,8 @@
       <mat-error>{{ "validation.required" | translate }} </mat-error>
       } @if (form.get('email')?.hasError('email') ) {
       <mat-error>{{ "validation.invalidEmail" | translate }} </mat-error>
+      } @if (form.get('email')?.hasError('emailDomain') ) {
+      <mat-error>{{ "validation.invalidEmailDomain" | translate }} </mat-error>
       }
     </mat-form-field>
 
@@ -85,6 +87,8 @@
       <mat-error>{{ "validation.required" | translate }} </mat-error>
       } @if (form.get('confirmPassword')?.hasError('minlength') ) {
       <mat-error>{{ "validation.passwordLength" | translate }} </mat-error>
+      }@if (form.get('confirmPassword')?.hasError('mustMatch') ) {
+      <mat-error>{{ "validation.mustMatch" | translate }} </mat-error>
       }@if (form.get('confirmPassword')?.hasError('mustMatch') ) {
       <mat-error>{{ "validation.mustMatch" | translate }} </mat-error>
       }

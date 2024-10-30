@@ -25,4 +25,16 @@ export class ValidationService {
       }
     };
   }
+  static emailDomain(domains: string[]): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const email = control.value;
+      if (
+        typeof email === 'string' &&
+        !domains.some((domain) => email.endsWith(`@${domain}`))
+      ) {
+        return { emailDomain: true };
+      }
+      return null;
+    };
+  }
 }
