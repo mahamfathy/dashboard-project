@@ -74,11 +74,11 @@ export class UserProfileComponent {
     };
     this.authService.updateProfileData(updatedProfile);
     this.notificationService.addNotification({
-      id: '',
+      id: `-${Date.now()}`,
       title: 'Profile Updated',
       time: new Date().toISOString(),
       read: false,
-      icon: 'fa fa-user',
+      icon: 'fas fa-info-circle',
     });
     this.form.reset();
   }

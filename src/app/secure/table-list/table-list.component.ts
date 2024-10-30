@@ -89,18 +89,18 @@ export class TableListComponent implements OnInit {
         this.getEmployees();
         this.employees.data = this.filteredEmployees();
         this.toastService.showSuccess('Employee added successfully');
-        this.notificationService.addNotification({
-          id: '',
-          title: 'Employee Added',
-          time: new Date().toISOString(),
-          read: false,
-          icon: 'fa fa-user',
-        });
       },
       () => {
         this.toastService.showError('Failed to add employee');
       }
     );
+    this.notificationService.addNotification({
+      id: employee.scrambledId,
+      title: `${employee.name} employee was added`,
+      time: new Date().toISOString(),
+      read: false,
+      icon: 'fa fa-user',
+    });
     this.closeAddEmployeeModal();
   }
 
@@ -119,6 +119,13 @@ export class TableListComponent implements OnInit {
           this.toastService.showError('Failed to update employee');
         }
       );
+    this.notificationService.addNotification({
+      id: employee.scrambledId,
+      title: `${employee.name} employee was updated`,
+      time: new Date().toISOString(),
+      read: false,
+      icon: 'fas fa-user-edit',
+    });
     this.closeAddEmployeeModal();
   }
   deleteEmployee(employee: IEmployee): void {
@@ -139,6 +146,13 @@ export class TableListComponent implements OnInit {
           }
         );
       }
+    });
+    this.notificationService.addNotification({
+      id: employee.scrambledId,
+      title: `${employee.name} employee was deleted`,
+      time: new Date().toISOString(),
+      read: false,
+      icon: 'fas fa-warning',
     });
   }
 

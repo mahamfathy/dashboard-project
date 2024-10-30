@@ -1,9 +1,6 @@
 <div class="notifications">
-  <div
-    *ngFor="let notification of notifications"
-    class="notification"
-    [class.unread]="!notification.read"
-  >
+  @for( notification of notifications ;track notification.id) {
+  <div class="notification" [class.unread]="!notification.read">
     <div class="notification-icon">
       <i [class]="notification.icon"></i>
     </div>
@@ -17,4 +14,5 @@
       Mark as Read
     </button>
   </div>
+  }
 </div>

@@ -20,7 +20,7 @@ export class NotificationsComponent implements OnInit {
       .getNotifications()
       .subscribe((notifications: INotification[]) => {
         console.log('Notifications:', notifications);
-        this.notifications = notifications;
+        this.notifications = [...notifications];
       });
   }
 
