@@ -35,21 +35,7 @@ export class NotificationService {
       .postRequest(`${firebaseUrl}notifications.json`, newNotification, {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
       })
-      .subscribe(
-        (response) => {
-          console.log('Notification added with ID:', response.name); // Log the Firebase-generated ID
-
-          // Fetch the newly created notification
-          this.getNotificationById(response.name).subscribe(
-            (createdNotification) => {
-              console.log('Created Notification:', createdNotification);
-            }
-          );
-        },
-        (error) => {
-          console.error('Error adding notification:', error);
-        }
-      );
+      .subscribe();
   }
   getNotificationById(notificationId: string): Observable<INotification> {
     return this.firebaseService
