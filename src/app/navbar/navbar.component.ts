@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IProfile } from '../shared/models/IProfile';
 import { AuthService } from '../shared/services/auth.service';
 import { NavigationService } from '../shared/services/navigation.service';
+import { NotificationService } from '../shared/services/notification.service';
 import { ThemeService } from '../shared/services/theme.service';
 import { SharedModule } from '../shared/shared.module';
 @Component({
@@ -13,13 +14,13 @@ import { SharedModule } from '../shared/shared.module';
 })
 export class NavbarComponent {
   faBell = 'faBell';
-  unreadCount = 1;
   imagePath!: string;
   profile!: IProfile;
   constructor(
     private navigationService: NavigationService,
     private authService: AuthService,
-    public themeService: ThemeService
+    public themeService: ThemeService,
+    public notificationService: NotificationService
   ) {
     this.authService.imagePath$.subscribe((imagePath) => {
       if (imagePath) this.imagePath = imagePath;

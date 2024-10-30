@@ -33,10 +33,12 @@
       >
         {{ themeService.isDarkTheme() ? "Light 🌞" : "Dark 🌜" }}
       </button>
-      @if (unreadCount>0 ) {
+      @if ((notificationService.unreadCount$ | async) ?? 0 > 0) {
       <div class="notification-icon mx-2">
         <i class="fa-solid fa-bell fa-xl" style="color: #666360"></i>
-        <span class="count">{{ unreadCount }}</span>
+        <span class="count">{{
+          notificationService.unreadCount$ | async
+        }}</span>
       </div>
       }
 

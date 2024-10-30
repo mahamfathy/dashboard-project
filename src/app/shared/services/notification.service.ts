@@ -1,6 +1,6 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { firebaseUrl } from '../firebase/firebase-url';
 import { INotification } from '../models/INotification';
 import { FirebaseService } from './firebase.service';
@@ -9,7 +9,13 @@ import { FirebaseService } from './firebase.service';
   providedIn: 'root',
 })
 export class NotificationService {
-  constructor(private firebaseService: FirebaseService) {}
+  private unreadCountSubject = new BehaviorSubject<number>(0);
+  unreadCount$ = this.unreadCountSubject.asObservable();
+  private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+  constructor(private firebaseService: FirebaseService) {
+    this.updateUnreadCount();
+  }
   getNotifications(): Observable<INotification[]> {
     return this.firebaseService.getRequest('notifications').pipe(
       map((response) => {
@@ -33,9 +39,9 @@ export class NotificationService {
     };
     this.firebaseService
       .postRequest(`${firebaseUrl}notifications.json`, newNotification, {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+        headers: this.headers,
       })
-      .subscribe();
+      .subscribe(() => this.updateUnreadCount());
   }
   getNotificationById(notificationId: string): Observable<INotification> {
     return this.firebaseService
@@ -53,17 +59,19 @@ export class NotificationService {
         `${firebaseUrl}/markAsRead/${notificationId}.json`,
         { read: true },
         {
-          headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+          headers: this.headers,
         }
       )
-      .subscribe(() => console.log('Notification marked as read'));
+      .subscribe(() => this.updateUnreadCount());
   }
-  getUnreadCount(): Observable<number> {
-    return this.getNotifications().pipe(
-      map(
-        (notifications) =>
-          notifications.filter((notification) => !notification.read).length
+  private updateUnreadCount(): void {
+    this.getNotifications()
+      .pipe(
+        map(
+          (notifications) =>
+            notifications.filter((notification) => !notification.read).length
+        )
       )
-    );
+      .subscribe((unreadCount) => this.unreadCountSubject.next(unreadCount));
   }
 }
