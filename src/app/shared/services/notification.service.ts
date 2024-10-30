@@ -62,9 +62,12 @@ export class NotificationService {
           headers: this.headers,
         }
       )
-      .subscribe(() => this.updateUnreadCount());
+      .subscribe(() => {
+        this.unreadCountSubject.next(this.unreadCountSubject.getValue() - 1);
+        this.updateUnreadCount();
+      });
   }
-  private updateUnreadCount(): void {
+  updateUnreadCount(): void {
     this.getNotifications()
       .pipe(
         map(

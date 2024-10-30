@@ -27,5 +27,9 @@ export class NotificationsComponent implements OnInit {
   markAsRead(notification: INotification): void {
     this.notificationService.markAsRead(notification.id);
     notification.read = true;
+    this.notifications = this.notifications.map((noti) =>
+      noti.id === notification.id ? { ...noti, read: true } : noti
+    );
+    console.log('Marked as read:', notification);
   }
 }

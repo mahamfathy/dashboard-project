@@ -1,7 +1,6 @@
 @import "../../assets/SASS/abstracts/mixins";
 @import "../../assets/SASS/abstracts/variables";
 
-// Define classes for light and dark themes using the mixin
 .light-theme-button {
   @include theme-button($theme-bg-light, $theme-text-light);
 }
@@ -25,10 +24,22 @@
 .dropdown-toggle:not(:focus) {
   outline: 0;
 }
+.dropdown-menu {
+  background-color: var(--background-color);
+
+  .dropdown-item {
+    color: var(--text-color);
+  }
+}
 .notification-icon {
   position: relative;
   display: inline-block;
-
+  cursor: pointer;
+  .fa-solid {
+    &:hover {
+      color: var(--text-color) !important;
+    }
+  }
   .count {
     position: absolute;
     top: -10px;
