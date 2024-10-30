@@ -18,11 +18,19 @@
     }
 
     .mark-read {
-      background-color: #007bff;
-      color: white;
       border: none;
+      background-color: var(--text-color);
       padding: 5px 10px;
       cursor: pointer;
+      border-radius: 20px;
+    }
+    .notification-content,
+    .notification-title,
+    .notification-time,
+    .fa-user,
+    .notification-icon {
+      color: var(--background-color);
+      background-color: var(--button-col);
     }
   }
 }
