@@ -6,6 +6,7 @@ import { IEmployee } from '../../shared/models/IEmployee';
 import { CurrencySwitchPipe } from '../../shared/pipes/currency-switch.pipe';
 import { DialogService } from '../../shared/services/dialog.service';
 import { LocalStorageService } from '../../shared/services/local-storage.service';
+import { NotificationService } from '../../shared/services/notification.service';
 import { TableListService } from '../../shared/services/table-list.service';
 import { ToastService } from '../../shared/services/toast.service';
 import { SharedModule } from '../../shared/shared.module';
@@ -53,7 +54,8 @@ export class TableListComponent implements OnInit {
     private toastService: ToastService,
     private dialogService: DialogService,
     private localStorageService: LocalStorageService,
-    private currencyPipe: CurrencyPipe // <--- Add this line
+    private notificationService: NotificationService,
+    private currencyPipe: CurrencyPipe
   ) {
     effect(() => {
       console.log('filteredEmployees', this.filteredEmployees().length);
@@ -85,9 +87,15 @@ export class TableListComponent implements OnInit {
     this.tableService.addEmployee(employee).subscribe(
       () => {
         this.getEmployees();
-
         this.employees.data = this.filteredEmployees();
         this.toastService.showSuccess('Employee added successfully');
+        this.notificationService.addNotification({
+          id: '',
+          title: 'Employee Added',
+          time: new Date().toISOString(),
+          read: false,
+          icon: 'fa fa-user',
+        });
       },
       () => {
         this.toastService.showError('Failed to add employee');
