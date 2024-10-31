@@ -1,8 +1,10 @@
 .Wrapper {
   display: flex;
-  &-footer {
-    border-top: unset;
-    background-color: unset;
-    box-sizing: border-box;
+  .card {
+    &-footer {
+      border-top: unset;
+      background-color: var(--background-color);
+      box-sizing: border-box;
+    }
   }
 }
