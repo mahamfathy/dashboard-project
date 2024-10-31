@@ -15,6 +15,7 @@ declare const bootstrap: any;
 export class SidebarComponent implements AfterViewInit {
   imagePath!: string;
   profileName!: string;
+  isSidebarOpen: boolean = false;
   readonly arabic = 'ar';
   readonly english = 'en';
   selectedLanguage!: string;

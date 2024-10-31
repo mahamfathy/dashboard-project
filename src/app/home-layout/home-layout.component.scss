@@ -8,3 +8,41 @@
   flex-direction: column;
   justify-content: space-between;
 }
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+  }
+  .wrapper {
+    width: 100%;
+    flex-direction: column;
+  }
+  .dashboard {
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sidebar {
+    width: 100%;
+  }
+  .wrapper {
+    width: 100%;
+    flex-direction: column;
+  }
+  .dashboard {
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .sidebar {
+    width: 100%;
+  }
+  .wrapper {
+    width: 100%;
+    flex-direction: column;
+  }
+  .dashboard {
+    margin-bottom: 1rem;
+  }
+}

@@ -16,6 +16,8 @@ export class NavbarComponent {
   faBell = 'faBell';
   imagePath!: string;
   profile!: IProfile;
+  isSidebarOpen = false;
+
   constructor(
     private navigationService: NavigationService,
     private authService: AuthService,
@@ -29,6 +31,10 @@ export class NavbarComponent {
       this.profile = profile;
     });
   }
+  toggleSidebar(): void {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
+
   toggleTheme(): void {
     this.themeService.toggleTheme();
   }

@@ -71,3 +71,7 @@
 ::ng-deep #mat-menu-panel-0 {
   background-color: var(--background-color);
 }
+
+* {
+  background-color: unset !important;
+}
