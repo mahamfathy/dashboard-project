@@ -50,7 +50,7 @@
     {{ "buttons.click-here-to-edit" | translate }}
   </button>
   @defer(on interaction(interaction) ){
-  <div class="row">
+  <div class="row form-container mb-3">
     <div class="col-md-12">
       <h2>{{ "user-profile.edit-profile" | translate }}</h2>
       <form (ngSubmit)="onUpdate(form)" [formGroup]="form">
@@ -184,7 +184,7 @@
             rows="3"
           ></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn">
           {{ "user-profile.update-profile" | translate }}
         </button>
       </form>

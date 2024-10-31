@@ -62,8 +62,15 @@
   }
   .row {
     background-color: rgb(255, 255, 255);
+    background-color: var(--background-color);
+    color: var(--text-color);
     width: 90%;
     padding: 1.5rem;
+  }
+  .form-container {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    box-shadow: var(--box-shadow);
   }
   .btn {
     background-color: var(--button-col);
