@@ -2,11 +2,29 @@
   <div class="user profile-card">
     <img
       [src]="profile.backgroundImage || 'assets/images/background.jpg'"
+      [srcset]="
+        profile.backgroundImage +
+        ' 500w, ' +
+        profile.backgroundImage +
+        ' 1000w, ' +
+        profile.backgroundImage +
+        ' 1500w'
+      "
+      sizes="(max-width: 500px) 100vw, (max-width: 1000px) 50vw, 33vw"
       [alt]="profile.backgroundAlt"
       class="background"
     />
     <img
       [src]="profile.imagePath"
+      [srcset]="
+        profile.imagePath +
+        ' 50w, ' +
+        profile.imagePath +
+        ' 100w, ' +
+        profile.imagePath +
+        ' 150w'
+      "
+      sizes="(max-width: 50px) 50px, (max-width: 100px) 100px, 150px"
       [alt]="profile.imageAlt"
       class="profile-image"
     />

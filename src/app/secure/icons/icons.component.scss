@@ -3,23 +3,23 @@
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 20px;
   padding: 20px;
+}
+.icon-item {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+}
+.icon-item img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
 
-  .icon-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    text-align: center;
-    .icon-img {
-      width: 50px;
-      height: 50px;
-      margin-bottom: 10px;
-    }
-
-    .icon-title {
-      font-size: 1rem;
-      color: var(--text-color);
-    }
-  }
+.icon-title {
+  font-size: 1rem;
+  color: var(--text-color);
 }

@@ -11,6 +11,7 @@
                 height="67"
                 width="50"
                 viewBox="0 0 512 512"
+                loading="lazy"
               >
                 <path [attr.fill]="card.color" [attr.d]="card.bodyIcon" />
               </svg>
@@ -34,7 +35,7 @@
             width="14"
             viewBox="0 0 512 512"
           >
-            <path [attr.d]="card.footerIcon" />
+            <path [attr.fill]="footerColor" [attr.d]="card.footerIcon" />
           </svg>
           {{ card.footerText }}
         </div>

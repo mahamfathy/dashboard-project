@@ -6,9 +6,10 @@ import { ICard } from '../../../shared/models/ICard';
   standalone: true,
   imports: [],
   templateUrl: './card.component.html',
-  styleUrl: './card.component.scss',
+  styleUrls: ['./card.component.scss'],
 })
 export class CardComponent {
+  footerColor: string = '#808080';
   cards: ICard[] = [
     {
       no: 1,

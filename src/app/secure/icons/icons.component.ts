@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IIcon } from '../../shared/models/IIcon';
 
 @Component({
@@ -8,7 +8,7 @@ import { IIcon } from '../../shared/models/IIcon';
   templateUrl: './icons.component.html',
   styleUrl: './icons.component.scss',
 })
-export class IconsComponent {
+export class IconsComponent implements OnInit {
   icons: IIcon[] = [
     {
       no: 1,
@@ -311,4 +311,9 @@ export class IconsComponent {
       iconPath: 'assets/images/workplace.png',
     },
   ];
+
+  constructor() {}
+  ngOnInit(): void {
+    console.log(this.icons.length);
+  }
 }
