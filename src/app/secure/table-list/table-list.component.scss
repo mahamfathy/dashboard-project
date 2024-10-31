@@ -25,7 +25,7 @@
     tbody {
       tr {
         &:nth-child(even) {
-          background-color: #f9f9f9;
+          background-color: var(--background-color);
           transition: var(--transition-theme);
         }
 
@@ -40,17 +40,34 @@
   }
 }
 .ng-star-inserted {
-  background-color: var(--background-color);
+  // background-color: var(--background-color);
 }
 ::ng-deep .mat-mdc-table {
   box-shadow: var(--box-shadow);
+  background-color: var(--background-color) !important;
+  transition: var(--transition-theme);
 }
 
 ::ng-deep .cdk-overlay-container {
   background-color: unset;
 }
 ::ng-deep .cdk-overlay-connected-position-bounding-box {
-  * {
-    background-color: unset;
+  // * {
+  background-color: unset;
+  // color: var(--text-color) !important;
+
+  // }
+}
+::ng-deep .mat-mdc-menu-panel {
+  &.mat-mdc-elevation-specific,
+  &.mat-mdc-elevation-specific * {
   }
+
+  & * {
+    background-color: unset;
+    color: unset;
+  }
+}
+::ng-deep #mat-menu-panel-0 {
+  background-color: var(--background-color);
 }
