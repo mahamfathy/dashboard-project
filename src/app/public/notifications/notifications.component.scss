@@ -7,6 +7,15 @@
 
     &.unread {
       background-color: var(--button-col);
+      .notification-content,
+      .notification-title,
+      .notification-time,
+      .fa,
+      .fas,
+      .notification-icon {
+        color: var(--background-color);
+        background-color: var(--button-col);
+      }
     }
 
     .notification-icon {
@@ -20,17 +29,11 @@
     .mark-read {
       border: none;
       background-color: var(--text-color);
+      color: var(--background-color);
+
       padding: 5px 10px;
       cursor: pointer;
       border-radius: 20px;
-    }
-    .notification-content,
-    .notification-title,
-    .notification-time,
-    .fa-user,
-    .notification-icon {
-      color: var(--background-color);
-      background-color: var(--button-col);
     }
   }
 }
