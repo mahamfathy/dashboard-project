@@ -1,6 +1,10 @@
 .card {
+  &-header,
+  &-footer {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
   &-header {
-    background-color: unset;
     padding: 1.5rem 1.5rem 0;
     border-bottom: unset;
   }
