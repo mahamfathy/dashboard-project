@@ -1,7 +1,6 @@
 .card {
   &-header {
     border-bottom: unset;
-    background-color: unset;
   }
   &-body {
     padding: 0px 1rem 0.7rem;
@@ -12,7 +11,9 @@
       max-height: 300px;
     }
   }
-  &-footer {
-    // background-color: var(--background-color) !important;
+  &-footer,
+  &-header {
+    background-color: var(--background-color);
+    color: var(--text-color);
   }
 }
