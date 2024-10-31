@@ -3,6 +3,7 @@ import { IProfile } from '../shared/models/IProfile';
 import { AuthService } from '../shared/services/auth.service';
 import { LanguageService } from '../shared/services/language.service';
 import { NavigationService } from '../shared/services/navigation.service';
+import { SidebarService } from '../shared/services/sidebar.service';
 import { SharedModule } from '../shared/shared.module';
 declare const bootstrap: any;
 @Component({
@@ -15,7 +16,6 @@ declare const bootstrap: any;
 export class SidebarComponent implements AfterViewInit {
   imagePath!: string;
   profileName!: string;
-  isSidebarOpen: boolean = false;
   readonly arabic = 'ar';
   readonly english = 'en';
   selectedLanguage!: string;
@@ -23,7 +23,8 @@ export class SidebarComponent implements AfterViewInit {
   constructor(
     private languageService: LanguageService,
     private authService: AuthService,
-    private navigationService: NavigationService
+    private navigationService: NavigationService,
+    public sidebarService: SidebarService
   ) {
     this.authService.username$.subscribe((username) => {
       if (username) this.profileName = username;
