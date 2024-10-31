@@ -3,6 +3,7 @@ import { IProfile } from '../shared/models/IProfile';
 import { AuthService } from '../shared/services/auth.service';
 import { NavigationService } from '../shared/services/navigation.service';
 import { NotificationService } from '../shared/services/notification.service';
+import { SidebarService } from '../shared/services/sidebar.service';
 import { ThemeService } from '../shared/services/theme.service';
 import { SharedModule } from '../shared/shared.module';
 @Component({
@@ -16,13 +17,13 @@ export class NavbarComponent {
   faBell = 'faBell';
   imagePath!: string;
   profile!: IProfile;
-  isSidebarOpen = false;
 
   constructor(
     private navigationService: NavigationService,
     private authService: AuthService,
     public themeService: ThemeService,
-    public notificationService: NotificationService
+    public notificationService: NotificationService,
+    private sidebarService: SidebarService
   ) {
     this.authService.imagePath$.subscribe((imagePath) => {
       if (imagePath) this.imagePath = imagePath;
@@ -32,7 +33,7 @@ export class NavbarComponent {
     });
   }
   toggleSidebar(): void {
-    this.isSidebarOpen = !this.isSidebarOpen;
+    this.sidebarService.toggleSidebar();
   }
 
   toggleTheme(): void {
