@@ -14,10 +14,7 @@ export class BarGraphComponent implements OnInit {
 
   ngOnInit() {
     const documentStyle = getComputedStyle(document.documentElement);
-    const textColor = documentStyle.getPropertyValue('--text-color');
-    const textColorSecondary = documentStyle.getPropertyValue(
-      '--text-color-secondary'
-    );
+    const textColor = documentStyle.getPropertyValue('--grey-color');
     const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
 
     this.data = {
@@ -51,7 +48,7 @@ export class BarGraphComponent implements OnInit {
       scales: {
         x: {
           ticks: {
-            color: textColorSecondary,
+            color: textColor,
             font: {
               weight: 500,
             },
@@ -63,7 +60,7 @@ export class BarGraphComponent implements OnInit {
         },
         y: {
           ticks: {
-            color: textColorSecondary,
+            color: textColor,
           },
           grid: {
             color: surfaceBorder,
