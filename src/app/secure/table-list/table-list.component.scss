@@ -14,7 +14,6 @@
 
     thead {
       background-color: var(--background-color) !important;
-      transition: var(--transition-theme);
 
       th {
         padding: 12px;
@@ -42,4 +41,16 @@
 }
 .ng-star-inserted {
   background-color: var(--background-color);
+}
+::ng-deep .mat-mdc-table {
+  box-shadow: var(--box-shadow);
+}
+
+::ng-deep .cdk-overlay-container {
+  background-color: unset;
+}
+::ng-deep .cdk-overlay-connected-position-bounding-box {
+  * {
+    background-color: unset;
+  }
 }
