@@ -118,7 +118,8 @@
     "logout": "Logout",
     "language": "Language",
     "arabic": "Arabic",
-    "english": "English"
+    "english": "English",
+    "click-here-to-edit": "Click here to edit!"
   },
   "form": {
     "username": "Username",

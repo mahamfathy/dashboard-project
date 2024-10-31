@@ -118,7 +118,8 @@
     "logout": "تسجيل الخروج",
     "language": "اللغة",
     "arabic": "العربية",
-    "english": "الإنجليزية"
+    "english": "الإنجليزية",
+    "click-here-to-edit": "اضغط هنا للتعديل"
   },
   "form": {
     "username": "اسم المستخدم",

@@ -28,7 +28,9 @@
       </div>
     </div>
   </div>
-  <button class="btn" type="button" #interaction>Click Here To Edit</button>
+  <button class="btn" type="button" #interaction>
+    {{ "buttons.click-here-to-edit" | translate }}
+  </button>
   @defer(on interaction(interaction) ){
   <div class="row">
     <div class="col-md-12">
