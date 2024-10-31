@@ -1,0 +1,13 @@
+.card-header {
+  border-bottom: unset;
+  background-color: unset;
+}
+.card-body {
+  padding: 0px 1rem 0.7rem;
+  width: 100% !important;
+}
+.card-body canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 300px;
+}/*# sourceMappingURL=main-graph.component.css.map */

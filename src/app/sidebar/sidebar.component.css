@@ -1,0 +1,42 @@
+.sidebar {
+  position: sticky;
+  top: 0;
+  right: 0;
+  width: 15rem;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-color: var(--background-color);
+  color: var(--text-color) !important;
+  transition: var(--transition-theme);
+  z-index: 1000;
+}
+.sidebar * {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+}
+.sidebar .title {
+  height: 3.5rem;
+}
+.sidebar .dropdown-menu {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
+  height: 2.7rem;
+}
+.sidebar .nav-item {
+  margin-bottom: 0.5rem;
+  background-color: var(--background-color) !important;
+  transition: background-color 0.3s, color 0.3s;
+}
+.sidebar .nav-item a.nav-link {
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+.sidebar .nav-item a.nav-link:hover, .sidebar .nav-item a.nav-link:focus {
+  background-color: var(--button-col) !important;
+  color: var(--text-color);
+}
+.sidebar .nav-item a.nav-link.active {
+  background-color: var(--button-col) !important;
+}/*# sourceMappingURL=sidebar.component.css.map */

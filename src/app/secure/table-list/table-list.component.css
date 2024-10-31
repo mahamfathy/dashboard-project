@@ -1,0 +1,36 @@
+.employee-table {
+  max-width: 800px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+.employee-table h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.employee-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.employee-table table thead {
+  background-color: var(--background-color) !important;
+  transition: var(--transition-theme);
+}
+.employee-table table thead th {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+.employee-table table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+  transition: var(--transition-theme);
+}
+.employee-table table tbody tr td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+  transition: var(--transition-theme);
+}
+
+.ng-star-inserted {
+  background-color: var(--background-color);
+}/*# sourceMappingURL=table-list.component.css.map */

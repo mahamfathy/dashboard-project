@@ -1,0 +1,8 @@
+.Wrapper {
+  display: flex;
+}
+.Wrapper-footer {
+  border-top: unset;
+  background-color: unset;
+  box-sizing: border-box;
+}/*# sourceMappingURL=card.component.css.map */

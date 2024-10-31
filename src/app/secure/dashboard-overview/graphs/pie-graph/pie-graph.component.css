@@ -1,0 +1,13 @@
+.card-header {
+  background-color: unset;
+  padding: 1.5rem 1.5rem 0;
+  border-bottom: unset;
+}
+.card-body {
+  padding: 0;
+}
+.card-body canvas {
+  width: 14.8rem;
+  height: 14.8rem;
+  margin: 0 auto;
+}/*# sourceMappingURL=pie-graph.component.css.map */

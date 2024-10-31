@@ -51,7 +51,19 @@
         >
           <img
             [src]="profile.imagePath || imagePath"
-            alt=""
+            [srcset]="
+              (profile.imagePath || 'assets/images/default-icon-small.jpg') +
+              ' 32w, ' +
+              (profile.imagePath
+                ? profile.imagePath.replace('.jpg', '-medium.jpg')
+                : 'assets/images/default-icon-medium.jpg') +
+              ' 64w, ' +
+              (profile.imagePath
+                ? profile.imagePath.replace('.jpg', '-large.jpg')
+                : 'assets/images/default-icon-large.jpg') +
+              ' 128w'
+            "
+            sizes="(max-width: 600px) 32px, (max-width: 1000px) 64px, 128px"
             width="32"
             height="32"
             class="rounded-circle me-2"

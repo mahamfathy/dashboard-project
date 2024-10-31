@@ -1,8 +1,18 @@
 <div class="icon-grid">
   @for ( icon of icons; track icon) {
   <div class="icon-item">
-    <img [src]="icon.iconPath" alt="{{ icon.iconTitle }}" />
-    <span>{{ icon.iconTitle }}</span>
+    <img
+      class="icon-img"
+      srcset="
+        small-image.jpg   600w,
+        medium-image.jpg 1000w,
+        large-image.jpg  2000w
+      "
+      sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw"
+      [src]="icon.iconPath"
+      alt="{{ icon.iconTitle }}"
+    />
+    <span class="icon-title">{{ icon.iconTitle }}</span>
   </div>
   }@empty {
   <div class="text-danger">No Icons Found</div>

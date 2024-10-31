@@ -1,0 +1,83 @@
+.light-theme-button {
+  background-color: #b64646;
+  color: #d8bbbb;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition-theme);
+}
+.light-theme-button:hover {
+  background-color: #c66a6a;
+}
+.light-theme-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(216, 187, 187, 0.5);
+}
+
+.dark-theme-button {
+  background-color: #8fb32f;
+  color: #2c331a;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition-theme);
+}
+.dark-theme-button:hover {
+  background-color: #a9cf46;
+}
+.dark-theme-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(44, 51, 26, 0.5);
+}
+
+.form-control-dark {
+  border-color: var(--bs-gray);
+}
+
+.form-control-dark:focus {
+  border-color: #fff;
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+}
+
+.text-small {
+  font-size: 85%;
+}
+
+.dropdown-toggle:not(:focus) {
+  outline: 0;
+}
+
+.dropdown-menu {
+  background-color: var(--background-color);
+}
+.dropdown-menu .dropdown-item {
+  color: var(--text-color);
+}
+
+.notification-icon {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.notification-icon .fa-solid:hover {
+  color: var(--text-color) !important;
+}
+.notification-icon .count {
+  position: absolute;
+  top: -10px;
+  right: 11px;
+  background-color: red;
+  color: #fff;
+  border-radius: 50%;
+  padding: 0px 5px;
+  font-size: 0.65rem;
+  font-weight: bold;
+  height: 1rem;
+  width: 1rem;
+}
+
+a.title {
+  color: var(--text-color);
+}/*# sourceMappingURL=navbar.component.css.map */

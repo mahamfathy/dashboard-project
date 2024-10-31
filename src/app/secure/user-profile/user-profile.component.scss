@@ -3,9 +3,9 @@
   align-items: center;
   row-gap: 3rem;
   .profile-card {
-    background-color: white;
+    background-color: var(--background-color);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
     width: 35rem;
     height: 35rem;
     overflow: hidden;

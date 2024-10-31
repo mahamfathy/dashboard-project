@@ -1,0 +1,37 @@
+.notifications {
+  height: 69vh;
+  display: block;
+  padding: 1rem;
+}
+.notifications .notification {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+.notifications .notification.unread {
+  background-color: var(--button-col);
+}
+.notifications .notification.unread .notification-content,
+.notifications .notification.unread .notification-title,
+.notifications .notification.unread .notification-time,
+.notifications .notification.unread .fa,
+.notifications .notification.unread .fas,
+.notifications .notification.unread .notification-icon {
+  color: var(--background-color);
+  background-color: var(--button-col);
+}
+.notifications .notification .notification-icon {
+  margin-right: 10px;
+}
+.notifications .notification .notification-content {
+  flex-grow: 1;
+}
+.notifications .notification .mark-read {
+  border: none;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 20px;
+}/*# sourceMappingURL=notifications.component.css.map */
