@@ -52,4 +52,10 @@ export class SidebarComponent implements AfterViewInit {
     this.authService.signOut();
     this.navigationService.navigateByUrl('/account/login');
   }
+  closeSidebar(event: Event): void {
+    event.stopPropagation();
+
+    this.sidebarService.toggleSidebar();
+    console.log(this.sidebarService.toggleSidebar());
+  }
 }
