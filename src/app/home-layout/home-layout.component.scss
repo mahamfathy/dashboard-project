@@ -1,48 +1,19 @@
-.sidebar {
-  width: 15rem;
-}
-.wrapper {
-  width: calc(100% - 15rem);
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-@media screen and (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-  }
-  .wrapper {
-    width: 100%;
-    flex-direction: column;
-  }
-  .dashboard {
-    margin-bottom: 1rem;
-  }
-}
+@import "../../assets/SASS/abstracts/mixins";
 
-@media screen and (max-width: 480px) {
+.main_wrapper {
   .sidebar {
-    width: 100%;
+    width: 15rem;
   }
   .wrapper {
-    width: 100%;
+    width: calc(100% - 15rem);
+    flex-grow: 1;
+    display: flex;
     flex-direction: column;
+    justify-content: space-between;
   }
-  .dashboard {
-    margin-bottom: 1rem;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .sidebar {
-    width: 100%;
-  }
-  .wrapper {
-    width: 100%;
-    flex-direction: column;
-  }
-  .dashboard {
-    margin-bottom: 1rem;
+  @include respond(phone) {
+    .sidebar {
+      width: unset;
+    }
   }
 }

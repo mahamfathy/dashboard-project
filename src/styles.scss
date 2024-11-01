@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./assets/SASS/abstracts/variables";
+@import "./assets/SASS/abstracts/mixins";
+
 :root {
   --background-color-light: #{$color-background-light};
   --text-color-light: #{$color-white};
@@ -77,4 +79,9 @@ hr {
 }
 ::ng-deep .cdk-global-scrollblock {
   overflow-y: hidden;
+  @include respond(phone) {
+    ::ng-deep .cdk-global-scrollblock {
+      overflow-y: scroll;
+    }
+  }
 }
