@@ -13,13 +13,16 @@
   color: var(--text-color) !important;
   transition: var(--transition-theme);
   z-index: 1000;
+
   &.open {
     transform: translateX(0);
     transition: var(--transition-theme);
     width: 100%;
-    opacity: 0.9;
+    opacity: 0.97;
   }
-
+  .bg-body-tertiary {
+    width: 15rem;
+  }
   * {
     background-color: var(--background-color) !important;
     color: var(--text-color) !important;
@@ -59,8 +62,14 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 15rem;
+    width: 100%;
+    justify-content: center;
+    .bg-body-tertiary {
+      width: 100%;
+      align-items: center;
+    }
   }
+
   .close-btn {
     align-self: flex-end;
     background: none;
