@@ -68,6 +68,16 @@
       width: 100%;
       align-items: center;
     }
+    .nav-pills {
+      width: 33%;
+      text-align: center;
+      height: 55% !important;
+    }
+    .title {
+      width: 35%;
+      text-decoration: underline;
+      text-decoration-color: var(--button-col);
+    }
   }
 
   .close-btn {

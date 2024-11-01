@@ -100,7 +100,7 @@ a.title {
     bottom: -10px;
   }
 }
-@media (max-width: 768px) {
+@include respond(phone) {
   .navbar-toggler {
     display: block;
   }
