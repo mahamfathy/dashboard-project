@@ -69,14 +69,19 @@
       align-items: center;
     }
     .nav-pills {
-      width: 33%;
+      width: 40%;
       text-align: center;
       height: 55% !important;
     }
     .title {
-      width: 35%;
+      width: 40%;
       text-decoration: underline;
       text-decoration-color: var(--button-col);
+    }
+    .close-btn {
+      margin-right: 4rem !important;
+      margin-top: 2rem !important;
+      background-color: var(--button-col) !important;
     }
   }
 
