@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { IEmployee } from '../../models/IEmployee';
+import { NotificationService } from '../../services/notification.service';
 import { SharedModule } from '../../shared.module';
 
 @Component({
@@ -13,12 +14,20 @@ import { SharedModule } from '../../shared.module';
 export class ConfirmDeleteModalComponent {
   constructor(
     public dialogRef: MatDialogRef<ConfirmDeleteModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public employee: IEmployee
+    @Inject(MAT_DIALOG_DATA) public employee: IEmployee,
+    private notificationService: NotificationService
   ) {}
   onNoClick(): void {
     this.dialogRef.close();
   }
   confirmDelete(): void {
     this.dialogRef.close({ confirmDelete: true });
+    this.notificationService.addNotification({
+      id: this.employee.scrambledId,
+      title: `${this.employee.name} employee was deleted`,
+      time: new Date().toISOString(),
+      read: false,
+      icon: 'fas fa-warning',
+    });
   }
 }

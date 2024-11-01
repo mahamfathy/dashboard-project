@@ -147,13 +147,6 @@ export class TableListComponent implements OnInit {
         );
       }
     });
-    this.notificationService.addNotification({
-      id: employee.scrambledId,
-      title: `${employee.name} employee was deleted`,
-      time: new Date().toISOString(),
-      read: false,
-      icon: 'fas fa-warning',
-    });
   }
 
   updateSearchText(searchText: string): void {

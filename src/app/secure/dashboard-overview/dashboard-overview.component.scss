@@ -1,3 +1,5 @@
+@import "../../../assets/SASS/abstracts/mixins";
+
 .container {
   display: flex;
   flex-direction: column;
@@ -15,4 +17,17 @@
 .spinner-border {
   width: 3rem;
   height: 3rem;
+}
+@include respond(phone) {
+  .container {
+    padding: 0;
+    margin: 0 auto;
+  }
+  .container > .row {
+    padding: 0;
+  }
+
+  app-card {
+    padding: 0;
+  }
 }

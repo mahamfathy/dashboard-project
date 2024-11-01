@@ -1,3 +1,4 @@
+@import "../../../../assets/SASS/abstracts/mixins";
 .Wrapper {
   display: flex;
   .card {
@@ -5,6 +6,11 @@
       border-top: unset;
       background-color: var(--background-color);
       box-sizing: border-box;
+    }
+  }
+  @include respond(phone) {
+    .col-7 {
+      padding: 0px;
     }
   }
 }
