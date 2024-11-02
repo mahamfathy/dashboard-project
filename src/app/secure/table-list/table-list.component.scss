@@ -1,40 +1,31 @@
-.employee-table {
-  max-width: 800px;
-  margin: auto;
-  font-family: Arial, sans-serif;
+@import "../../../assets/SASS/abstracts/mixins";
 
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead {
+    background-color: var(--background-color) !important;
+
+    th {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
   }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
+  tbody {
+    tr {
+      &:nth-child(even) {
+        background-color: var(--background-color);
+        transition: var(--transition-theme);
+      }
 
-    thead {
-      background-color: var(--background-color) !important;
-
-      th {
+      td {
         padding: 12px;
         border: 1px solid #ddd;
         text-align: center;
-      }
-    }
-
-    tbody {
-      tr {
-        &:nth-child(even) {
-          background-color: var(--background-color);
-          transition: var(--transition-theme);
-        }
-
-        td {
-          padding: 12px;
-          border: 1px solid #ddd;
-          text-align: center;
-          transition: var(--transition-theme);
-        }
+        transition: var(--transition-theme);
       }
     }
   }
@@ -78,5 +69,22 @@
   * {
     background-color: unset;
     color: var(--text-color);
+  }
+}
+@include respond(phone) {
+  table {
+    min-width: unset;
+  }
+  ::ng-deep .mat-mdc-header-cell {
+    padding: 0 !important;
+    text-align: center !important;
+  }
+  ::ng-deep .mat-mdc-table {
+    table-layout: fixed !important;
+    padding: 0 !important;
+  }
+  ::ng-deep .mat-mdc-cell {
+    padding: 0 !important;
+    text-align: center !important;
   }
 }

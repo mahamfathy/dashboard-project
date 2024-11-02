@@ -9,9 +9,7 @@
   height: 100vh;
   overflow-x: hidden;
   overflow-y: hidden;
-  background-color: var(--background-color);
-  color: var(--text-color) !important;
-  // transition: var(--transition-theme);
+  background-color: $color-grey-dark-2;
   transition: transform 1s ease, opacity 1s ease;
   z-index: 1000;
 
@@ -24,40 +22,41 @@
   }
   .bg-body-tertiary {
     width: 15rem;
+    background-color: $color-grey-dark-2 !important;
   }
   * {
-    background-color: var(--background-color);
-    color: var(--text-color) !important;
+    background-color: $color-grey-dark-2;
+    color: $color-black;
   }
   .title {
-    height: 1.5rem;
+    height: 3.8em;
   }
 
   .dropdown-menu {
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: $color-grey-dark-2;
     transition: background-color 0.3s ease;
     height: 2.7rem;
   }
 
   .nav-item {
     margin-bottom: 0.5rem;
-    background-color: var(--background-color) !important;
+    background-color: $color-grey-dark-2 !important;
     transition: background-color 0.3s, color 0.3s;
     a {
       display: block;
       padding: 0.5rem 1rem;
-      color: var(--text-color);
       background-color: transparent;
       transition: background-color 0.3s, color 0.3s;
 
+      border-bottom: 1px solid $color-white;
       &:hover,
       &:focus {
         background-color: var(--button-col) !important;
-        color: var(--text-color);
+        color: $color-white !important;
       }
       &.active {
         background-color: var(--button-col) !important;
+        color: $color-white !important;
       }
     }
   }
@@ -71,14 +70,14 @@
     .bg-body-tertiary {
       width: 100%;
       align-items: center;
-      background-color: var(--background-color) !important;
     }
-    .nav-pills {
+    .nav.nav-pills {
       width: 40%;
       text-align: center;
       height: 55% !important;
     }
     .title {
+      height: 1.5rem;
       width: 40%;
       text-decoration: underline;
       text-decoration-color: var(--button-col);
@@ -88,9 +87,13 @@
       margin-top: 2rem !important;
       background-color: var(--button-col) !important;
       display: block !important;
+      color: $color-white !important;
+      &:hover,
+      &:focus {
+        color: $color-black !important;
+      }
     }
     .mat-mdc-form-field-infix {
-      // color: var(--text-color);
       background-color: unset !important;
     }
   }
@@ -126,7 +129,17 @@
   opacity: 1;
 }
 .dropdown-menu {
+  background-color: $color-grey-dark-2;
+
   .dropdown-item:hover {
     background-color: var(--button-col);
+    color: $color-white !important;
+    cursor: pointer;
+  }
+}
+.dropdown {
+  &:hover {
+    color: $color-white;
+    cursor: pointer;
   }
 }
