@@ -29,6 +29,10 @@
 
   .dropdown-item {
     color: var(--text-color);
+    &:hover {
+      background-color: var(--button-col);
+      color: var(--background-color);
+    }
   }
 }
 .notification-icon {

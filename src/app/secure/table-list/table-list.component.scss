@@ -39,8 +39,14 @@
     }
   }
 }
-.ng-star-inserted {
-  // background-color: var(--background-color);
+
+.btn.my-3 {
+  background-color: var(--button-col);
+  color: var(--text-color);
+  &:hover {
+    background-color: var(--text-color);
+    color: var(--button-col);
+  }
 }
 ::ng-deep .mat-mdc-table {
   box-shadow: var(--box-shadow);
@@ -52,11 +58,7 @@
   background-color: unset;
 }
 ::ng-deep .cdk-overlay-connected-position-bounding-box {
-  // * {
   background-color: unset;
-  // color: var(--text-color) !important;
-
-  // }
 }
 ::ng-deep .mat-mdc-menu-panel {
   &.mat-mdc-elevation-specific,
@@ -71,7 +73,10 @@
 ::ng-deep #mat-menu-panel-0 {
   background-color: var(--background-color);
 }
-
-* {
-  background-color: unset !important;
+::ng-deep
+  .mat-mdc-text-field-wrapper.mdc-text-field.ng-tns-c3736059725-0.mdc-text-field--outlined {
+  * {
+    background-color: unset;
+    color: var(--text-color);
+  }
 }

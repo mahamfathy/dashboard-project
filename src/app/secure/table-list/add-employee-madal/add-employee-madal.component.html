@@ -20,16 +20,24 @@
     </label>
     <label>
       {{ "table-list.salary" | translate }}:
-      <input formControlName="salary" />
+      <input formControlName="salary" class="mb-2" />
     </label>
-    <button type="submit" [disabled]="employeeForm.invalid">
+    <button
+      class="btn btn-add btn-update"
+      type="submit"
+      [disabled]="employeeForm.invalid"
+    >
       @if (employee()) {
-      <span>{{ "buttons.update" | translate }}</span>
+      <span>
+        {{ "buttons.update" | translate }}
+      </span>
       }@else{
-      <span>{{ "buttons.add" | translate }}</span>
+      <span>
+        {{ "buttons.add" | translate }}
+      </span>
       }
     </button>
-    <button type="button" (click)="close.emit()">
+    <button type="button" class="btn btn-danger" (click)="close.emit()">
       {{ "buttons.cancel" | translate }}
     </button>
   </form>

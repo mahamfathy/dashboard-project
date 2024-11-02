@@ -30,14 +30,13 @@
     color: var(--text-color) !important;
   }
   .title {
-    height: 3.5rem;
+    height: 1.5rem;
   }
 
   .dropdown-menu {
     background-color: var(--background-color);
     color: var(--text-color);
     transition: background-color 0.3s ease;
-
     height: 2.7rem;
   }
 
@@ -45,8 +44,11 @@
     margin-bottom: 0.5rem;
     background-color: var(--background-color) !important;
     transition: background-color 0.3s, color 0.3s;
-    a.nav-link {
+    a {
+      display: block;
+      padding: 0.5rem 1rem;
       color: var(--text-color);
+      background-color: transparent;
       transition: background-color 0.3s, color 0.3s;
 
       &:hover,
@@ -109,5 +111,22 @@
   }
   .wrapper {
     width: 100%;
+  }
+}
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+.dropdown-menu {
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+}
+.dropdown-menu {
+  .dropdown-item:hover {
+    background-color: var(--button-col);
   }
 }
