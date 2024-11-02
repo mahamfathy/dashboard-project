@@ -35,14 +35,15 @@
     margin-top: 10px;
   }
   .btn-update.btn-add {
+    background-color: var(--button-col);
+    color: var(--text-color);
     * {
       background-color: unset;
     }
-    background-color: var(--button-col);
-    color: var(--text-color);
+
     &:hover {
-      background-color: var(--text-color);
-      color: var(--button-col);
+      background-color: $color-grey-dark;
+      color: $color-white !important;
     }
     &:disabled {
       background-color: $color-grey-dark;

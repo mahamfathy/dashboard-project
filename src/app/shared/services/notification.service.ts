@@ -82,7 +82,7 @@ export class NotificationService {
         }
       );
   }
-  decreaseUnreadCount(): void {
+  private decreaseUnreadCount(): void {
     const currentCount = this.unreadCountSubject.getValue();
     if (currentCount > 0) {
       this.unreadCountSubject.next(currentCount - 1);

@@ -1,6 +1,21 @@
+@import "../../../../assets/SASS/abstracts/variables";
 ::ng-deep .cdk-global-overlay-wrapper {
   background-color: rgba(238, 235, 235, 0.5);
 }
 ::ng-deep .mat-mdc-dialog-surface.mdc-dialog__surface {
   background-color: var(--background-color);
+}
+::ng-deep.mat-mdc-dialog-actions.mdc-dialog__actions {
+  * {
+    background-color: unset !important;
+    color: $color-white !important;
+  }
+}
+
+::ng-deep .mat-mdc-button-persistent-ripple.mdc-button__ripple {
+  background-color: var(--button-col) !important;
+  color: $color-white !important;
+  &:hover {
+    background-color: $color-grey-dark-2 !important;
+  }
 }

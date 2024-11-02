@@ -60,22 +60,26 @@ hr {
 }
 /* Override ngx-toastr default styles */
 .toast-success {
-  background-color: #28a745 !important; /* Custom background color for success */
+  * {
+    background-color: unset !important;
+    color: white !important;
+  }
+  background-color: #28a745 !important;
   color: white !important;
-  border-radius: 10px !important; /* Rounded corners */
-  padding: 15px !important; /* Custom padding */
+  border-radius: 10px !important;
+  padding: 15px !important;
 }
 
 .toast-error {
-  background-color: $color-background-light !important; /* Custom background color for error */
+  background-color: $color-background-light !important;
   color: white !important;
-  border-radius: 10px !important; /* Rounded corners */
-  padding: 15px !important; /* Custom padding */
+  border-radius: 10px !important;
+  padding: 15px !important;
 }
 
 /* General toaster styling */
 .toast {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16) !important; /* Add shadow */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16) !important;
   font-family: "Roboto", sans-serif !important;
 }
 ::ng-deep .cdk-global-scrollblock {
@@ -84,5 +88,13 @@ hr {
     ::ng-deep .cdk-global-scrollblock {
       overflow-y: scroll;
     }
+    body {
+      overflow-x: hidden !important;
+    }
+  }
+}
+@include respond(phone) {
+  ::ng-deep .cdk-global-scrollblock {
+    overflow-y: scroll;
   }
 }
