@@ -129,10 +129,14 @@
       </a>
       <ul class="dropdown-menu" aria-labelledby="dropdownLanguage">
         <li>
-          <a class="dropdown-item" routerLink="secure/user-profile">Profile</a>
+          <a class="dropdown-item" routerLink="secure/user-profile">{{
+            "sidebar.user-profile" | translate
+          }}</a>
         </li>
         <li>
-          <a class="dropdown-item" (click)="logout()">Sign out</a>
+          <a class="dropdown-item" (click)="logout()">{{
+            "buttons.logout" | translate
+          }}</a>
         </li>
       </ul>
     </div>

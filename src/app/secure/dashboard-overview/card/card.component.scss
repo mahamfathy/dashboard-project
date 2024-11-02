@@ -1,11 +1,36 @@
 @import "../../../../assets/SASS/abstracts/mixins";
+@import "../../../../assets/SASS/abstracts/variables";
+
 .Wrapper {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 94%;
+  column-gap: 5px;
+  .col-sm-3 {
+    display: flex;
+    flex: 1 1 calc(25% - 5px);
+    box-sizing: border-box;
+    margin-bottom: 15px;
+  }
   .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    &-body {
+      flex: 1;
+    }
     &-footer {
       border-top: unset;
       background-color: var(--background-color);
       box-sizing: border-box;
+      min-height: 57px;
+      display: flex;
+      border-top: 1px solid $color-grey-dark-2;
+      justify-content: center;
+      align-items: center;
     }
   }
   .icon-warning > svg {
@@ -13,9 +38,6 @@
     height: 50px;
   }
   @include respond(phone) {
-    .col-7 {
-      padding: 0px;
-    }
     .icon-warning > svg {
       width: 30px;
       height: 30px;
