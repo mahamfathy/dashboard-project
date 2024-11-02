@@ -11,20 +11,22 @@
   overflow-y: hidden;
   background-color: var(--background-color);
   color: var(--text-color) !important;
-  transition: var(--transition-theme);
+  // transition: var(--transition-theme);
+  transition: transform 1s ease, opacity 1s ease;
   z-index: 1000;
 
   &.open {
     transform: translateX(0);
-    transition: var(--transition-theme);
     width: 100%;
     opacity: 0.97;
+    transition: var(--transition-theme);
+    transition: transform 1s ease, opacity 1s ease;
   }
   .bg-body-tertiary {
     width: 15rem;
   }
   * {
-    background-color: var(--background-color) !important;
+    background-color: var(--background-color);
     color: var(--text-color) !important;
   }
   .title {
@@ -67,6 +69,7 @@
     .bg-body-tertiary {
       width: 100%;
       align-items: center;
+      background-color: var(--background-color) !important;
     }
     .nav-pills {
       width: 40%;
@@ -82,10 +85,16 @@
       margin-right: 4rem !important;
       margin-top: 2rem !important;
       background-color: var(--button-col) !important;
+      display: block !important;
+    }
+    .mat-mdc-form-field-infix {
+      // color: var(--text-color);
+      background-color: unset !important;
     }
   }
 
   .close-btn {
+    display: none;
     align-self: flex-end;
     background: none;
     border: none;

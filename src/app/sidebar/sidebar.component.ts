@@ -54,8 +54,6 @@ export class SidebarComponent implements AfterViewInit {
   }
   closeSidebar(event: Event): void {
     event.stopPropagation();
-
     this.sidebarService.toggleSidebar();
-    console.log(this.sidebarService.toggleSidebar());
   }
 }

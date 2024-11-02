@@ -26,7 +26,11 @@
   .container > .row {
     padding: 0;
   }
-
+  .row {
+    width: 100%;
+    padding: 5px;
+    margin: 0 auto;
+  }
   app-card {
     padding: 0;
   }

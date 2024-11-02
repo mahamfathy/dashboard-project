@@ -54,18 +54,39 @@ export class NotificationService {
       );
   }
   markAsRead(notificationId: string): void {
+    // this.firebaseService
+    //   .patchRequest(
+    //     `${firebaseUrl}/markAsRead/${notificationId}.json`,
+    //     { read: true },
+    //     {
+    //       headers: this.headers,
+    //     }
+    //   )
+    //   .subscribe(() => {
+    //     this.unreadCountSubject.next(this.unreadCountSubject.getValue() - 1);
+    //     this.updateUnreadCount();
+    //   });
     this.firebaseService
       .patchRequest(
-        `${firebaseUrl}/markAsRead/${notificationId}.json`,
+        `notifications/${notificationId}.json`,
         { read: true },
-        {
-          headers: this.headers,
-        }
+        { headers: this.headers }
       )
-      .subscribe(() => {
-        this.unreadCountSubject.next(this.unreadCountSubject.getValue() - 1);
-        this.updateUnreadCount();
-      });
+      .subscribe(
+        () => {
+          console.log(`Notification ${notificationId} marked as read.`);
+          this.decreaseUnreadCount(); // Call the new function here
+        },
+        (error) => {
+          console.error('Error marking notification as read:', error);
+        }
+      );
+  }
+  decreaseUnreadCount(): void {
+    const currentCount = this.unreadCountSubject.getValue();
+    if (currentCount > 0) {
+      this.unreadCountSubject.next(currentCount - 1);
+    }
   }
   updateUnreadCount(): void {
     this.getNotifications()

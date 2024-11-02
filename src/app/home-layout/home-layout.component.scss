@@ -10,10 +10,16 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @include respond(phone) {
+      width: 100%;
+    }
   }
   @include respond(phone) {
     .sidebar {
       width: unset;
+    }
+    .content {
+      width: 100%;
     }
   }
 }

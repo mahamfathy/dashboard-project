@@ -1,3 +1,4 @@
+@import "../../../assets/SASS/abstracts/mixins";
 .container {
   justify-content: center;
   align-items: center;
@@ -78,6 +79,11 @@
     &:hover {
       background-color: var(--text-color);
       color: var(--button-col);
+    }
+  }
+  @include respond(phone) {
+    .row.mb-3 {
+      padding: 0.5rem;
     }
   }
 }
