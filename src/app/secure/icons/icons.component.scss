@@ -3,16 +3,17 @@
 .icon-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: 20px;
-  padding: 20px;
+  grid-gap: auto;
+  padding: 2px;
+  justify-items: center;
+  width: 100%;
 }
 .icon-item {
-  width: 100px;
+  width: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 10px;
   text-align: center;
 }
 .icon-item img {

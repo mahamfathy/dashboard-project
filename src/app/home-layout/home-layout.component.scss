@@ -2,10 +2,10 @@
 
 .main__wrapper {
   .sidebar {
-    width: 15rem;
+    width: 22%;
   }
   .wrapper {
-    width: calc(100% - 15rem);
+    width: calc(100% - 22%);
     flex-grow: 1;
     display: flex;
     flex-direction: column;

@@ -5,7 +5,7 @@
   position: sticky;
   top: 0;
   right: 0;
-  width: 15rem;
+  width: 100%;
   height: 100vh;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -21,7 +21,7 @@
     transition: transform 1s ease, opacity 1s ease;
   }
   .bg-body-tertiary {
-    width: 15rem;
+    width: 100%;
     background-color: $color-grey-dark-2 !important;
   }
   * {
@@ -30,6 +30,8 @@
   }
   .title {
     height: 3.8em;
+    justify-content: center;
+    display: flex;
   }
 
   .dropdown-menu {
@@ -142,4 +144,7 @@
     color: $color-white;
     cursor: pointer;
   }
+}
+.bi.pe-none {
+  display: none;
 }
