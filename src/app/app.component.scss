@@ -1,5 +1,6 @@
 @import "../assets/SASS/abstracts/mixins";
 .app-container {
+  height: 100%;
   @include respond(phone) {
     height: 100vh;
   }

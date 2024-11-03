@@ -1,7 +1,7 @@
-<div
-  class="login-container d-flex justify-content-center flex-column align-items-center"
->
-  <section>
+<section>
+  <div
+    class="login-container d-flex justify-content-center flex-column align-items-center"
+  >
     <form class="form" [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
       <h2 class="text-center">{{ "buttons.login" | translate }}</h2>
 
@@ -62,5 +62,5 @@
         </div>
       </div>
     </form>
-  </section>
-</div>
+  </div>
+</section>
