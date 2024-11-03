@@ -10,9 +10,10 @@
   column-gap: 5px;
   .col-sm-3 {
     display: flex;
-    flex: 1 1 calc(25% - 5px);
+    flex: 1 1 calc(23.5% - 5px);
     box-sizing: border-box;
     margin-bottom: 15px;
+    justify-content: center;
   }
   .card {
     display: flex;

@@ -53,10 +53,7 @@ table {
 }
 ::ng-deep .mat-mdc-menu-panel {
   &.mat-mdc-elevation-specific,
-  &.mat-mdc-elevation-specific * {
-  }
-
-  & * {
+  &.mat-mdc-elevation-specific & * {
     background-color: unset;
     color: unset;
   }
@@ -86,5 +83,11 @@ table {
   ::ng-deep .mat-mdc-cell {
     padding: 0 !important;
     text-align: center !important;
+  }
+}
+::ng-deep
+  .mat-mdc-cell.mdc-data-table__cell.cdk-cell.cdk-column-actions.mat-column-actions.ng-star-inserted {
+  * {
+    background-color: unset !important;
   }
 }

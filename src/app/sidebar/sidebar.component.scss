@@ -134,7 +134,7 @@
   background-color: $color-grey-dark-2;
 
   .dropdown-item {
-    background-color: var(--background-color);
+    background-color: $color-white !important;
     &:hover {
       background-color: var(--button-col) !important;
       color: $color-white !important;
