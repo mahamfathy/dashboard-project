@@ -3,7 +3,7 @@
     class="login-container d-flex justify-content-center flex-column align-items-center"
   >
     <form class="form" [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
-      <h2 class="text-center">{{ "buttons.login" | translate }}</h2>
+      <h1 class="text-center">{{ "buttons.login" | translate }}</h1>
 
       <div
         class="wrapper d-flex flex-column align-items-center justify-content-center"
@@ -44,11 +44,7 @@
           }
         </mat-form-field>
         <div class="btnsContainer w-100 d-flex">
-          <button
-            type="submit"
-            [disabled]="loginForm.invalid"
-            class="btn btn-primary"
-          >
+          <button type="submit" [disabled]="loginForm.invalid" class="btn">
             {{ "buttons.login" | translate }}
           </button>
 
