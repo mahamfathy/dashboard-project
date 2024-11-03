@@ -9,7 +9,9 @@ import { FirebaseService } from './firebase.service';
   providedIn: 'root',
 })
 export class NotificationService {
-  private unreadCountSubject = new BehaviorSubject<number>(0);
+  private unreadCountSubject = new BehaviorSubject<number>(
+    this.getInitialUnreadCount()
+  );
   unreadCount$ = this.unreadCountSubject.asObservable();
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
@@ -20,10 +22,12 @@ export class NotificationService {
     return this.firebaseService.getRequest('notifications').pipe(
       map((response) => {
         if (response) {
-          return Object.keys(response).map((key) => ({
-            id: key,
-            ...response[key],
-          }));
+          return Object.keys(response)
+            .map((key) => ({
+              id: key,
+              ...response[key],
+            }))
+            .filter((noti) => noti.title); // Filter out invalid notifications
         } else {
           return [];
         }
@@ -31,7 +35,20 @@ export class NotificationService {
     );
   }
 
+  private getInitialUnreadCount(): number {
+    const storedCount = localStorage.getItem('unreadCount');
+    return storedCount ? parseInt(storedCount, 10) : 0;
+  }
+
+  private updateLocalStorageCount(count: number): void {
+    localStorage.setItem('unreadCount', count.toString());
+  }
+
   addNotification(notification: INotification): void {
+    if (!notification || !notification.title || !notification.icon) {
+      console.error('Invalid notification data:', notification);
+      return; // Exit if notification is invalid
+    }
     const newNotification = {
       ...notification,
       time: new Date().toISOString(),
@@ -43,6 +60,7 @@ export class NotificationService {
       })
       .subscribe(() => this.updateUnreadCount());
   }
+
   getNotificationById(notificationId: string): Observable<INotification> {
     return this.firebaseService
       .getRequest(`notifications/${notificationId}.json`)
@@ -54,38 +72,27 @@ export class NotificationService {
       );
   }
   markAsRead(notificationId: string): void {
-    // this.firebaseService
-    //   .patchRequest(
-    //     `${firebaseUrl}/markAsRead/${notificationId}.json`,
-    //     { read: true },
-    //     {
-    //       headers: this.headers,
-    //     }
-    //   )
-    //   .subscribe(() => {
-    //     this.unreadCountSubject.next(this.unreadCountSubject.getValue() - 1);
-    //     this.updateUnreadCount();
-    //   });
     this.firebaseService
       .patchRequest(
-        `notifications/${notificationId}.json`,
+        `${firebaseUrl}notifications/${notificationId}.json`,
         { read: true },
         { headers: this.headers }
       )
       .subscribe(
         () => {
           console.log(`Notification ${notificationId} marked as read.`);
-          this.decreaseUnreadCount(); // Call the new function here
+          this.decreaseUnreadCount();
         },
         (error) => {
           console.error('Error marking notification as read:', error);
         }
       );
   }
-  private decreaseUnreadCount(): void {
+  decreaseUnreadCount(): void {
     const currentCount = this.unreadCountSubject.getValue();
     if (currentCount > 0) {
       this.unreadCountSubject.next(currentCount - 1);
+      this.updateLocalStorageCount(currentCount - 1);
     }
   }
   updateUnreadCount(): void {
@@ -96,6 +103,9 @@ export class NotificationService {
             notifications.filter((notification) => !notification.read).length
         )
       )
-      .subscribe((unreadCount) => this.unreadCountSubject.next(unreadCount));
+      .subscribe((unreadCount) => {
+        this.unreadCountSubject.next(unreadCount);
+        this.updateLocalStorageCount(unreadCount); // Update local storage
+      });
   }
 }

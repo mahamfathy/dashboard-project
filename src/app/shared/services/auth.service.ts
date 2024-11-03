@@ -37,13 +37,11 @@ export class AuthService {
           this.localStorageService.setItem('token', token);
           this.localStorageService.setItem('username', username);
 
-          // Default image path
           const defaultImagePath = './assets/images/default-avatar.avif';
           this.localStorageService.setItem('imagePath', defaultImagePath);
           this.usernameSubject.next(username);
           this.imagePathSubject.next(defaultImagePath);
 
-          // Initialize profile with default values
           const initialProfile: IProfile = {
             name: username,
             username: `@${username}`,
@@ -119,12 +117,14 @@ export class AuthService {
     return savedProfile
       ? JSON.parse(savedProfile)
       : {
-          name: 'Default Name',
-          username: '@default',
+          name: this.profile$.subscribe((profile) => profile.name),
+          username: this.profile$.subscribe((profile) => profile.username),
           imagePath: './assets/images/default-avatar.avif',
           backgroundImage: './assets/images/background.jpg',
-          imageAlt: 'Default Avatar',
-          backgroundAlt: 'Background image',
+          imageAlt: this.profile$.subscribe((profile) => profile.imageAlt),
+          backgroundAlt: this.profile$.subscribe(
+            (profile) => profile.imagePath
+          ),
           aboutMe: 'Add Bio',
         };
   }

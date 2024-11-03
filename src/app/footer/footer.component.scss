@@ -1,0 +1,9 @@
+footer {
+  padding: 2rem;
+  .fab {
+    color: var(--text-color);
+    &:hover {
+      color: var(--button-col);
+    }
+  }
+}

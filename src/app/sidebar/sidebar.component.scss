@@ -35,9 +35,9 @@
   }
 
   .dropdown-menu {
-    background-color: $color-grey-dark-2;
+    background-color: $color-white;
     transition: background-color 0.3s ease;
-    height: 2.7rem;
+    height: fit-content;
   }
 
   .nav-item {
@@ -133,10 +133,13 @@
 .dropdown-menu {
   background-color: $color-grey-dark-2;
 
-  .dropdown-item:hover {
-    background-color: var(--button-col);
-    color: $color-white !important;
-    cursor: pointer;
+  .dropdown-item {
+    background-color: var(--background-color);
+    &:hover {
+      background-color: var(--button-col) !important;
+      color: $color-white !important;
+      cursor: pointer;
+    }
   }
 }
 .dropdown {
