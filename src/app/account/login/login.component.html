@@ -1,63 +1,66 @@
 <div
   class="login-container d-flex justify-content-center flex-column align-items-center"
 >
-  <h2>{{ "buttons.login" | translate }}</h2>
-  <form class="form" [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
-    <div
-      class="col-md-12 wrapper d-flex flex-column align-items-center justify-content-center"
-    >
-      <!-- Email -->
-      <mat-form-field appearance="fill" class="form p-0">
-        <mat-label>{{ "form.email" | translate }}</mat-label>
-        <mat-icon matSuffix>email</mat-icon>
-        <input
-          matInput
-          id="email"
-          type="email"
-          formControlName="email"
-          placeholder="{{ 'form.enterEmail' | translate }}"
-        />
-        @if (loginForm.get('email')?.hasError('required') ) {
-        <mat-error>{{ "validation.required" | translate }} </mat-error>
-        } @if (loginForm.get('email')?.hasError('email') ) {
-        <mat-error>{{ "validation.invalidEmail" | translate }} </mat-error>
-        }
-      </mat-form-field>
+  <section>
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
+      <h2 class="text-center">{{ "buttons.login" | translate }}</h2>
 
-      <!-- Password -->
-      <mat-form-field appearance="fill" class="form">
-        <mat-label>{{ "form.password" | translate }}</mat-label>
-        <mat-icon matSuffix>lock</mat-icon>
-        <input
-          matInput
-          id="password"
-          formControlName="password"
-          type="password"
-          placeholder="{{ 'form.enterPassword' | translate }}"
-        />
-        @if (loginForm.get('password')?.hasError('required') ) {
-        <mat-error>{{ "validation.required" | translate }} </mat-error>
-        } @if (loginForm.get('password')?.hasError('minlength') ) {
-        <mat-error>{{ "validation.passwordLength" | translate }} </mat-error>
-        }
-      </mat-form-field>
-      <div class="btnsContainer w-100 d-flex">
-        <button
-          type="submit"
-          [disabled]="loginForm.invalid"
-          class="btn btn-primary"
-        >
-          {{ "buttons.login" | translate }}
-        </button>
+      <div
+        class="wrapper d-flex flex-column align-items-center justify-content-center"
+      >
+        <!-- Email -->
+        <mat-form-field appearance="fill" class="form p-0">
+          <mat-label>{{ "form.email" | translate }}</mat-label>
+          <mat-icon matSuffix>email</mat-icon>
+          <input
+            matInput
+            id="email"
+            type="email"
+            formControlName="email"
+            placeholder="{{ 'form.enterEmail' | translate }}"
+          />
+          @if (loginForm.get('email')?.hasError('required') ) {
+          <mat-error>{{ "validation.required" | translate }} </mat-error>
+          } @if (loginForm.get('email')?.hasError('email') ) {
+          <mat-error>{{ "validation.invalidEmail" | translate }} </mat-error>
+          }
+        </mat-form-field>
 
-        <button
-          type="button"
-          class="btn btn-secondary"
-          (click)="navigateToRegister()"
-        >
-          {{ "buttons.register" | translate }}
-        </button>
+        <!-- Password -->
+        <mat-form-field appearance="fill" class="form">
+          <mat-label>{{ "form.password" | translate }}</mat-label>
+          <mat-icon matSuffix>lock</mat-icon>
+          <input
+            matInput
+            id="password"
+            formControlName="password"
+            type="password"
+            placeholder="{{ 'form.enterPassword' | translate }}"
+          />
+          @if (loginForm.get('password')?.hasError('required') ) {
+          <mat-error>{{ "validation.required" | translate }} </mat-error>
+          } @if (loginForm.get('password')?.hasError('minlength') ) {
+          <mat-error>{{ "validation.passwordLength" | translate }} </mat-error>
+          }
+        </mat-form-field>
+        <div class="btnsContainer w-100 d-flex">
+          <button
+            type="submit"
+            [disabled]="loginForm.invalid"
+            class="btn btn-primary"
+          >
+            {{ "buttons.login" | translate }}
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="navigateToRegister()"
+          >
+            {{ "buttons.register" | translate }}
+          </button>
+        </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </section>
 </div>
