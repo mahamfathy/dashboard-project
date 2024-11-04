@@ -1,117 +1,167 @@
-<div class="register-container">
-  <form class="register-form" [formGroup]="form" (ngSubmit)="register()">
-    <h2>{{ "buttons.register" | translate }}</h2>
+<section>
+  <div class="register-container">
+    <form class="form" [formGroup]="form" (ngSubmit)="register()">
+      <h1>{{ "buttons.register" | translate }}</h1>
 
-    <!-- Username -->
-    <mat-form-field appearance="fill" class="form">
-      <mat-label>{{ "form.username" | translate }}</mat-label>
-      <mat-icon matPrefix>person</mat-icon>
-      <input
-        formControlName="userName"
-        matInput
-        id="username"
-        type="text"
-        placeholder="{{ 'form.enterUsername' | translate }}"
-      />
-      @if (form.get('userName')?.hasError('required') ) {
-      <mat-error>{{ "validation.required" | translate }} </mat-error>
-      }
-    </mat-form-field>
+      <!-- Username -->
+      <div class="form-group">
+        <label for="username">{{ "form.username" | translate }}</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-user"></i></span>
+          </div>
+          <input
+            id="username"
+            type="text"
+            formControlName="userName"
+            placeholder="{{ 'form.enterUsername' | translate }}"
+            class="form-control"
+          />
+        </div>
+        @if (form.get('userName')?.touched && form.get('userName')?.invalid ) {
+        <div class="text-danger">
+          @if (form.get('userName')?.hasError('required') ) {
+          {{ "validation.required" | translate }}
+          }
+        </div>
+        }
+      </div>
 
-    <!-- Email -->
-    <mat-form-field appearance="fill" class="form">
-      <mat-label>{{ "form.email" | translate }}</mat-label>
-      <mat-icon matPrefix>email</mat-icon>
-      <input
-        matInput
-        id="email"
-        type="email"
-        formControlName="email"
-        placeholder="{{ 'form.enterEmail' | translate }}"
-      />
-      @if (form.get('email')?.hasError('required') ) {
-      <mat-error>{{ "validation.required" | translate }} </mat-error>
-      } @if (form.get('email')?.hasError('email') ) {
-      <mat-error>{{ "validation.invalidEmail" | translate }} </mat-error>
-      } @if (form.get('email')?.hasError('emailDomain') ) {
-      <mat-error>{{ "validation.invalidEmailDomain" | translate }} </mat-error>
-      }
-    </mat-form-field>
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">{{ "form.email" | translate }}</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"
+              ><i class="fas fa-envelope"></i
+            ></span>
+          </div>
+          <input
+            id="email"
+            type="email"
+            formControlName="email"
+            placeholder="{{ 'form.enterEmail' | translate }}"
+            class="form-control"
+          />
+        </div>
 
-    <!-- Phone Number -->
-    <mat-form-field appearance="fill" class="form">
-      <mat-label>{{ "form.phone-number" | translate }}</mat-label>
-      <mat-icon matPrefix>phone</mat-icon>
-      <input
-        matInput
-        id="phone"
-        type="number"
-        formControlName="phoneNumber"
-        placeholder="{{ 'form.enterPhoneNumber' | translate }}"
-      />
-      @if (form.get('phoneNumber')?.hasError('required') ) {
-      <mat-error>{{ "validation.required" | translate }} </mat-error>
-      }
-    </mat-form-field>
+        @if (form.get('email')?.touched && form.get('email')?.invalid ) {
+        <div class="text-danger">
+          @if (form.get('email')?.hasError('required') ) {
+          {{ "validation.required" | translate }}
+          } @if (form.get('email')?.hasError('email') ) {
+          {{ "validation.invalidEmail" | translate }}
+          } @if (form.get('email')?.hasError('emailDomain') &&
+          !form.get('email')?.hasError('email') &&
+          !form.get('email')?.hasError('required') ) {
+          <div class="text-danger">
+            {{ "validation.invalidEmailDomain" | translate }}
+          </div>
+          }
+        </div>
+        }
+      </div>
+      <!-- Phone Number -->
+      <div class="form-group">
+        <label for="phone">{{ "form.phone-number" | translate }}</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+          </div>
+          <input
+            id="phone"
+            type="number"
+            formControlName="phoneNumber"
+            placeholder="{{ 'form.enterPhoneNumber' | translate }}"
+            class="form-control phone no-spin"
+          />
+        </div>
+        @if (form.get('phoneNumber')?.touched &&
+        form.get('phoneNumber')?.invalid ) {
+        <div class="text-danger">
+          @if (form.get('phoneNumber')?.hasError('required') ) {
+          {{ "validation.required" | translate }}
+          }
+        </div>
+        }
+      </div>
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">{{ "form.password" | translate }}</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+          </div>
+          <input
+            id="password"
+            type="password"
+            formControlName="password"
+            placeholder="{{ 'form.enterPassword' | translate }}"
+            class="form-control"
+          />
+        </div>
+        @if (form.get('password')?.touched && form.get('password')?.invalid ) {
+        <div class="text-danger">
+          @if (form.get('password')?.hasError('required') ) {
+          <div class="text-danger">
+            {{ "validation.required" | translate }}
+          </div>
+          } @if (form.get('password')?.hasError('minlength') ) {
+          <div class="text-danger">
+            {{ "validation.passwordLength" | translate }}
+          </div>
+          }
+        </div>
 
-    <!-- Password -->
-    <mat-form-field appearance="fill" class="form">
-      <mat-label>{{ "form.password" | translate }}</mat-label>
-      <mat-icon matPrefix>lock</mat-icon>
-      <input
-        matInput
-        id="password"
-        formControlName="password"
-        type="password"
-        placeholder="{{ 'form.enterPassword' | translate }}"
-      />
-      @if (form.get('password')?.hasError('required') ) {
-      <mat-error>{{ "validation.required" | translate }} </mat-error>
-      } @if (form.get('password')?.hasError('minlength') ) {
-      <mat-error>{{ "validation.passwordLength" | translate }} </mat-error>
-      }
-    </mat-form-field>
+        }
+      </div>
 
-    <!-- Confirm Password -->
-    <mat-form-field appearance="fill" class="form">
-      <mat-label>{{ "form.confirm-password" | translate }}</mat-label>
-      <mat-icon matPrefix>lock</mat-icon>
-      <input
-        matInput
-        id="confirmPassword"
-        type="password"
-        placeholder="{{ 'form.confirmPassword' | translate }}"
-        formControlName="confirmPassword"
-      />
-      @if (form.get('confirmPassword')?.hasError('required') ) {
-      <mat-error>{{ "validation.required" | translate }} </mat-error>
-      } @if (form.get('confirmPassword')?.hasError('minlength') ) {
-      <mat-error>{{ "validation.passwordLength" | translate }} </mat-error>
-      }@if (form.get('confirmPassword')?.hasError('mustMatch') ) {
-      <mat-error>{{ "validation.mustMatch" | translate }} </mat-error>
-      }@if (form.get('confirmPassword')?.hasError('mustMatch') ) {
-      <mat-error>{{ "validation.mustMatch" | translate }} </mat-error>
-      }
-    </mat-form-field>
+      <!-- Confirm Password -->
+      <div class="form-group">
+        <label for="confirmPassword">{{
+          "form.confirm-password" | translate
+        }}</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+          </div>
+          <input
+            id="confirmPassword"
+            type="password"
+            formControlName="confirmPassword"
+            placeholder="{{ 'form.confirmPassword' | translate }}"
+            class="form-control"
+          />
+        </div>
+        @if (form.get('password')?.touched && form.get('password')?.invalid ) {
+        <div class="text-danger">
+          @if (form.get('password')?.hasError('required') ) {
+          <div class="text-danger">
+            {{ "validation.required" | translate }}
+          </div>
+          } @if (form.get('password')?.hasError('minlength') ) {
+          <div class="text-danger">
+            {{ "validation.passwordLength" | translate }}
+          </div>
+          } @if (form.get('confirmPassword')?.hasError('mustMatch') ) {
+          <div class="text-danger">
+            {{ "validation.mustMatch" | translate }}
+          </div>
+          }
+        </div>
 
-    <!-- Submit Button -->
-    <div class="btnsContainer">
-      <button
-        mat-raised-button
-        class="mt-4"
-        type="submit"
-        [disabled]="form.invalid"
-      >
-        {{ "buttons.register" | translate }}
-      </button>
-      <button
-        mat-raised-button
-        class="mt-4"
-        type="button"
-        (click)="navigateToLogin()"
-      >
-        {{ "buttons.login" | translate }}
-      </button>
-    </div>
-  </form>
-</div>
+        }
+      </div>
+
+      <!-- Submit Button -->
+      <div class="btnsContainer">
+        <button type="submit" [disabled]="form.invalid" class="btn">
+          {{ "buttons.register" | translate }}
+        </button>
+        <button type="button" class="" (click)="navigateToLogin()">
+          {{ "buttons.login" | translate }}
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

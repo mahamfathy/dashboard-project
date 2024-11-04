@@ -33,7 +33,14 @@ export class FormsService {
 
   createLoginForm(): any {
     return this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.email,
+          ValidationService.emailDomain(['gmail.com', 'yahoo.com']),
+        ],
+      ],
       password: ['', Validators.required],
     });
   }
