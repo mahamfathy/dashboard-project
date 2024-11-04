@@ -1,12 +1,19 @@
 @import "../../assets/SASS/abstracts/mixins";
 
 .main__wrapper {
-  height: 100%;
+  height: 100vh;
+
+  display: flex;
   .sidebar {
     width: 22%;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1000;
   }
   .wrapper {
-    height: 100%;
+    margin-left: 22%;
+    height: 100vh;
     width: calc(100% - 22%);
     flex-grow: 1;
     display: flex;
@@ -14,18 +21,31 @@
     justify-content: space-between;
     @include respond(phone) {
       width: 100%;
+      margin-left: 0;
     }
-    .content {
-      height: 100%;
-    }
+
     .main-panel {
-      height: 92%;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content {
+      flex-grow: 1;
+    }
+
+    .footer {
+      flex-shrink: 0;
     }
   }
+
   @include respond(phone) {
     .sidebar {
       width: unset;
+      position: static;
+      height: auto;
     }
+
     .content {
       width: 100%;
     }

@@ -9,40 +9,50 @@
         class="wrapper d-flex flex-column align-items-center justify-content-center"
       >
         <!-- Email -->
-        <mat-form-field appearance="fill" class="form p-0">
-          <mat-label>{{ "form.email" | translate }}</mat-label>
-          <mat-icon matSuffix>email</mat-icon>
+        <div class="form-group">
+          <label for="email">{{ "form.email" | translate }}</label>
           <input
-            matInput
             id="email"
             type="email"
             formControlName="email"
             placeholder="{{ 'form.enterEmail' | translate }}"
+            class="form-control"
           />
-          @if (loginForm.get('email')?.hasError('required') ) {
-          <mat-error>{{ "validation.required" | translate }} </mat-error>
-          } @if (loginForm.get('email')?.hasError('email') ) {
-          <mat-error>{{ "validation.invalidEmail" | translate }} </mat-error>
+          @if (loginForm.get('email')?.touched &&
+          loginForm.get('email')?.invalid ) {
+          <div class="text-danger">
+            @if (loginForm.get('email')?.hasError('required') ) {
+            {{ "validation.required" | translate }}
+            } @if (loginForm.get('email')?.hasError('email') ) {
+            {{ "validation.invalidEmail" | translate }}
+            }
+          </div>
           }
-        </mat-form-field>
+        </div>
 
         <!-- Password -->
-        <mat-form-field appearance="fill" class="form">
-          <mat-label>{{ "form.password" | translate }}</mat-label>
-          <mat-icon matSuffix>lock</mat-icon>
+        <div class="form-group">
+          <label for="password">{{ "form.password" | translate }}</label>
           <input
-            matInput
             id="password"
-            formControlName="password"
             type="password"
+            formControlName="password"
             placeholder="{{ 'form.enterPassword' | translate }}"
+            class="form-control"
           />
-          @if (loginForm.get('password')?.hasError('required') ) {
-          <mat-error>{{ "validation.required" | translate }} </mat-error>
-          } @if (loginForm.get('password')?.hasError('minlength') ) {
-          <mat-error>{{ "validation.passwordLength" | translate }} </mat-error>
+          @if ( loginForm.get('password')?.touched &&
+          loginForm.get('password')?.invalid) {
+
+          <div class="text-danger">
+            @if (loginForm.get('password')?.hasError('required') ) {
+            {{ "validation.required" | translate }}
+            } @if (loginForm.get('password')?.hasError('minlength') ) {
+            {{ "validation.passwordLength" | translate }}
+            }
+          </div>
           }
-        </mat-form-field>
+        </div>
+
         <div class="btnsContainer w-100 d-flex">
           <button type="submit" [disabled]="loginForm.invalid" class="btn">
             {{ "buttons.login" | translate }}
