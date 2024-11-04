@@ -95,21 +95,23 @@
     </mat-form-field>
 
     <!-- Submit Button -->
-    <button
-      mat-raised-button
-      class="mt-4"
-      type="submit"
-      [disabled]="form.invalid"
-    >
-      {{ "buttons.register" | translate }}
-    </button>
-    <button
-      mat-raised-button
-      class="mt-4"
-      type="button"
-      (click)="navigateToLogin()"
-    >
-      {{ "buttons.login" | translate }}
-    </button>
+    <div class="btnsContainer">
+      <button
+        mat-raised-button
+        class="mt-4"
+        type="submit"
+        [disabled]="form.invalid"
+      >
+        {{ "buttons.register" | translate }}
+      </button>
+      <button
+        mat-raised-button
+        class="mt-4"
+        type="button"
+        (click)="navigateToLogin()"
+      >
+        {{ "buttons.login" | translate }}
+      </button>
+    </div>
   </form>
 </div>
