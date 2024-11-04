@@ -5,12 +5,15 @@
     <form class="form" [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
       <h1 class="text-center">{{ "buttons.login" | translate }}</h1>
 
-      <div
-        class="wrapper d-flex flex-column align-items-center justify-content-center"
-      >
-        <!-- Email -->
-        <div class="form-group">
-          <label for="email">{{ "form.email" | translate }}</label>
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">{{ "form.email" | translate }}</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"
+              ><i class="fas fa-envelope"></i
+            ></span>
+          </div>
           <input
             id="email"
             type="email"
@@ -18,21 +21,31 @@
             placeholder="{{ 'form.enterEmail' | translate }}"
             class="form-control"
           />
-          @if (loginForm.get('email')?.touched &&
-          loginForm.get('email')?.invalid ) {
-          <div class="text-danger">
-            @if (loginForm.get('email')?.hasError('required') ) {
-            {{ "validation.required" | translate }}
-            } @if (loginForm.get('email')?.hasError('email') ) {
-            {{ "validation.invalidEmail" | translate }}
-            }
-          </div>
-          }
         </div>
 
-        <!-- Password -->
-        <div class="form-group">
-          <label for="password">{{ "form.password" | translate }}</label>
+        @if (loginForm.get('email')?.touched && loginForm.get('email')?.invalid
+        ) {
+        <div class="text-danger">
+          @if (loginForm.get('email')?.hasError('required') ) {
+          {{ "validation.required" | translate }}
+          } @if (loginForm.get('email')?.hasError('email') ) {
+          {{ "validation.invalidEmail" | translate }}
+          }@if (loginForm.get('email')?.hasError('emailDomain') &&
+          !loginForm.get('email')?.hasError('email') &&
+          !loginForm.get('email')?.hasError('required') ) {
+          {{ "validation.invalidEmailDomain" | translate }}
+          }
+        </div>
+        }
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">{{ "form.password" | translate }}</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+          </div>
           <input
             id="password"
             type="password"
@@ -40,32 +53,32 @@
             placeholder="{{ 'form.enterPassword' | translate }}"
             class="form-control"
           />
-          @if ( loginForm.get('password')?.touched &&
-          loginForm.get('password')?.invalid) {
+        </div>
+        @if ( loginForm.get('password')?.touched &&
+        loginForm.get('password')?.invalid) {
 
-          <div class="text-danger">
-            @if (loginForm.get('password')?.hasError('required') ) {
-            {{ "validation.required" | translate }}
-            } @if (loginForm.get('password')?.hasError('minlength') ) {
-            {{ "validation.passwordLength" | translate }}
-            }
-          </div>
+        <div class="text-danger">
+          @if (loginForm.get('password')?.hasError('required') ) {
+          {{ "validation.required" | translate }}
+          } @if (loginForm.get('password')?.hasError('minlength') ) {
+          {{ "validation.passwordLength" | translate }}
           }
         </div>
+        }
+      </div>
 
-        <div class="btnsContainer w-100 d-flex wrap">
-          <button type="submit" [disabled]="loginForm.invalid" class="btn">
-            {{ "buttons.login" | translate }}
-          </button>
+      <div class="btnsContainer d-flex wrap">
+        <button type="submit" [disabled]="loginForm.invalid" class="btn">
+          {{ "buttons.login" | translate }}
+        </button>
 
-          <button
-            type="button"
-            class="btn btn-secondary"
-            (click)="navigateToRegister()"
-          >
-            {{ "buttons.register" | translate }}
-          </button>
-        </div>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="navigateToRegister()"
+        >
+          {{ "buttons.register" | translate }}
+        </button>
       </div>
     </form>
   </div>

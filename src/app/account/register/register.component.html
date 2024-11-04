@@ -54,9 +54,7 @@
           } @if (form.get('email')?.hasError('emailDomain') &&
           !form.get('email')?.hasError('email') &&
           !form.get('email')?.hasError('required') ) {
-          <div class="text-danger">
-            {{ "validation.invalidEmailDomain" | translate }}
-          </div>
+          {{ "validation.invalidEmailDomain" | translate }}
           }
         </div>
         }
@@ -158,7 +156,11 @@
         <button type="submit" [disabled]="form.invalid" class="btn">
           {{ "buttons.register" | translate }}
         </button>
-        <button type="button" class="" (click)="navigateToLogin()">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="navigateToLogin()"
+        >
           {{ "buttons.login" | translate }}
         </button>
       </div>

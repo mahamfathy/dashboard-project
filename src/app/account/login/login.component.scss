@@ -30,7 +30,7 @@ section {
         font-size: xx-large;
       }
       .form-group {
-        width: 100%;
+        width: 75%;
         margin-bottom: 1.5rem;
 
         label {
@@ -42,7 +42,7 @@ section {
 
         input {
           width: 100%;
-          padding: 0.75rem;
+          padding: 0.75rem 2.2rem 0.75rem 1rem;
           border-radius: 0.5rem;
           border: 1px solid #ccc;
           background-color: rgba(255, 255, 255, 0.1);
@@ -53,6 +53,21 @@ section {
             border-color: #6200ea; // Accent color for focus
             outline: none;
             box-shadow: 0 0 5px rgba(98, 0, 234, 0.5);
+          }
+        }
+        .input-group {
+          position: relative;
+          display: flex;
+          align-items: center;
+          &-text {
+            position: absolute;
+            top: 50%;
+            right: 4px;
+            transform: translateY(-50%);
+            border: unset;
+            i {
+              color: white;
+            }
           }
         }
       }
@@ -66,7 +81,9 @@ section {
   }
   .btnsContainer {
     justify-content: space-evenly;
+    width: 85%;
     button {
+      border-radius: 19px;
       width: fit-content;
       min-width: 30%;
       background-color: white !important;
@@ -98,6 +115,9 @@ section {
         padding: 2.5rem;
         border: none;
         border-radius: 0;
+        .form-group {
+          width: 70%;
+        }
       }
     }
   }
