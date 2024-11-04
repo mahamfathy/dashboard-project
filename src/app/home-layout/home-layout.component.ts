@@ -31,4 +31,7 @@ export class HomeLayoutComponent {
   isLoginPage(): boolean {
     return this.router.url === '/account/login';
   }
+  isRegisterPage(): boolean {
+    return this.router.url === '/account/register';
+  }
 }
