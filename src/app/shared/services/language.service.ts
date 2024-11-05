@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { LocalStorageService } from './local-storage.service';
 import { TranslationService } from './translation.service';
 
@@ -11,6 +12,8 @@ export class LanguageService {
   private html: HTMLElement;
   private currentLanguage: string;
   private readonly defaultLanguageKey = 'ar';
+  languageChange = new BehaviorSubject<string>(this.defaultLanguageKey);
+
   constructor(
     private translationService: TranslationService,
     private localStorageService: LocalStorageService,
@@ -26,6 +29,7 @@ export class LanguageService {
   }
   changeLanguage(lang: string): void {
     this.setLanguage(lang);
+    this.languageChange.next(lang);
   }
   private setLanguage(lang: string): void {
     this.currentLanguage = lang;
@@ -39,5 +43,8 @@ export class LanguageService {
   }
   private getDirection(): string {
     return this.currentLanguage === this.defaultLanguageKey ? 'rtl' : 'ltr';
+  }
+  getCurrentLanguage(): string {
+    return this.currentLanguage;
   }
 }
