@@ -27,7 +27,7 @@ export class NotificationService {
               id: key,
               ...response[key],
             }))
-            .filter((noti) => noti.title); // Filter out invalid notifications
+            .filter((noti) => noti.title);
         } else {
           return [];
         }
@@ -47,7 +47,7 @@ export class NotificationService {
   addNotification(notification: INotification): void {
     if (!notification || !notification.title || !notification.icon) {
       console.error('Invalid notification data:', notification);
-      return; // Exit if notification is invalid
+      return;
     }
     const newNotification = {
       ...notification,
@@ -105,7 +105,7 @@ export class NotificationService {
       )
       .subscribe((unreadCount) => {
         this.unreadCountSubject.next(unreadCount);
-        this.updateLocalStorageCount(unreadCount); // Update local storage
+        this.updateLocalStorageCount(unreadCount);
       });
   }
 }

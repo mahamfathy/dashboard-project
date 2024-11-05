@@ -33,7 +33,6 @@
   --box-shadow: var(--box-shadow-light);
 }
 
-// Apply to html, body, and all elements
 html,
 body {
   height: 100%;
@@ -49,7 +48,6 @@ body {
   font-family: "Roboto", "Helvetica Neue", sans-serif;
 }
 
-// General styles
 * {
   background-color: var(--background-color);
   color: var(--text-color);

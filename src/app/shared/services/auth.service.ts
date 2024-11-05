@@ -83,9 +83,8 @@ export class AuthService {
 
           const savedProfile = this.getProfileData();
           if (savedProfile) {
-            // Update profile only if it exists
             this.profileDataSubject.next(savedProfile);
-            this.imagePathSubject.next(savedProfile.imagePath || imagePath); // Use saved image path if available
+            this.imagePathSubject.next(savedProfile.imagePath || imagePath);
           }
           this.navigationService.navigateByUrl('secure/dashboard');
         })

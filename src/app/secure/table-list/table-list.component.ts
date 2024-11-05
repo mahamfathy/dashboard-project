@@ -158,8 +158,6 @@ export class TableListComponent implements OnInit {
     const lang = this.localStorageService.getItem('lang') || 'en';
     const locale = lang === 'ar' ? 'ar-EG' : 'en-US';
     const currency = lang === 'ar' ? 'ج.م' : 'EGP';
-
-    // Ensure the salary is a valid number
     const parsedSalary =
       typeof salary === 'string' ? parseFloat(salary) : salary;
     if (isNaN(parsedSalary)) {

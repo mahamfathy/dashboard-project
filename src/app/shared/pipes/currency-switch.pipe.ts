@@ -12,7 +12,7 @@ export class CurrencySwitchPipe implements PipeTransform {
   transform(value: number | string): string | null {
     if (isNaN(Number(value))) {
       console.error('Invalid salary value:', value);
-      return 'Invalid Salary'; // Handle invalid value gracefully
+      return 'Invalid Salary';
     }
 
     const lang = this.localStorageService.getItem('lang') || 'en';

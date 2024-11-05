@@ -12,7 +12,6 @@ import { routes } from './app.routes';
 import { HandleErrorInterceptor } from './shared/interceptors/handle-error-interceptor';
 import { AppTranslateModule } from './shared/modules/app-translate.module';
 
-// Register locales
 registerLocaleData(localeArEg, 'ar-EG');
 registerLocaleData(localeEn, 'en');
 export const appConfig: ApplicationConfig = {
