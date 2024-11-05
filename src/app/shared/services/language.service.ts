@@ -22,14 +22,17 @@ export class LanguageService {
     this.html = this.document.getElementsByTagName('html')[0];
     this.currentLanguage =
       localStorage.getItem(this.languageKey) || this.defaultLanguageKey;
+    this.languageChange.next(this.currentLanguage);
   }
   initAppLanguage(): void {
     this.translationService.setDefaultLanguage(this.currentLanguage);
     this.updateLayout();
   }
   changeLanguage(lang: string): void {
-    this.setLanguage(lang);
-    this.languageChange.next(lang);
+    if (lang !== this.currentLanguage) {
+      this.setLanguage(lang);
+      this.languageChange.next(lang);
+    }
   }
   private setLanguage(lang: string): void {
     this.currentLanguage = lang;

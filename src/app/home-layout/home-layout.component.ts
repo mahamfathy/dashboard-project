@@ -23,7 +23,6 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
   styleUrl: './home-layout.component.scss',
 })
 export class HomeLayoutComponent {
-  welcome = 'Welcome';
   constructor(private router: Router) {}
   isPageNotFound(): boolean {
     return this.router.url === '/404' || this.router.url === '/pageNotFound';
