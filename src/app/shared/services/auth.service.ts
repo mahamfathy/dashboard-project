@@ -1,6 +1,6 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, of, tap } from 'rxjs';
 import { signInUrl, signUpUrl } from '../firebase/firebase-url';
 import { IProfile } from '../models/IProfile';
 import { FirebaseService } from './firebase.service';
@@ -57,7 +57,11 @@ export class AuthService {
           );
           this.profileDataSubject.next(initialProfile);
 
-          this.navigationService.navigateByUrl('secure/dashboard');
+          this.navigationService.navigateByUrl('/secure/dashboard');
+        }),
+        catchError((error) => {
+          console.error('Sign Up Error:', error);
+          return of(null); // Handle the error as you see fit
         })
       );
   }
@@ -87,6 +91,10 @@ export class AuthService {
             this.imagePathSubject.next(savedProfile.imagePath || imagePath);
           }
           this.navigationService.navigateByUrl('secure/dashboard');
+        }),
+        catchError((error) => {
+          console.error('Sign In Error:', error);
+          return of(null); // Handle the error as you see fit
         })
       );
   }
@@ -113,18 +121,18 @@ export class AuthService {
   }
   private getProfileData(): IProfile {
     const savedProfile = this.localStorageService.getItem('profile');
-    return savedProfile
-      ? JSON.parse(savedProfile)
-      : {
-          name: this.profile$.subscribe((profile) => profile.name),
-          username: this.profile$.subscribe((profile) => profile.username),
-          imagePath: './assets/images/default-avatar.avif',
-          backgroundImage: './assets/images/background.jpg',
-          imageAlt: this.profile$.subscribe((profile) => profile.imageAlt),
-          backgroundAlt: this.profile$.subscribe(
-            (profile) => profile.imagePath
-          ),
-          aboutMe: 'Add Bio',
-        };
+    if (savedProfile) {
+      return JSON.parse(savedProfile);
+    }
+
+    return {
+      name: 'Default Name',
+      username: 'Default Username',
+      imagePath: './assets/images/default-avatar.avif',
+      backgroundImage: './assets/images/background.jpg',
+      imageAlt: 'Default Avatar Image Alt',
+      backgroundAlt: 'Default Background Image Alt',
+      aboutMe: 'Add Bio',
+    };
   }
 }

@@ -39,7 +39,7 @@ table {
   color: var(--text-color);
   &:hover {
     background-color: var(--text-color);
-    color: var(--button-col);
+    color: var(--button-col) !important;
   }
 }
 ::ng-deep .mat-mdc-table {

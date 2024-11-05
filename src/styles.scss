@@ -51,6 +51,8 @@ body {
 * {
   background-color: var(--background-color);
   color: var(--text-color);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 600;
   transition: background-color 0.3s, color 0.3s;
 }
 hr {
