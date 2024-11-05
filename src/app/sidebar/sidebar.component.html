@@ -1,8 +1,4 @@
-<div
-  class="sidebar"
-  [class.open]="sidebarService.isSidebarOpen$ | async"
-  (click)="closeSidebar($event)"
->
+<div class="sidebar" [class.open]="sidebarService.isSidebarOpen$ | async">
   <div
     class="d-flex flex-column flex-shrink-0 p-2 bg-body-tertiary"
     style="height: 100vh"
@@ -87,10 +83,14 @@
           id="dropdownLanguage"
           role="button"
           aria-expanded="false"
+          data-bs-toggle="dropdown"
         >
           {{ "buttons.language" | translate }}
         </a>
-        <ul class="dropdown-menu" aria-labelledby="dropdownLanguage">
+        <ul
+          class="dropdown-menu custom-lang-dropdown-menu"
+          aria-labelledby="dropdownLanguage"
+        >
           <li>
             <a
               class="dropdown-item"
@@ -117,6 +117,8 @@
       <a
         class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
         aria-expanded="false"
+        href="#"
+        data-bs-toggle="dropdown"
       >
         <img
           [src]="profile.imagePath || imagePath"
@@ -127,7 +129,10 @@
         />
         <strong>{{ profile.name || profileName }}</strong>
       </a>
-      <ul class="dropdown-menu" aria-labelledby="dropdownLanguage">
+      <ul
+        class="dropdown-menu custom-dropdown-menu"
+        aria-labelledby="dropdownLanguage"
+      >
         <li>
           <a class="dropdown-item" routerLink="secure/user-profile">{{
             "sidebar.user-profile" | translate

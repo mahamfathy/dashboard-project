@@ -73,6 +73,14 @@
       width: 100%;
       align-items: center;
     }
+    .dropdown-menu {
+      &.custom-dropdown-menu {
+        left: 33% !important;
+      }
+      &.custom-lang-dropdown-menu {
+        left: 57% !important;
+      }
+    }
     .nav.nav-pills {
       width: 40%;
       text-align: center;
@@ -85,11 +93,20 @@
       text-decoration-color: var(--button-col);
     }
     .close-btn {
-      margin-right: 4rem !important;
+      margin-right: 3rem !important;
       margin-top: 2rem !important;
       background-color: var(--button-col) !important;
       display: block !important;
       color: $color-white !important;
+      align-self: flex-end;
+      border-radius: 20%;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-color);
+      cursor: pointer;
+      margin-right: 10px;
+      margin-top: 10px;
       &:hover,
       &:focus {
         color: $color-black !important;
@@ -102,14 +119,6 @@
 
   .close-btn {
     display: none;
-    align-self: flex-end;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--text-color);
-    cursor: pointer;
-    margin-right: 10px;
-    margin-top: 10px;
   }
   .nav-item {
     background-color: var(--button-col);
@@ -118,18 +127,7 @@
     width: 100%;
   }
 }
-.nav-item.dropdown:hover .dropdown-menu {
-  display: block;
-}
-.dropdown-menu {
-  transition: opacity 0.3s ease;
-  opacity: 0;
-}
 
-.dropdown:hover .dropdown-menu {
-  display: block;
-  opacity: 1;
-}
 .dropdown-menu {
   background-color: $color-grey-dark-2;
 
