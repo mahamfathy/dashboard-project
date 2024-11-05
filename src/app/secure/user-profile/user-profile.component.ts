@@ -4,6 +4,7 @@ import { IProfile } from '../../shared/models/IProfile';
 import { AuthService } from '../../shared/services/auth.service';
 import { FormsService } from '../../shared/services/forms.service';
 import { NotificationService } from '../../shared/services/notification.service';
+import { ToastService } from '../../shared/services/toast.service';
 import { SharedModule } from '../../shared/shared.module';
 
 @Component({
@@ -28,7 +29,8 @@ export class UserProfileComponent {
   constructor(
     public authService: AuthService,
     private formsService: FormsService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private toastService: ToastService
   ) {
     this.authService.username$.subscribe((username) => {
       if (username) {
@@ -72,6 +74,7 @@ export class UserProfileComponent {
         ? this.selectedImagePath
         : this.profile.imagePath,
     };
+    this.toastService.showSuccess('Profile has been updated');
     this.authService.updateProfileData(updatedProfile);
     this.notificationService.addNotification({
       id: `-${Date.now()}`,
