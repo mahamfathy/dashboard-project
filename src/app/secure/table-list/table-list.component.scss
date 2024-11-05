@@ -1,5 +1,8 @@
 @import "../../../assets/SASS/abstracts/mixins";
-
+@import "../../../assets/SASS/abstracts/variables";
+* {
+  color: unset !important;
+}
 table {
   width: 100%;
   border-collapse: collapse;
@@ -89,5 +92,24 @@ table {
   .mat-mdc-cell.mdc-data-table__cell.cdk-cell.cdk-column-actions.mat-column-actions.ng-star-inserted {
   * {
     background-color: unset !important;
+  }
+}
+::ng-deep .mat-mdc-menu-content {
+  * {
+    background-color: unset !important;
+    color: unset !important;
+  }
+}
+
+.text-primary {
+  color: rgb(13 110 253) !important;
+  &:hover {
+    background-color: rgba(128, 128, 128, 0.479) !important;
+  }
+}
+.text-danger {
+  color: rgb(220 53 69) !important;
+  &:hover {
+    background-color: rgba(128, 128, 128, 0.479) !important;
   }
 }
