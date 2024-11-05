@@ -27,7 +27,10 @@ export class NotificationService {
               id: key,
               ...response[key],
             }))
-            .filter((noti) => noti.title);
+            .filter((noti) => noti.title)
+            .sort(
+              (a, b) => new Date(b.time).getTime() - new Date(a.time).getTime()
+            );
         } else {
           return [];
         }
