@@ -37,7 +37,8 @@ table {
 .btn.my-3 {
   background-color: var(--button-col);
   color: var(--text-color);
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: var(--text-color);
     color: var(--button-col) !important;
   }
@@ -103,13 +104,15 @@ table {
 
 .text-primary {
   color: rgb(13 110 253) !important;
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: rgba(128, 128, 128, 0.479) !important;
   }
 }
 .text-danger {
   color: rgb(220 53 69) !important;
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: rgba(128, 128, 128, 0.479) !important;
   }
 }

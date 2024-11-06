@@ -35,7 +35,8 @@ p {
   transition: var(--transition-theme);
 
   cursor: pointer;
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: #637e7e;
   }
 }

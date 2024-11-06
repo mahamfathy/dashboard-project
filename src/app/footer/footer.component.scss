@@ -2,7 +2,8 @@ footer {
   padding: 1rem;
   .fab {
     color: var(--text-color);
-    &:hover {
+    &:hover,
+    &:focus {
       color: var(--button-col);
     }
   }

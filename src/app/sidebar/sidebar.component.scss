@@ -137,7 +137,8 @@
 
   .dropdown-item {
     background-color: $color-white !important;
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: var(--button-col) !important;
       color: $color-white !important;
       cursor: pointer;
@@ -145,7 +146,8 @@
   }
 }
 .dropdown {
-  &:hover {
+  &:hover,
+  &:focus {
     color: $color-white;
     cursor: pointer;
   }

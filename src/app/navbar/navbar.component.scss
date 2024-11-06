@@ -29,7 +29,8 @@
 
   .dropdown-item {
     color: var(--text-color);
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: var(--button-col);
       color: var(--background-color);
     }
@@ -40,7 +41,8 @@
   display: inline-block;
   cursor: pointer;
   .fa-solid {
-    &:hover {
+    &:hover,
+    &:focus {
       color: var(--text-color) !important;
     }
   }

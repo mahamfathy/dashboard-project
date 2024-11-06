@@ -15,7 +15,8 @@
 ::ng-deep .mat-mdc-button-persistent-ripple.mdc-button__ripple {
   background-color: var(--button-col) !important;
   color: $color-white !important;
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: $color-grey-dark-2 !important;
   }
 }

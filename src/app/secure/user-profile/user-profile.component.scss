@@ -76,7 +76,7 @@
   .btn {
     background-color: var(--button-col);
     color: var(--text-color);
-    &:hover {
+    &:hover , &:focus{
       background-color: var(--text-color);
       color: var(--button-col);
     }

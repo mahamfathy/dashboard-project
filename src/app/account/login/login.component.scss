@@ -89,7 +89,8 @@ section {
       background-color: white !important;
       color: black !important;
       outline: none;
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: red !important;
         color: white !important;
       }
