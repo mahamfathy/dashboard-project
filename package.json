@@ -5,10 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:prod": "ng build --configuration production --base-href /dashboard-project/",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "deploy": "npm run build:prod && npx angular-cli-ghpages --dir=dist/dashboard-project"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {

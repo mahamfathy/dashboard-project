@@ -76,13 +76,17 @@
     .dropdown-menu {
       &.custom-dropdown-menu {
         left: 33% !important;
+        inset: unset !important;
+        transform: unset !important;
       }
       &.custom-lang-dropdown-menu {
         left: 57% !important;
+        inset: unset !important;
+        transform: unset !important;
       }
     }
     .nav.nav-pills {
-      width: 40%;
+      width: 50%;
       text-align: center;
       height: 60% !important;
     }
