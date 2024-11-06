@@ -1,0 +1,137 @@
+{
+  "title": "VisionBoard",
+
+  "validation": {
+    "required": "This field is required",
+    "invalidEmail": "Please enter a valid email address",
+    "passwordLength": "Please enter at least 8 characters",
+    "mustMatch": "Passwords must match",
+    "invalidEmailDomain": "Email must end with .com"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "icons": "Icons",
+    "maps": "Maps",
+    "notifications": "Notifications",
+    "user-profile": "User Profile",
+    "table-list": "Table List"
+  },
+  "dashboard-overview": {
+    "capacity": "Capacity",
+    "revenue": "Revenue",
+    "errors": "Errors",
+    "followers": "Followers",
+    "labels": {
+      "update": "Update Now",
+      "last-day": "Last Day",
+      "last-week": "Last Week",
+      "user-behavior": "User Behavior",
+      "hours-performance": "Hours Performance",
+      "month": {
+        "january": "January",
+        "february": "February",
+        "march": "March",
+        "april": "April",
+        "may": "May",
+        "june": "June",
+        "july": "July",
+        "august": "August",
+        "september": "September",
+        "october": "October",
+        "november": "November",
+        "december": "December"
+      },
+      "updated minutes ago": "Updated minutes ago",
+      "email-statics": "Email Statics",
+      "last-campaign-performance": "Last Campaign Performance",
+      "colors": {
+        "red": "Red",
+        "blue": "Blue",
+        "yellow": "Yellow"
+      },
+      "numbers-of-emails-sent": "Numbers of emails sent",
+      "used": "Used",
+      "files": "Files",
+      "spent": "Spent"
+    }
+  },
+  "units": {
+    "gigabyte": "GB",
+    "dollar": "$",
+    "k": "K"
+  },
+  "icons": {
+    "building": "Building",
+    "cloud": "Cloud",
+    "idea": "Idea",
+    "laptop": "Laptop",
+    "like": "Like",
+    "line-chart": "Line-Chart",
+    "meteor-rain": "Meteor-Rain",
+    "money-bag": "Money-Bag",
+    "mortarboard": "Mortarboard",
+    "notebook": "Notebook",
+    "presentation": "Presentation",
+    "search": "Search",
+    "shopping-cart": "Shopping-Cart",
+    "video": "Video",
+    "workplace": "Workplace"
+  },
+  "user-profile": {
+    "upload-image": "Upload Image",
+    "edit-profile": "Edit Profile",
+    "company": "Company",
+    "first-name": "First Name",
+    "last-name": "Last Name",
+    "address": "Address",
+    "city": "City",
+    "country": "Country",
+    "postal-code": "Postal Code",
+    "zip-code": "Zip Code",
+    "about-me": "About Me",
+    "update-profile": "UPDATE PROFILE"
+  },
+  "table-list": {
+    "employees-title": "Employee List",
+    "name": "Name",
+    "salary": "Salary"
+  },
+  "buttons": {
+    "actions": "Actions",
+    "disable": "Disable",
+    "add": "Add",
+    "addEmployee": "Add Employees",
+    "editEmployee": "Edit Employees",
+    "confirmDelete": "Confirm Delete",
+    "confirmDeleteDescription": "Are you sure you want to delete",
+    "questionMark": "?",
+    "yes": "Yes",
+    "no": "No",
+    "edit": "Edit",
+    "more": "More",
+    "delete": "Delete",
+    "update": "Update",
+    "save": "Save",
+    "cancel": "Cancel",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "language": "Language",
+    "arabic": "Arabic",
+    "english": "English",
+    "click-here-to-edit": "Click here to edit!"
+  },
+  "form": {
+    "username": "Username",
+    "email": "Email Address",
+    "password": "Password",
+    "confirm-password": "Confirm Password",
+    "phone-number": "Phone Number",
+    "enterUsername": "Enter your username",
+    "enterEmail": "Enter your email address",
+    "enterPassword": "Enter your password",
+    "enterPhoneNumber": "Enter your phone number",
+    "confirmPassword": "Confirm your password"
+  },
+  "footer": "Made by Maha Fathy"
+}

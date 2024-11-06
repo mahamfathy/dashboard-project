@@ -1,0 +1,138 @@
+{
+  "title": "ڤيچن بورد",
+
+  "validation": {
+    "required": "هذا الحقل مطلوب",
+    "invalidEmail": "يرجى إدخال عنوان بريد إلكتروني صالح",
+    "passwordLength": "يرجى إدخال 8 أحرف على الأقل",
+    "mustMatch": "يجب أن يتطابق كلمة المرور مع تاكيد كلمة المرور",
+    "invalidEmailDomain": "البريد الإلكتروني يجب ان ينتهي ب .com"
+  },
+  "sidebar": {
+    "dashboard": "لوحة التحكم",
+    "icons": "الرموز",
+    "maps": "الخرائط",
+    "notifications": "الإشعارات",
+    "user-profile": "الملف الشخصي",
+    "table-list": "قائمة الجدول"
+  },
+  "dashboard-overview": {
+    "capacity": "السعة",
+    "revenue": "الإيرادات",
+    "errors": "الأخطاء",
+    "followers": "المتابعين",
+    "labels": {
+      "update": "تحديث الآن",
+      "last-day": "اليوم الأخير",
+      "last-week": "الأسبوع الأخير",
+      "user-behavior": "سلوك المستخدم",
+      "hours-performance": " ساعة من الأداء",
+      "month": {
+        "january": "يناير",
+        "february": "فبراير",
+        "march": "مارس",
+        "april": "أبريل",
+        "may": "مايو",
+        "june": "يونيو",
+        "july": "يوليو",
+        "august": "أغسطس",
+        "september": "سبتمبر",
+        "october": "أكتوبر",
+        "november": "نوفمبر",
+        "december": "ديسمبر"
+      },
+      "updated minutes ago": "تم التحديث منذ دقائق",
+      "email-statics": "إحصائيات البريد الإلكتروني",
+      "last-campaign-performance": "أداء الحملة الأخيرة",
+      "colors": {
+        "red": "أحمر",
+        "blue": "أزرق",
+        "yellow": "أصفر"
+      },
+      "numbers-of-emails-sent": "عدد الرسائل المرسلة",
+      "used": "مستخدمة",
+      "files": "ملف",
+      "spent": "مستهلكة"
+    }
+  },
+  "units": {
+    "gigabyte": "جيجابايت",
+    "dollar": "دولار",
+    "k": "ألف"
+  },
+  "icons": {
+    "building": "مبنى",
+    "cloud": "سحابة",
+    "idea": "فكرة",
+    "laptop": "حاسوب محمول",
+    "like": "إعجاب",
+    "line-chart": "مخطط خطي",
+    "meteor-rain": "مطر الشهب",
+    "money-bag": "كيس نقود",
+    "mortarboard": "قبعة التخرج",
+    "notebook": "دفتر ملاحظات",
+    "presentation": "عرض تقديمي",
+    "search": "بحث",
+    "shopping-cart": "عربة تسوق",
+    "video": "فيديو",
+    "workplace": "مكان العمل"
+  },
+  "user-profile": {
+    "upload-image": "تحميل الصورة",
+    "edit-profile": "تعديل الملف الشخصي",
+    "company": "الشركة",
+    "first-name": "الاسم الأول",
+    "last-name": "اسم العائلة",
+    "address": "العنوان",
+    "city": "المدينة",
+    "country": "البلد",
+    "postal-code": "الرمز البريدي",
+    "zip-code": "الرمز البريدي",
+    "about-me": "نبذة عني",
+    "update-profile": "تحديث الملف الشخصي"
+  },
+  "table-list": {
+    "employees-title": "قائمة الموظفين",
+    "name": "الاسم",
+    "salary": "الراتب"
+  },
+  "buttons": {
+    "actions": "الإجراءات",
+    "disable": "معطل",
+    "add": "اضافة",
+    "addEmployee": "اضافة موظف",
+    "editEmployee": "تعديل الموظف",
+    "confirmDelete": "تأكيد الحذف",
+    "confirmDeleteDescription": "هل انت متأكد انك تريد حذف",
+    "questionMark": "؟",
+    "yes": "نعم",
+    "no": "لا",
+    "edit": "تعديل",
+    "more": "المزيد",
+    "delete": "حذف",
+    "update": "تحديث",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "login": "تسجيل الدخول",
+    "register": "تسجيل",
+    "logout": "تسجيل الخروج",
+    "language": "اللغة",
+    "arabic": "العربية",
+    "english": "الإنجليزية",
+    "click-here-to-edit": "اضغط هنا للتعديل"
+  },
+  "form": {
+    "username": "اسم المستخدم",
+    "email": "عنوان البريد الإلكتروني",
+    "password": "كلمة السر",
+    "confirm-password": "تأكيد كلمة السر",
+    "phone-number": "رقم الهاتف",
+    "enterUsername": "أدخل اسم المستخدم الخاص بك",
+    "enterEmail": "أدخل عنوان بريدك الإلكتروني",
+    "enterPassword": "أدخل كلمة المرور الخاصة بك",
+    "enterPhoneNumber": "أدخل رقم هاتفك",
+    "confirmPassword": "أكد كلمة المرور الخاصة بك"
+  },
+
+  "footer": "تم تصميم الموقع بواسطة مها فتحي"
+}
